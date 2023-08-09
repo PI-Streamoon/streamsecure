@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #141414;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sobre {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-direction: row;
+gap: 15rem;
+margin-top: 1rem;
+}
+
+.sobre img {
+    width: 18rem;
+    height: 18rem;
+}
+
+.box {
+    width: 24rem;
+    height: 19rem;
+    background-color: #6248AE;
+}
