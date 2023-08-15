@@ -30,6 +30,7 @@ ul{
 .listaNav li{
     list-style: none;
     font-size: 100%;
+    padding: 4%;
 }
 .listaNav li a{
     color: white;
@@ -339,4 +340,9 @@ ul{
 }
 #radio6:checked ~ .s1{
     margin-left: -100%;
+}
+
+.listaNav li:hover{
+    transition: 0.6s;
+    background: #beabf552;
 }
