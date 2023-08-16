@@ -237,12 +237,45 @@ body {
   background-color: #0F0F0F;
 }
 
+#inputNovidades input{
+  width: 11.6875rem;
+height: 1.5625rem;
+flex-shrink: 0;
+border-radius: 0.3125rem 0rem 0rem 0.3125rem;
+background: #191919;
+border: none;
+color: #FFF;
+font-family: ABeeZee;
+font-size: 0.9375rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+#inputNovidades img{
+  width: 12.4375rem;
+height: 1.9375rem;
+flex-shrink: 0;
+}
+
+#inputNovidades p {
+  color: #FFF;
+text-align: start;
+font-family: Segoe UI;
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+
 .logoNovidades {
-  width: 15rem;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  gap: 3rem;
 }
 
 .logoNovidades img {
@@ -252,8 +285,13 @@ body {
 }
 
 .redesSociais {
-  width: 15rem;
+  width: 50%;
   height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 3rem;
 }
 
 .redesSociais img {
