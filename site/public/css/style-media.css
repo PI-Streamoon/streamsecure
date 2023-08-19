@@ -261,12 +261,106 @@
     width: 600%;
     height: 100%;
   }
-  /* ESTILIZAÇÃO EQUIPE */
+  /* FIM ESTILIZAÇÃO EQUIPE */
+
+  /* =========== ESTILIZAÇÃO FORM CONTATO =================== */
+  #image-contact {
+    width: 40%;
+    height: 100%;
+  }
+
+  #image-contact img {
+    width: 70%;
+    height: 70%;
+  }
+
+  #form-contact {
+    width: 60%;
+    height: 100%;
+  }
+
+  .title-contact h2 {
+    font-size: 4vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-contact .underline {
+    width: 80px;
+    height: 5px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  #container-emailPhone {
+    width: 100%;
+  }
+
+  .input-emailPhone {
+    width: 45%;
+  }
+
+  .input-emailPhone p {
+    font-size: 2vh;
+  }
+
+  .input-emailPhone input {
+    width: 100%;
+    height: 5vh;
+    flex-shrink: 0;
+    border-radius: 0.3125rem;
+    border: 1px solid #6248ae;
+    background: #1d1c1c;
+    color: #fff;
+    font-family: ABeeZee;
+    font-size: 1.5vh;
+    font-weight: 400;
+  }
+
+  .input-emailPhone input::placeholder {
+    font-size: 2vh;
+    font-weight: 400;
+    padding-left: 1vh;
+  }
+
+  #container-message {
+    margin: 2vh 0;
+    width: 100%;
+  }
+
+  #container-message p {
+    font-size: 2vh;
+    font-weight: 400;
+  }
+
+  #container-message textarea {
+    width: 100%;
+    height: 15vh;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 1px solid #6248ae;
+    background: #1d1c1c;
+    color: #fff;
+    font-family: ABeeZee;
+    font-size: 1.5vh;
+    font-weight: 400;
+  }
+
+  #container-message textarea::placeholder {
+    font-size: 2vh;
+    font-weight: 400;
+    padding-left: 1vh;
+    padding-top: 1vh;
+  }
+
+  #form-contact button {
+    width: 9.375rem;
+    height: 1.875rem;
+    font-size: 0.9375rem;
+    font-weight: 400;
+  }
+  /* =========== FIM >>> ESTILIZAÇÃO FORM CONTATO =================== */
 }
-
-
-
-
 
 /* TABLET */
 @media (max-width: 1023px) and (min-width: 768px) {
@@ -550,12 +644,109 @@
     transition: 0.6s;
   }
   /* ESTILIZAÇÃO EQUIPE */
+
+  /* =========== ESTILIZAÇÃO FORM CONTATO =================== */
+  #image-contact {
+    width: 40%;
+    height: 100%;
+  }
+
+  #image-contact img {
+    width: 70%;
+    height: 70%;
+  }
+
+  #form-contact {
+    width: 60%;
+    height: 100%;
+  }
+
+  .title-contact{
+    margin: 1vh;
+  }
+
+  .title-contact h2 {
+    font-size: 2.5vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-contact .underline {
+    width: 80px;
+    height: 5px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  #container-emailPhone {
+    width: 100%;
+  }
+
+  .input-emailPhone {
+    width: 45%;
+  }
+
+  .input-emailPhone p {
+    font-size: 1.5vh;
+  }
+
+  .input-emailPhone input {
+    width: 100%;
+    height: 3.5vh;
+    flex-shrink: 0;
+    border-radius: 0.3125rem;
+    border: 1px solid #6248ae;
+    background: #1d1c1c;
+    color: #fff;
+    font-family: ABeeZee;
+    font-size: 1.5vh;
+    font-weight: 400;
+  }
+
+  .input-emailPhone input::placeholder {
+    font-size: 1.5vh;
+    font-weight: 400;
+    padding-left: 1vh;
+  }
+
+  #container-message {
+    margin: 2vh 0;
+    width: 100%;
+  }
+
+  #container-message p {
+    font-size: 1.5vh;
+    font-weight: 400;
+  }
+
+  #container-message textarea {
+    width: 100%;
+    height: 10vh;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 1px solid #6248ae;
+    background: #1d1c1c;
+    color: #fff;
+    font-family: ABeeZee;
+    font-size: 1.5vh;
+    font-weight: 400;
+  }
+
+  #container-message textarea::placeholder {
+    font-size: 1.5vh;
+    font-weight: 400;
+    padding-left: 1vh;
+    padding-top: 1vh;
+  }
+
+  #form-contact button {
+    width: 15vh;
+    height: 3.5vh;
+    font-size: 0.9375rem;
+    font-weight: 400;
+  }
+  /* =========== FIM >>> ESTILIZAÇÃO FORM CONTATO =================== */
 }
-
-
-
-
-
 
 /* CELULAR */
 @media (max-width: 767px) {
@@ -779,7 +970,6 @@
   }
   /* FIM DA ESTILIZAÇÃO DO PRODUTO */
 
-
   /* ESTILIZAÇÃO EQUIPE */
   #hasSlides {
     width: 100%;
@@ -839,4 +1029,95 @@
     transition: 0.6s;
   }
   /* ESTILIZAÇÃO EQUIPE */
+
+
+    /* =========== ESTILIZAÇÃO FORM CONTATO =================== */
+    #image-contact {
+      display: none;
+    }
+
+    #form-contact {
+      width: 100%;
+      height: 100%;
+    }
+  
+    .title-contact{
+      margin: 1vh;
+    }
+  
+    .title-contact h2 {
+      font-size: 2.5vh;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .title-contact .underline {
+      width: 80px;
+      height: 5px;
+      border-radius: 20px;
+      margin: 0;
+    }
+  
+    #container-emailPhone {
+      width: 100%;
+    }
+  
+    .input-emailPhone {
+      width: 45%;
+    }
+  
+    .input-emailPhone p {
+      font-size: 1.5vh;
+    }
+  
+    .input-emailPhone input {
+      width: 100%;
+      height: 3.5vh;
+      flex-shrink: 0;
+      border-radius: 0.3125rem;
+      border: 1px solid #6248ae;
+      background: #1d1c1c;
+      color: #fff;
+      font-family: ABeeZee;
+      font-size: 1.5vh;
+      font-weight: 400;
+    }
+  
+    .input-emailPhone input::placeholder {
+      font-size: 1.5vh;
+      font-weight: 400;
+      padding-left: 1vh;
+    }
+  
+    #container-message {
+      margin: 2vh 0;
+      width: 100%;
+    }
+  
+    #container-message p {
+      font-size: 1.5vh;
+      font-weight: 400;
+    }
+  
+    #container-message textarea {
+      width: 100%;
+      height: 10vh;
+      font-size: 1.5vh;
+      font-weight: 400;
+    }
+  
+    #container-message textarea::placeholder {
+      font-size: 1.5vh;
+      font-weight: 400;
+      padding-left: 1vh;
+      padding-top: 1vh;
+    }
+  
+    #form-contact button {
+      width: 15vh;
+      height: 3.5vh;
+      font-size: 0.9375rem;
+      font-weight: 400;
+    }
+    /* =========== FIM >>> ESTILIZAÇÃO FORM CONTATO =================== */  
 }

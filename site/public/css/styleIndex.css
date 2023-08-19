@@ -20,7 +20,6 @@ body {
 
 .center {
   width: 80%;
-  /* background-color: rgba(255, 0, 0, 0.119); */
 }
 
 /* =========== ESTILIZAÇÃO BANNER =================== */
@@ -393,135 +392,174 @@ body {
 
 /* =========== FIM >>> ESTILIZAÇÃO PRODUTO =================== */
 
-#containerContato {
+
+/* =========== ESTILIZAÇÃO FORM CONTATO =================== */
+#container-contact{
   width: 100%;
-  height: 40rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  height: fit-content;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  flex-direction: row;
-  color: #fff;
   background-color: #252525 ;
 }
 
-#astronautinha {
-  width: 19.9375rem;
-  height: 19.9375rem;
-  flex-shrink: 0;
-}
-
-#containerContato h1 {
-  color: #fff;
-  text-align: center;
-  font-family: Amiko;
-  font-size: 2.1875rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-#contato {
+#container-contact .center{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5vh;
+}
+
+#image-contact {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#image-contact img{
+  width: 70%;
+  height: 70%;
+}
+
+#form-contact{
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 2rem;
 }
 
-#emailsTelefones {
+.title-contact {
+  height: auto;
+  width: fit-content;
+}
+
+.title-contact h2 {
+  color: #fff;
+  font-family: "Amiko";
+  font-size: 4vh;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.title-contact .underline {
+  justify-self: start;
+  align-self: flex-start;
+  background-color: #a32da3;
+  width: 80px;
+  height: 5px;
+  border-radius: 20px;
+  margin: 0;
+}
+
+
+#container-emailPhone {
+  width: 100%;
+  height: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  gap: 2rem;
 }
 
-#emailTelefone {
+.input-emailPhone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 45%;
+}
+
+.input-emailPhone p {
+  align-self: self-start;
+  color: #fff;
+  font-family: ABeeZee;
+  font-size: 2vh;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.input-emailPhone input {
+  width: 100%;
+  height: 5vh;
+  flex-shrink: 0;
+  border-radius: 0.3125rem;
+  border: 1px solid #6248ae;
+  background: #1d1c1c;
+  color: #fff;
+  font-family: ABeeZee;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+}
+
+.input-emailPhone input:focus, #container-message textarea{
+  outline: none;
+}
+
+.input-emailPhone input::placeholder {
+  color: #3e3e3e;
+  font-family: ABeeZee;
+  font-size: 2vh;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 1vh;
+}
+
+#container-message {
+  margin: 2vh 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
 }
 
-.emailTelefone p {
-  color: #fff;
-  font-family: ABeeZee;
-  font-size: 0.9375rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.emailTelefone input {
-  width: 20rem;
-  height: 2.8125rem;
-  flex-shrink: 0;
-  border-radius: 0.3125rem;
-  border: 1px solid #6248ae;
-  background: #1d1c1c;
-  color: #fff;
-  font-family: ABeeZee;
-  font-size: 0.9375rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.emailTelefone input::placeholder {
-  color: #3e3e3e;
-  font-family: ABeeZee;
-  font-size: 0.9375rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-#mensagem {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
-#mensagem p {
-  color: #fff;
-  font-family: ABeeZee;
-  font-size: 0.9375rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-#mensagem textarea {
-  width: 42rem;
-  height: 10.9375rem;
-  flex-shrink: 0;
-  border-radius: 0.3125rem;
-  border: 1px solid #6248ae;
-  background: #1d1c1c;
-  text-align: start;
-  padding-top: 0.2rem;
-  color: #fff;
-  font-family: ABeeZee;
-  font-size: 0.9375rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-#mensagem textarea::placeholder {
-  color: #3e3e3e;
-  font-family: ABeeZee;
-  font-size: 0.9375rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+#container-message p {
   align-self: flex-start;
+  color: #fff;
+  font-family: ABeeZee;
+  font-size: 2vh;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-#contato button {
+#container-message textarea {
+  width: 100%;
+  height: 15vh;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid #6248ae;
+  background: #1d1c1c;
+  color: #fff;
+  font-family: ABeeZee;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#container-message textarea::placeholder {
+  color: #3e3e3e;
+  font-family: ABeeZee;
+  font-size: 2vh;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 1vh;
+  padding-top: 1vh;
+}
+
+#form-contact button {
   width: 9.375rem;
   height: 1.875rem;
   flex-shrink: 0;
@@ -537,6 +575,10 @@ body {
   line-height: normal;
   align-self: flex-start;
 }
+/* =========== FIM >>> ESTILIZAÇÃO FORM CONTATO =================== */
+
+
+
 
 .footer {
   width: 100%;
