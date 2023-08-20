@@ -582,26 +582,51 @@ body {
 
 .footer {
   width: 100%;
+  height: 15vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
   background-color: #0f0f0f;
 }
 
+.footer .center{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+
 #inputNovidades input {
-  width: 11.6875rem;
-  height: 1.5625rem;
+  width: 25vh;
+  height: 3.5vh;
   flex-shrink: 0;
-  border-radius: 0.3125rem 0rem 0rem 0.3125rem;
+  border-radius: 5px;
   background: #191919;
   border: none;
   color: #fff;
   font-family: ABeeZee;
-  font-size: 0.9375rem;
+  font-size: 1.5vh;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+#inputNovidades input::placeholder{
+  padding-left: 1vh;
+}
+
+#btnEnviar{
+  width: 10vh;
+  height: 3.5vh;
+  background-color: #6248ae;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-family: ABeeZee;
+  font-size: 1.5vh;
 }
 
 #inputNovidades img {
@@ -622,16 +647,17 @@ body {
 
 .logoNovidades {
   width: 50%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 3rem;
+  gap: 3rem;  
 }
 
 .logoNovidades img {
-  width: 12.4375rem;
-  height: 1.9375rem;
+  width: 25vh;
+  height: 5vh;
   flex-shrink: 0;
 }
 
@@ -646,10 +672,12 @@ body {
 }
 
 .redesSociais img {
-  width: 1.5625rem;
-  height: 1.5625rem;
+  width: 3.5vh;
+  height: 3.5vh;
   flex-shrink: 0;
 }
+
+
 
 /* INICIO NAVBAR */
 .logo-navbar {
