@@ -112,7 +112,7 @@ body {
 }
 
 .box-content-about .img-about img {
-  width: 70%;
+  width: 60%;
   height: 100%;
   padding: 2vh;
 }
@@ -164,6 +164,11 @@ body {
 /* =========== FIM >>> ESTILIZAÇÃO QUEM SOMOS|OBJETIVOS =================== */
 
 #vetor {
+  background-color: #252525;
+  width: 100%;
+}
+
+#vetor1 {
   background-color: #252525;
   width: 100%;
 }
@@ -401,6 +406,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background-color: #252525 ;
 }
 
