@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Streamoon</title>
+    <link rel="stylesheet" href="css/styleIndex.css" />
+    <link rel="stylesheet" href="css/style-media.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="shortcut icon"
+      href="features/img/logo.ico"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <!-- ÍNICIO DA NAVBAR E BANNER-->
+    <div class="container-head">
+      <div class="nav">
+        <a href="home.html" class="logo-navbar"
+          ><img src="features/img/nome-e-logo 1.png" alt=""
+        /></a>
+        <!-- NAVBAR - VERSÃO MOBILE -->
+        <div class="mobile-menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+
+        <!-- NAVBAR VERSÃO DESKTOP -->
+        <ul class="listaNav" id="navbar">
+          <li><a href="">Quem Somos</a></li>
+          <li><a href="">Item 1</a></li>
+          <li><a href="">Item 1</a></li>
+          <li><a href="">Item 1</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+        </ul>
+      </div>
+
+      <div id="banner">
+        <div class="center">
+          <div id="texto">
+            <p id="txtBanner">
+              Garantindo a segurança dos seus <b>servidores</b> e a diversão dos
+              seus
+              <b>usuários</b>
+            </p>
+            <button id="btnSaibaMais">Saiba Mais</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIM DA NAVBAR E DO BANNER -->
+
+    <!--    INÍCIO >>> QUEM SOMOS | OBJETIVO -->
+    <div class="container">
+      <div class="center">
+        
+        <div class="box-content-about">
+          <div class="img-about">
+            <img
+              src="features/img/a0261b885cfba5a65c675c33327acf5a 1.png"
+              alt=""
+            />
+          </div>
+
+          <div class="text-about">
+            <div class="center">
+              <h2>QUEM SOMOS</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+                incidunt porro error quam? Corrupti officiis maxime soluta
+                voluptate exercitationem temporibus ipsum in rerum, voluptatibus
+                deleniti veniam iusto qui. Voluptatibus, dolor?
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-content-about reverse">
+          <div class="img-about2">
+            <img src="features/img/earth-2026996_960_720 1.png" alt="" />
+          </div>
+
+          <div class="text-about">
+            <div class="center">
+              <h2>NOSSO OBJETIVO</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+                incidunt porro error quam? Corrupti officiis maxime soluta
+                voluptate exercitationem temporibus ipsum in rerum, voluptatibus
+                deleniti veniam iusto qui. Voluptatibus, dolor?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    FIM >>> QUEM SOMOS | OBJETIVO -->
+
+    <img id="vetor" src="features/img/Vector.png" />
+
+    <section id="container-principlesUntilTeam">
+      <div class="center">
+        <!-- INÍCIO DOS PRINCIPIOS DA EMPRESA -->
+        <div class="container-principles">
+          <div id="principles-content">
+            <div class="title-principles">
+              <h2>PRINCÍPIOS DA EMPRESA</h2>
+              <div class="underline"></div>
+            </div>
+
+            <div id="card-principles">
+              <div class="card-animated">
+                <img id="missaoImg" src="features/img/missao 2.png" />
+                <p class="title2">Missão</p>
+                <p class="text">Olá</p>
+              </div>
+
+              <div class="card-animated">
+                <img id="visaoImg" src="features/img/vision 1.png" />
+                <p class="title2">Visão</p>
+                <p class="text">Olá</p>
+              </div>
+
+              <div class="card-animated">
+                <img
+                  id="valoresImg"
+                  src="features/img/icons8-ética-100 3.png"
+                />
+                <p class="title2">Valores</p>
+                <p class="text">Olá</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- FIM DOS PRINCIPIOS DA EMPRESA -->
+
+        <!-- INÍCIO DO CARD DO PRODUTO -->
+        <div class="container-product">
+          <div class="title-product">
+            <h2>PROJETOS REALIZADOS</h2>
+            <div class="underline"></div>
+          </div>
+          <div class="card-product" id="open-modal" onclick="openModal()">
+            <div class="content-card">
+              <img src="./features/img/moon-icon.png" alt="" />
+              <h2>StremSecure</h2>
+            </div>
+          </div>
+        </div>
+        <!-- FIM DO CARD DO PRODUTO -->
+
+        <!-- INÍCIO EXIBIÇÃO TIME -->
+        <div id="hasSlides">
+          <div id="team">
+            <div class="title-team">
+              <h2>EQUIPE STREAMOON</h2>
+              <div class="underline"></div>
+            </div>
+
+            <div class="slides">
+              <input
+                type="radio"
+                class="radioIpt"
+                name="slide"
+                id="radio1"
+                checked
+              />
+              <input type="radio" class="radioIpt" name="slide" id="radio2" />
+              <input type="radio" class="radioIpt" name="slide" id="radio3" />
+              <input type="radio" class="radioIpt" name="slide" id="radio4" />
+              <input type="radio" class="radioIpt" name="slide" id="radio5" />
+              <input type="radio" class="radioIpt" name="slide" id="radio6" />
+
+              <div class="slide s1">
+                <img
+                  src="https://wallpapers.com/images/hd/junji-ito-tomie-kawakami-collage-ffu6blt5a0d14nv0.jpg"
+                  alt=""
+                />
+              </div>
+
+              <div class="slide s2">
+                <img
+                  src="https://wallpapers.com/images/hd/tomie-m1n5vecoezx41ok9.jpg"
+                  alt=""
+                />
+              </div>
+
+              <div class="slide s3">
+                <img
+                  src="https://e0.pxfuel.com/wallpapers/750/573/desktop-wallpaper-tomie-junji-ito-computer-junji-ito-manga.jpg"
+                  alt=""
+                />
+              </div>
+
+              <div class="slide s4">
+                <img
+                  src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/bebf06126335907.612ba5a6f3cec.jpg"
+                  alt=""
+                />
+              </div>
+
+              <div class="slide s5">
+                <img
+                  src="https://c4.wallpaperflare.com/wallpaper/586/603/742/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg"
+                  alt=""
+                />
+              </div>
+
+              <div class="slide s6">
+                <img
+                  src="https://i.pinimg.com/originals/07/e8/66/07e866ebf98262509fdd3bf8404a7f7d.jpg"
+                  alt=""
+                />
+              </div>
+
+              <div class="navigation">
+                <label class="bar" for="radio1"></label>
+                <label class="bar" for="radio2"></label>
+                <label class="bar" for="radio3"></label>
+                <label class="bar" for="radio4"></label>
+                <label class="bar" for="radio5"></label>
+                <label class="bar" for="radio6"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- FIM EXIBIÇÃO TIME -->
+      </div>
+    </section>
+
+    
+
+
+    <div id="fade" class="hide"></div>
+    <div id="modal" class="hide">
+      <div class="modal-header">
+        <span>StreamSecure</span>
+        <button id="close-modal" onclick="closeModal()">X</button>
+      </div>
+      <div id="quad-roxo"></div>
+      <div id="modal-body" class="modalBody">
+        <div id="container1">
+          <div id="div-server" class="divServer">
+            <img
+              class="img-server"
+              src="features/img/pngtree-cartoon-database-the-internet-rectangle-black-server-png-image_551093 1.png"
+              alt=""
+              srcset=""
+            />
+          </div>
+          <div id="descricaoProduto">
+            <p id="textoModal">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
+              nulla ut qui, hic reiciendis commodi reprehenderit totam dolor
+              officiis, provident debitis sapiente est neque rerum porro ipsum
+              quam doloremque incidunt Lorem ipsum dolor sit, amet consectetur
+              adipisicing elit. Esse nulla ut qui, hic reiciendis commodi
+              reprehenderit totam dolor officiis, provident debitis sapiente est
+              neque rerum porro ipsum quam doloremque incidunt.
+            </p>
+          </div>
+        </div>
+        <div id="container2">
+          <div id="div-graficos">
+            <div id="grafico1">
+              <h6>Processador</h6>
+              <img class="img-vetor" src="features/img/Vector.png" alt="" />
+            </div>
+            <div id="grafico2">
+              <h6>Memória</h6>
+              <img class="img-vetor" src="features/img/Vector.png" alt="" />
+            </div>
+            <div id="grafico3">
+              <h6>Disco</h6>
+              <img class="img-vetor" src="features/img/Vector.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="container-contact">
+      <img
+        id="vetor1"
+        src="features/img/Vector.png"
+        style="transform: rotate(180deg)"
+      />
+      <div class="center">
+        
+      <div id="image-contact">
+        <img src="features/img/astronautinha.png" alt="" />
+      </div>
+
+
+      <div id="form-contact">
+
+        <div class="title-contact">
+          <h2>CONTATE-NOS</h2>
+          <div class="underline"></div>
+        </div>
+
+        <div id="container-emailPhone">
+          <div class="input-emailPhone">
+            <p>Email</p>
+            <input
+              type="text"
+              class="inputContato"
+              placeholder="Digite seu e-mail"
+            />
+          </div>
+
+          <div class="input-emailPhone">
+            <p>Telefone</p>
+            <input
+              type="text"
+              class="inputContato"
+              placeholder="Digite seu telefone"
+            />
+          </div>
+        </div>
+
+        <div id="container-message">
+          <p>Mensagem</p>
+          <textarea
+            class="inputContato"
+            placeholder="Digite sua mensagem"
+          ></textarea>
+        </div>
+
+        <button class="botao">Enviar</button>
+
+      </div>
+
+      </div>
+    </div>
+
+
+    <div class="footer">
+      <div class="center">
+        
+      <div class="logoNovidades">
+
+        <img src="features/img/nome-e-logo%202.png" alt="" />
+        <div id="inputNovidades">
+          <p>Receba Novidades</p>
+          <input
+            type="text"
+            class="inputContato"
+            placeholder="Digite seu e-mail"
+          />
+          <button id="btnEnviar">Enviar</button>
+        </div>
+
+      </div>
+
+
+      <div class="redesSociais">
+        <a href="">
+          <img src="features/img/icons8-twitter-90%201.png" alt="Twitter" />
+        </a>
+        <a href="">
+          <img src="features/img/icons8-linkedin-90%201.png" alt="LinkedIn" />
+        </a>
+        <a href="">
+          <img
+            src="features/img/icons8-reproduzir-youtube-96%201.png"
+            alt="YouTube"
+          />
+        </a>
+        <a href="">
+          <img src="features/img/icons8-facebook-90%201.png" alt="Facebook" />
+        </a>
+        <a href=""
+          ><img src="features/img/icons8-github-90%201.png" alt="GitHub" />
+        </a>
+      </div>
+      
+
+    </div>
+    </div>
+
+
+  </body>
+</html>
+
+<script src="js/navbarMobile.js"></script>
+<script src="js/product.js"></script>
