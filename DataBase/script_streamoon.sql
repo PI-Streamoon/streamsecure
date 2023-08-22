@@ -172,3 +172,16 @@ INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor)
 VALUES
   (null, 20348034, '2023-08-01 10:00:00', 1),
   (null, 02475092, '2023-08-02 15:30:00', 2);
+  
+  
+  -- SELECT PARA SELEÇÃO DE TODOS OS REGISTROS DOS COMPONENTES COM SUA UNIDADE DE MEDIDA DE CADA SERVIDOR DE CADA LOCAL DE CADA EMPRESA
+select empresa.nome, locais.idLocais, servidor.idServidor, 
+componenteServidor.idComponenteServidor, 
+componente.idComponente, unidadeMedida.nomeMedida,
+registro.registro, registro.dtHora from registro
+join componenteServidor on idComponenteServidor = fkComponenteServidor
+join componente on idComponente = fkComponente
+join unidadeMedida on idUnidadeMedida = fkUnidadeMedida
+join servidor on idServidor = fkServidor
+join locais on idLocais = fkLocais
+join empresa on idEmpresa = fkEmpresa;
