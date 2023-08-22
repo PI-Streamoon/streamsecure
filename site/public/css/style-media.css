@@ -451,6 +451,12 @@
     margin-left: 0;
   }
 
+
+.logo-navbar img{
+  width: 70%;
+  height: 40%;
+}
+
   .mobile-menu {
     display: block;
   }
