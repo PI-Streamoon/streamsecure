@@ -133,9 +133,16 @@ body {
         display: flex;
         justify-content: center;
         width: 85vw;
+        flex-direction: column-reverse;
         align-items: center;
         text-align: justify;
-        
+    }
+    #cadastro #imagemLogo{
+        margin-top: 1vh;
+        margin-bottom: 2vh;
+    }
+    #imagemLogo #logo{
+        height: 8vh; 
     }
     #cadastro .inputs{
         width: 60%;
@@ -153,7 +160,12 @@ body {
         border-radius: 0%;
     }
     #cadastro #astronautaImg {
-        display: none;
+        width: 90%;
+        border-top-left-radius: 2vh;
+        border-top-right-radius: 2vh;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        height: 10vh;
     }
     #cadastro p{
         font-size: 92%;
