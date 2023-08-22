@@ -83,6 +83,10 @@ body {
   background-color: #252525;
 }
 
+.reverse{
+  flex-direction: row-reverse;
+}
+
 .container .center {
   display: flex;
   justify-content: center;
@@ -97,7 +101,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
   margin: 3vh 0;
 }
 
