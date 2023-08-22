@@ -128,8 +128,8 @@ select * from empresa;
 -- Tabela usuario
 INSERT INTO usuario (idUsuario, fkEmpresa, fkAdmin, nome, senha, cpf, email)
 VALUES
-  (null, 484018, NULL, 'Fernando Brandão', '203457', '12345678901', 'brandao@example.com'),
-  (null, 484019, 1, 'Marise', 'senha456293', '12345678902','marise@example.com');
+  (null, 484018, NULL, 'Fernando Brandão', '203457', '12345678901', 'brandao@gmail.com'),
+  (null, 484019, 1, 'Marise', 'senha456293', '12345678902','marise@gmail.com');
 
 -- Tabela locais
 INSERT INTO locais (idLocais, fkEmpresa, cep, descricao)
