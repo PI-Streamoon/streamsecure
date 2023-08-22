@@ -115,7 +115,7 @@ body {
 }
 
 .box-content-about .img-about img {
-  width: 70%;
+  width: 60%;
   height: 100%;
   padding: 2vh;
 }
@@ -167,6 +167,11 @@ body {
 /* =========== FIM >>> ESTILIZAÇÃO QUEM SOMOS|OBJETIVOS =================== */
 
 #vetor {
+  background-color: #252525;
+  width: 100%;
+}
+
+#vetor1 {
   background-color: #252525;
   width: 100%;
 }
@@ -361,6 +366,7 @@ body {
   justify-content: center;
   border-radius: 10px;
   margin: 2vh 0;
+  cursor: pointer;
 }
 
 .card-product .content-card {
@@ -403,6 +409,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background-color: #252525 ;
 }
 
@@ -950,6 +957,7 @@ ul {
   border-radius: 2rem;
   color: #ffff;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .modalBody {
