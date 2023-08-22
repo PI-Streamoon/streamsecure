@@ -126,3 +126,38 @@ body {
     text-decoration-color: #6248AE;
 }
 /* Fim cadastro */
+
+/* == ÍNICIO MOBILE CADASTRO == */
+@media(max-width: 767px){
+    #cadastro{
+        display: flex;
+        justify-content: center;
+        width: 85vw;
+        align-items: center;
+        text-align: justify;
+        
+    }
+    #cadastro .inputs{
+        width: 60%;
+    }
+    #cadastro .inputs input{
+        width: 100%;
+    }
+    #cadastro button{
+        width: max-content;
+        padding: 1rem;
+        height: max-content;
+    }
+    #cadastro #container{
+        width: 90%;
+        border-radius: 0%;
+    }
+    #cadastro #astronautaImg {
+        display: none;
+    }
+    #cadastro p{
+        font-size: 92%;
+    }
+}
+
+/* == FIM MOBILE CADASTRO == */
