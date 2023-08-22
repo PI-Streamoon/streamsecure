@@ -1,0 +1,1330 @@
+/* DESKTOP */
+@media (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .reverse{
+    flex-direction: row-reverse;
+  }
+
+  /* ESTILIZAÇÃO RESPONSIVA MENU E BANNER */
+  .listaNav {
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    width: 60vw;
+    height: 92vh;
+    background-color: #131313;
+    z-index: 3;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: transform 0.5s ease-in;
+    transform: translateX(100%);
+  }
+
+  .listaNav li {
+    margin-left: 0;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .center #texto {
+    margin: 5vh 0;
+  }
+
+  .center #txtBanner {
+    font-size: 3.5vh;
+    margin: 1.5vh 0;
+  }
+
+  .center #btnSaibaMais {
+    width: 20%;
+    height: 5vh;
+    margin: 1.5vh 0;
+  }
+  /* FIM >>> ESTILIZAÇÃO RESPONSIVA MENU E BANNER */
+
+  /* ESTILIZAÇÃO RESPONSIVA QUEM SOMOS|OBJETIVOS */
+  .box-content-about {
+    width: 80%;
+    height: 35vh;
+    margin: 3vh 0;
+  }
+
+  .box-content-about .img-about,
+  .box-content-about .img-about2 {
+    width: 100%;
+    height: 100%;
+  }
+
+  .box-content-about .img-about img {
+    width: 70%;
+    height: 100%;
+    padding: 2vh;
+  }
+
+  .box-content-about .img-about2 img {
+    width: 55%;
+    height: 90%;
+    padding: 2vh;
+  }
+
+  .text-about {
+    width: 50%;
+    height: 100%;
+    flex-shrink: 0;
+  }
+
+  .text-about .center {
+    height: 100%;
+  }
+
+  .text-about .center h2 {
+    font-size: 4vh;
+  }
+
+  .text-about .center p {
+    font-size: 1.5vh;
+  }
+  /* FIM >>> ESTILIZAÇÃO RESPONSIVA QUEM SOMOS|OBJETIVOS */
+
+  /* ESTILIZAÇÃO RESPONSIVA PRINCIPIOS */
+  .center .container-principles {
+    width: 100%;
+    margin: 3vh 0;
+  }
+
+  .center .container-principles #principles-content {
+    width: 100%;
+  }
+
+  #principles-content .title-principles h2 {
+    font-size: 4vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-principles .underline {
+    width: 80px;
+    height: 5px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  #card-principles {
+    width: 100%;
+  }
+
+  #card-principles.card-animated img {
+    height: 60px;
+    width: 60px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .card-animated {
+    width: 30%;
+    height: 25vh;
+    box-shadow: #ffffff17 -5px 6px 4px;
+    border-radius: 10px;
+    margin: 2.5vh 0;
+  }
+
+  .card-animated p {
+    font-size: 4vh;
+    margin-top: 1vh;
+  }
+
+  .card-animated:hover {
+    transform: translateY(-7px);
+    transition: 0.4s;
+    box-shadow: #ffffff10 -5px 6px 4px;
+  }
+
+  .card-animated:hover img,
+  .card-animated:hover p {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+  }
+
+  .card-animated img,
+  .card-animated .title2 {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.4s;
+  }
+
+  .card-animated:not(:hover) {
+    transform: translateY(0px);
+    transition: 0.4s;
+  }
+
+  .text {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+  }
+
+  .card-animated:hover .text {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.4s;
+    font-size: 2.5vh;
+  }
+  /* FIM >>> ESTILIZAÇÃO RESPONSIVA PRINCIPIOS */
+
+  /* =========== ESTILIZAÇÃO PRODUTO =================== */
+  .container-product {
+    width: 100%;
+    margin: 2vh 0;
+  }
+
+  .title-product {
+    height: auto;
+    width: fit-content;
+  }
+
+  .title-product h2 {
+    font-size: 4vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-product .underline {
+    width: 80px;
+    height: 5px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  .card-product {
+    width: 80%;
+    margin: 2vh 0;
+  }
+
+  .card-product .content-card {
+    width: fit-content;
+    margin: 3vh 0;
+  }
+
+  .card-product .content-card img {
+    width: 20vh;
+    height: 20vh;
+  }
+
+  .card-product .content-card h2 {
+    font-size: 4vh;
+    letter-spacing: 0.5vh;
+    margin: 0;
+    padding: 0;
+  }
+  /* FIM DA ESTILIZAÇÃO DO PRODUTO */
+
+  /* ESTILIZAÇÃO EQUIPE */
+  #hasSlides {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+  }
+
+  #team {
+    width: 90%;
+    border-radius: 10px;
+  }
+
+  .title-team {
+    margin: 2vh 0;
+  }
+
+  .title-team h2 {
+    font-size: 4vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-team .underline {
+    width: 80px;
+    height: 5px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  .slides .slide img {
+    width: 100%;
+    height: 65vh;
+    border-radius: 10px;
+  }
+
+  .slides {
+    display: flex;
+    width: 600%;
+    height: 100%;
+  }
+  /* FIM ESTILIZAÇÃO EQUIPE */
+
+  /* =========== ESTILIZAÇÃO FORM CONTATO =================== */
+  #image-contact {
+    width: 40%;
+    height: 100%;
+  }
+
+  #image-contact img {
+    width: 70%;
+    height: 70%;
+  }
+
+  #form-contact {
+    width: 60%;
+    height: 100%;
+  }
+
+  .title-contact h2 {
+    font-size: 4vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-contact .underline {
+    width: 80px;
+    height: 5px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  #container-emailPhone {
+    width: 100%;
+  }
+
+  .input-emailPhone {
+    width: 45%;
+  }
+
+  .input-emailPhone p {
+    font-size: 2vh;
+  }
+
+  .input-emailPhone input {
+    width: 100%;
+    height: 5vh;
+    flex-shrink: 0;
+    border-radius: 0.3125rem;
+    border: 1px solid #6248ae;
+    background: #1d1c1c;
+    color: #fff;
+    font-family: ABeeZee;
+    font-size: 1.5vh;
+    font-weight: 400;
+  }
+
+  .input-emailPhone input::placeholder {
+    font-size: 2vh;
+    font-weight: 400;
+    padding-left: 1vh;
+  }
+
+  #container-message {
+    margin: 2vh 0;
+    width: 100%;
+  }
+
+  #container-message p {
+    font-size: 2vh;
+    font-weight: 400;
+  }
+
+  #container-message textarea {
+    width: 100%;
+    height: 15vh;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 1px solid #6248ae;
+    background: #1d1c1c;
+    color: #fff;
+    font-family: ABeeZee;
+    font-size: 1.5vh;
+    font-weight: 400;
+  }
+
+  #container-message textarea::placeholder {
+    font-size: 2vh;
+    font-weight: 400;
+    padding-left: 1vh;
+    padding-top: 1vh;
+  }
+
+  #form-contact button {
+    width: 9.375rem;
+    height: 1.875rem;
+    font-size: 0.9375rem;
+    font-weight: 400;
+  }
+  /* =========== FIM >>> ESTILIZAÇÃO FORM CONTATO =================== */
+
+  .footer {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #0f0f0f;
+  }
+
+  #inputNovidades input {
+    width: 25vh;
+    height: 3.5vh;
+    flex-shrink: 0;
+    font-size: 1.5vh;
+  }
+
+  #inputNovidades input::placeholder {
+    padding-left: 1vh;
+  }
+
+  #btnEnviar {
+    width: 10vh;
+    height: 3.5vh;
+    font-size: 1.5vh;
+  }
+
+  #inputNovidades img {
+    width: 12.4375rem;
+    height: 1.9375rem;
+    flex-shrink: 0;
+  }
+
+  #inputNovidades p {
+    font-size: 0.75rem;
+  }
+
+  .logoNovidades {
+    width: 50%;
+    height: 100%;
+    gap: 3rem;
+  }
+
+  .logoNovidades img {
+    width: 25vh;
+    height: 5vh;
+    flex-shrink: 0;
+  }
+
+  .redesSociais {
+    width: 50%;
+    height: 5rem;
+    gap: 3rem;
+  }
+
+  .redesSociais img {
+    width: 3.5vh;
+    height: 3.5vh;
+  }
+}
+
+/* TABLET */
+@media (max-width: 1023px) and (min-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .listaNav {
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    width: 60vw;
+    height: 92vh;
+    background-color: #131313;
+    z-index: 3;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: transform 0.5s ease-in;
+    transform: translateX(100%);
+  }
+
+  .listaNav li {
+    margin-left: 0;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .center #texto {
+    margin: 2vh 0;
+  }
+
+  .center #txtBanner {
+    font-size: medium;
+    margin: 1vh 0;
+  }
+
+  .center #btnSaibaMais {
+    width: 20%;
+    height: 3vh;
+    border-radius: 5px;
+    margin: 1vh 0;
+    font-size: 1.5vh;
+  }
+
+  /* ESTILIZAÇÃO RESPONSIVA QUEM SOMOS|OBJETIVOS */
+  .box-content-about {
+    width: 80%;
+    height: 25vh;
+    margin: 2.5vh 0;
+  }
+
+  .box-content-about .img-about,
+  .box-content-about .img-about2 {
+    width: 100%;
+    height: 100%;
+  }
+
+  .box-content-about .img-about img {
+    width: 70%;
+    height: 100%;
+    padding: 2vh;
+  }
+
+  .box-content-about .img-about2 img {
+    width: 55%;
+    height: 90%;
+    padding: 2vh;
+  }
+
+  .text-about {
+    width: 50%;
+    height: 100%;
+    flex-shrink: 0;
+  }
+
+  .text-about .center {
+    height: 100%;
+  }
+
+  .text-about .center h2 {
+    font-size: 3vh;
+  }
+
+  .text-about .center p {
+    font-size: 1.5vh;
+  }
+  /* FIM >>> ESTILIZAÇÃO RESPONSIVA QUEM SOMOS|OBJETIVOS */
+
+  /* ESTILIZAÇÃO RESPONSIVA PRINCIPIOS */
+  .center .container-principles {
+    width: 100%;
+    margin: 1.5 vh 0;
+  }
+
+  .center .container-principles #principles-content {
+    width: 100%;
+  }
+
+  #principles-content .title-principles h2 {
+    font-size: 2.5vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-principles .underline {
+    width: 80px;
+    height: 5px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  #card-principles {
+    width: 100%;
+  }
+
+  #card-principles .card-animated img {
+    height: 60px;
+    width: 60px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .card-animated {
+    width: 30%;
+    height: 20vh;
+    box-shadow: #ffffff17 -5px 6px 4px;
+    border-radius: 10px;
+    margin: 2vh 0;
+  }
+
+  .card-animated p {
+    font-size: 3vh;
+    margin-top: 1vh;
+  }
+
+  .card-animated:hover {
+    transform: translateY(-7px);
+    transition: 0.4s;
+    box-shadow: #ffffff10 -5px 6px 4px;
+  }
+
+  .card-animated:hover img,
+  .card-animated:hover p {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+  }
+
+  .card-animated img,
+  .card-animated .title2 {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.4s;
+  }
+
+  .card-animated:not(:hover) {
+    transform: translateY(0px);
+    transition: 0.4s;
+  }
+
+  .text {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+  }
+
+  .card-animated:hover .text {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.4s;
+    font-size: 2vh;
+  }
+  /* FIM >>> ESTILIZAÇÃO RESPONSIVA PRINCIPIOS */
+
+  /* =========== ESTILIZAÇÃO PRODUTO =================== */
+  .container-product {
+    width: 100%;
+    margin: 2vh 0;
+  }
+
+  .title-product {
+    height: auto;
+    width: fit-content;
+  }
+
+  .title-product h2 {
+    font-size: 2.5vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-product .underline {
+    width: 80px;
+    height: 5px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  .card-product {
+    width: 80%;
+    margin: 2vh 0;
+  }
+
+  .card-product .content-card {
+    width: fit-content;
+    margin: 2vh 0;
+  }
+
+  .card-product .content-card img {
+    width: 15vh;
+    height: 15vh;
+  }
+
+  .card-product .content-card h2 {
+    font-size: 2vh;
+    letter-spacing: 0.5vh;
+    margin: 0;
+    padding: 0;
+  }
+  /* FIM DA ESTILIZAÇÃO DO PRODUTO */
+
+  /* ESTILIZAÇÃO EQUIPE */
+  #hasSlides {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+  }
+
+  #team {
+    width: 90%;
+    border-radius: 10px;
+  }
+
+  .title-team {
+    margin: 2vh 0;
+  }
+
+  .title-team h2 {
+    font-size: 2.5vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-team .underline {
+    width: 80px;
+    height: 5px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  .slides .slide img {
+    width: 100%;
+    height: 40vh;
+    border-radius: 10px;
+  }
+
+  .slides {
+    display: flex;
+    width: 600%;
+    height: 100%;
+  }
+
+  .navigation {
+    position: absolute;
+    bottom: 5%;
+    transform: translate();
+    display: flex;
+    align-self: center;
+    justify-content: center;
+  }
+
+  .bar {
+    width: 8vw;
+    height: 3vh;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.6s;
+  }
+  /* ESTILIZAÇÃO EQUIPE */
+
+  /* =========== ESTILIZAÇÃO FORM CONTATO =================== */
+  #image-contact {
+    width: 40%;
+    height: 100%;
+  }
+
+  #image-contact img {
+    width: 70%;
+    height: 70%;
+  }
+
+  #form-contact {
+    width: 60%;
+    height: 100%;
+  }
+
+  .title-contact {
+    margin: 1vh;
+  }
+
+  .title-contact h2 {
+    font-size: 2.5vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-contact .underline {
+    width: 80px;
+    height: 5px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  #container-emailPhone {
+    width: 100%;
+  }
+
+  .input-emailPhone {
+    width: 45%;
+  }
+
+  .input-emailPhone p {
+    font-size: 1.5vh;
+  }
+
+  .input-emailPhone input {
+    width: 100%;
+    height: 3.5vh;
+    flex-shrink: 0;
+    border-radius: 0.3125rem;
+    border: 1px solid #6248ae;
+    background: #1d1c1c;
+    color: #fff;
+    font-family: ABeeZee;
+    font-size: 1.5vh;
+    font-weight: 400;
+  }
+
+  .input-emailPhone input::placeholder {
+    font-size: 1.5vh;
+    font-weight: 400;
+    padding-left: 1vh;
+  }
+
+  #container-message {
+    margin: 2vh 0;
+    width: 100%;
+  }
+
+  #container-message p {
+    font-size: 1.5vh;
+    font-weight: 400;
+  }
+
+  #container-message textarea {
+    width: 100%;
+    height: 10vh;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 1px solid #6248ae;
+    background: #1d1c1c;
+    color: #fff;
+    font-family: ABeeZee;
+    font-size: 1.5vh;
+    font-weight: 400;
+  }
+
+  #container-message textarea::placeholder {
+    font-size: 1.5vh;
+    font-weight: 400;
+    padding-left: 1vh;
+    padding-top: 1vh;
+  }
+
+  #form-contact button {
+    width: 15vh;
+    height: 3.5vh;
+    font-size: 0.9375rem;
+    font-weight: 400;
+  }
+  /* =========== FIM >>> ESTILIZAÇÃO FORM CONTATO =================== */
+
+  .footer {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #0f0f0f;
+  }
+
+  .footer .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #inputNovidades input {
+    width: 20vh;
+    height: 3.5vh;
+    flex-shrink: 0;
+    font-size: 1.5vh;
+  }
+
+  #inputNovidades input::placeholder {
+    padding-left: 1vh;
+  }
+
+  #btnEnviar {
+    width: 10vh;
+    height: 3.5vh;
+    font-size: 1.5vh;
+  }
+
+  #inputNovidades p {
+    font-size: 0.75rem;
+  }
+
+  .logoNovidades {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  .logoNovidades img {
+    width: 25vh;
+    height: 5vh;
+    flex-shrink: 0;
+  }
+
+  .redesSociais {
+    width: 100%;
+    height: 50%;
+    gap: 3rem;
+  }
+
+  .redesSociais img {
+    width: 3vh;
+    height: 3vh;
+    margin-bottom: 1vh;
+  }
+
+  .reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+/* CELULAR */
+@media (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .listaNav {
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    width: 60vw;
+    height: 92vh;
+    background-color: #131313;
+    z-index: 3;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: transform 0.5s ease-in;
+    transform: translateX(100%);
+  }
+
+  .listaNav li {
+    margin-left: 0;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .center #texto {
+    margin: 1.5vh 0;
+  }
+
+  .container-head #banner{
+    height: 20vh;
+  }
+
+  .center #txtBanner {
+    width: 80%;
+    font-size: 1.5vh;
+    margin: 1vh 0;
+  }
+
+  .center #btnSaibaMais {
+    width: 30%;
+    height: 2.5vh;
+    margin: 1vh 0;
+    font-size: 1vh;
+    border-radius: 5px;
+  }
+
+  /* ESTILIZAÇÃO RESPONSIVA QUEM SOMOS|OBJETIVOS */
+
+  .container {
+    height: 60vh;
+  }
+
+  .container .center {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  .box-content-about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    height: 11vh;
+  }
+
+  .box-content-about .img-about,
+  .box-content-about .img-about2 {
+    width: 100%;
+    height: 120%;
+  }
+
+  .box-content-about .img-about img {
+    width: 60%;
+    height: 100%;
+  }
+
+  .box-content-about .img-about2 img {
+    width: 50%;
+    height: 90%;
+    padding: 2vh;
+  }
+
+  .text-about {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+  }
+
+  .text-about .center {
+    width: 95%;
+    height: 100%;
+  }
+
+  .text-about .center h2 {
+    font-size: 1.5vh;
+    margin: 0;
+  }
+
+  .text-about .center p {
+    font-size: 1vh;
+  }
+  /* FIM >>> ESTILIZAÇÃO RESPONSIVA QUEM SOMOS|OBJETIVOS */
+
+  /* ESTILIZAÇÃO RESPONSIVA PRINCIPIOS */
+  .center .container-principles {
+    width: 100%;
+    margin: 1 vh 0;
+  }
+
+  .center .container-principles #principles-content {
+    width: 100%;
+  }
+
+  #principles-content .title-principles h2 {
+    font-size: 1.5vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-principles .underline {
+    width: 60px;
+    height: 2px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  #card-principles {
+    width: 100%;
+  }
+
+  #card-principles .card-animated img {
+    height: 40px;
+    width: 40px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .card-animated {
+    width: 28%;
+    height: 12vh;
+    box-shadow: #ffffff17 -3px 4px 2px;
+    border-radius: 10px;
+    margin: 1.5vh 0;
+  }
+
+  .card-animated p {
+    font-size: 1.5vh;
+    margin-top: 1vh;
+  }
+
+  .card-animated:hover {
+    transform: translateY(-7px);
+    transition: 0.4s;
+    box-shadow: #ffffff10 -5px 6px 4px;
+  }
+
+  .card-animated:hover img,
+  .card-animated:hover p {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+  }
+
+  .card-animated img,
+  .card-animated .title2 {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.4s;
+  }
+
+  .card-animated:not(:hover) {
+    transform: translateY(0px);
+    transition: 0.4s;
+  }
+
+  .text {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+  }
+
+  .card-animated:hover .text {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.4s;
+    font-size: 1vh;
+  }
+  /* FIM >>> ESTILIZAÇÃO RESPONSIVA PRINCIPIOS */
+
+  /* =========== ESTILIZAÇÃO PRODUTO =================== */
+  .container-product {
+    width: 100%;
+    margin: 1vh 0;
+  }
+
+  .title-product {
+    height: auto;
+    width: fit-content;
+  }
+
+  .title-product h2 {
+    font-size: 1.5vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-product .underline {
+    width: 60px;
+    height: 2px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  .card-product {
+    width: 80%;
+    margin: 1vh 0;
+  }
+
+  .card-product .content-card {
+    width: fit-content;
+    margin: 1vh 0;
+  }
+
+  .card-product .content-card img {
+    width: 8vh;
+    height: 8vh;
+  }
+
+  .card-product .content-card h2 {
+    font-size: 1.5vh;
+    letter-spacing: 0.5vh;
+    margin: 0;
+    padding: 0;
+  }
+  /* FIM DA ESTILIZAÇÃO DO PRODUTO */
+
+  /* ESTILIZAÇÃO EQUIPE */
+  #hasSlides {
+    width: 100%;
+    height: 25vh;
+    position: relative;
+  }
+
+  #team {
+    width: 90%;
+    border-radius: 10px;
+  }
+
+  .title-team {
+    margin: 2vh 0;
+  }
+
+  .title-team h2 {
+    font-size: 1.5vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-team .underline {
+    width: 45px;
+    height: 2px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  .slides .slide img {
+    width: 100%;
+    height: 15vh;
+    border-radius: 10px;
+  }
+
+  .slides {
+    display: flex;
+    width: 600%;
+    height: 100%;
+  }
+
+  .navigation {
+    position: absolute;
+    bottom: 5%;
+    transform: translate();
+    display: flex;
+    align-self: center;
+    justify-content: center;
+  }
+
+  .bar {
+    width: 4vh;
+    height: 2vh;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.6s;
+  }
+  /* ESTILIZAÇÃO EQUIPE */
+
+  /* =========== ESTILIZAÇÃO FORM CONTATO =================== */
+  #image-contact {
+    display: none;
+  }
+
+  #form-contact {
+    width: 100%;
+    height: 100%;
+  }
+
+  .title-contact {
+    margin: 1vh;
+  }
+
+  .title-contact h2 {
+    font-size: 1.5vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-contact .underline {
+    width: 45px;
+    height: 2px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  #container-emailPhone {
+    width: 100%;
+  }
+
+  .input-emailPhone {
+    width: 45%;
+  }
+
+  .input-emailPhone p {
+    font-size: 1.5vh;
+  }
+
+  .input-emailPhone input {
+    width: 100%;
+    height: 3.5vh;
+    flex-shrink: 0;
+    border-radius: 0.3125rem;
+    border: 1px solid #6248ae;
+    background: #1d1c1c;
+    color: #fff;
+    font-family: ABeeZee;
+    font-size: 1.5vh;
+    font-weight: 400;
+  }
+
+  .input-emailPhone input::placeholder {
+    font-size: 1.2vh;
+    font-weight: 400;
+    padding-left: 1vh;
+  }
+
+  #container-message {
+    margin: 2vh 0;
+    width: 100%;
+  }
+
+  #container-message p {
+    font-size: 1.5vh;
+    font-weight: 400;
+  }
+
+  #container-message textarea {
+    width: 100%;
+    height: 10vh;
+    font-size: 1.5vh;
+    font-weight: 400;
+  }
+
+  #container-message textarea::placeholder {
+    font-size: 1.2vh;
+    font-weight: 400;
+    padding-left: 1vh;
+    padding-top: 1vh;
+  }
+
+  #form-contact button {
+    width: 15vh;
+    height: 3.5vh;
+    font-size: 0.9375rem;
+    font-weight: 400;
+  }
+  /* =========== FIM >>> ESTILIZAÇÃO FORM CONTATO =================== */
+
+  .footer {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #0f0f0f;
+  }
+
+  .footer .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #inputNovidades {
+    display: none;
+  }
+
+  .logoNovidades {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .logoNovidades img {
+    width: 80%;
+    height: 50%;
+  }
+
+  .redesSociais {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  .redesSociais img {
+    width: 2vh;
+    height: 2vh;
+    margin-bottom: 1vh;
+  }
+}
