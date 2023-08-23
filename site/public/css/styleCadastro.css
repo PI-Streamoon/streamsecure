@@ -10,16 +10,18 @@ body {
 
 #backgroundCadastro {
     background-color: #141414;
-    height: 90vh;
+    height: 130vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 5%;
 }
 
 #cadastro {
     display: flex;
     justify-content: center;
-    height: 80vh;
+    height: 130vh;
+    
     position: relative;
 }
 
@@ -29,7 +31,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     background-color: #191919;
-    height: 90vh;
+    height: 130vh;
     width: 35vw;
     border-bottom-left-radius: 2vh;
     border-top-left-radius: 2vh;
@@ -41,7 +43,7 @@ body {
 
 #cadastro #astronautaImg {
     object-fit: cover;
-    height: 90vh;
+    height: 130vh;
     width: 35vw;
     border-top-right-radius: 2vh;
     border-bottom-right-radius: 2vh;
@@ -123,5 +125,51 @@ body {
     color: #FFFFFF;
     text-decoration-color: #6248AE;
 }
-
 /* Fim cadastro */
+
+/* == ÍNICIO MOBILE CADASTRO == */
+@media(max-width: 767px){
+    #cadastro{
+        display: flex;
+        justify-content: center;
+        width: 85vw;
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: justify;
+    }
+    #cadastro #imagemLogo{
+        margin-top: 1vh;
+        margin-bottom: 2vh;
+    }
+    #imagemLogo #logo{
+        height: 8vh; 
+    }
+    #cadastro .inputs{
+        width: 60%;
+    }
+    #cadastro .inputs input{
+        width: 100%;
+    }
+    #cadastro button{
+        width: max-content;
+        padding: 1rem;
+        height: max-content;
+    }
+    #cadastro #container{
+        width: 90%;
+        border-radius: 0%;
+    }
+    #cadastro #astronautaImg {
+        width: 90%;
+        border-top-left-radius: 2vh;
+        border-top-right-radius: 2vh;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        height: 10vh;
+    }
+    #cadastro p{
+        font-size: 92%;
+    }
+}
+
+/* == FIM MOBILE CADASTRO == */
