@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>
+    <link rel="stylesheet" href="css/styleCadastro.css">
+    <link rel="shortcut icon" href="features/img/logo.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="backgroundCadastro">
+        <div id="cadastro">
+            <div id="container">
+                <div id="imagemLogo">
+                    <img id="logo" src="features/img/logo.png" alt="">
+                </div>
+                <div id="title">
+                    <h1>CRIE SUA CONTA</h1>
+                    <div id="textUnderline"></div>
+                </div>
+                <div class="inputs">
+                    <p>Email</p>
+                    <input type="text" id="emailUsuario">
+                </div>
+                <div class="inputs">
+                    <p>Nome</p>
+                    <input type="text" id="nomeUsuario">
+                </div>
+                <div class="inputs">
+                    <p>CPF</p>
+                    <input type="text" id="cpfUsuario">
+                </div>
+                <div class="inputs">
+                    <p>Código da empresa</p>
+                    <input type="text" id="codEmpresa">
+                </div>
+                <div class="inputs">
+                    <p>Senha</p>
+                    <input type="text" id="senhaUsuario">
+                </div>
+                <div class="inputs">
+                    <p>Confirmação de Senha</p>
+                    <input type="text" id="confSenha">
+                </div>
+                <button onclick="registerUser()">Cadastrar</button>
+                <p>Já tem uma conta? &nbsp;&nbsp; <a href="">Faça seu Login</a></p>
+            </div>
+            <img id="astronautaImg"
+                src="features/img/16162432-astronauta-dos-desenhos-animados-planetas-cometa-no-espaco-sideral-vetor 1.png"
+                alt="">
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+
+    function registerUser() {
+        var nomeVar = nomeUsuario.value;
+        var cpfVar = cpfUsuario.value;
+        var codEmpresaVar = codEmpresa.value;
+        var emailVar = emailUsuario.value;//Obrigatório
+        var psswdVar = senhaUsuario.value;//Obrigatório
+        var confPsswdVar = confSenha.value;
+
+        var verif_blank = psswdVar == "" && emailVar == "" && confPsswdVar == "" && nomeVar == "" && cpfVar == "" && codEmpresaVar == ""; 
+        var verif_Psswd = psswdVar != confPsswdVar || confPsswdVar == "";
+        var verif_emailUser = emailVar.indexOf('@') == -1 || emailVar == '';
+        var verifCpf = cpfVar.length < 11;
+
+        //Verificações
+        if (verif_blank){//Nenhum campo preenchido
+            alert("Todos os campos estão vazios, preencha-os corretamente!");
+            return false;
+        }else{
+            if(verif_emailUser){
+                alert("O e-mail deve ser preenchido corretamente");
+                return false;
+            }
+            if(verifCpf){
+                alert("O CPF é inválido");
+                return false;
+            }
+            if(verif_Psswd){
+                alert("As senhas não correspondem!");
+                return false;
+            }
+        }
+         // Enviando o valor da nova input
+         fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeServer: nomeVar,
+                cpfServer: cpfVar,
+                empresaServer: codEmpresaVar,
+                emailServer: emailVar,
+                senhaServer: psswdVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                alert("Cadastro realizado com sucesso! Redirecionando para o Login");
+        
+                setTimeout(window.location = "login.html", 2000);
+                
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+
+    }
+</script>
