@@ -21,29 +21,34 @@
                     <h1>CRIE SUA CONTA</h1>
                     <div id="textUnderline"></div>
                 </div>
-                <div class="inputs">
-                    <p>Email</p>
-                    <input type="text" id="emailUsuario">
-                </div>
-                <div class="inputs">
-                    <p>Nome</p>
-                    <input type="text" id="nomeUsuario">
-                </div>
-                <div class="inputs">
-                    <p>CPF</p>
-                    <input type="text" id="cpfUsuario">
-                </div>
-                <div class="inputs">
-                    <p>Código da empresa</p>
-                    <input type="text" id="codEmpresa">
-                </div>
-                <div class="inputs">
-                    <p>Senha</p>
-                    <input type="text" id="senhaUsuario">
-                </div>
-                <div class="inputs">
-                    <p>Confirmação de Senha</p>
-                    <input type="text" id="confSenha">
+
+                <div class="container-inputs">
+
+                    <div class="inputs">
+                        <p>Email</p>
+                        <input type="text" id="emailUsuario">
+                    </div>
+                    <div class="inputs">
+                        <p>Nome</p>
+                        <input type="text" id="nomeUsuario">
+                    </div>
+                    <div class="inputs">
+                        <p>CPF</p>
+                        <input type="text" id="cpfUsuario">
+                    </div>
+                    <div class="inputs">
+                        <p>Código da empresa</p>
+                        <input type="text" id="codEmpresa">
+                    </div>
+                    <div class="inputs">
+                        <p>Senha</p>
+                        <input type="text" id="senhaUsuario">
+                    </div>
+                    <div class="inputs">
+                        <p>Confirmação de Senha</p>
+                        <input type="text" id="confSenha">
+                    </div>
+
                 </div>
                 <button onclick="registerUser()">Cadastrar</button>
                 <p>Já tem uma conta? &nbsp;&nbsp; <a href="">Faça seu Login</a></p>
@@ -66,31 +71,31 @@
         var psswdVar = senhaUsuario.value;//Obrigatório
         var confPsswdVar = confSenha.value;
 
-        var verif_blank = psswdVar == "" && emailVar == "" && confPsswdVar == "" && nomeVar == "" && cpfVar == "" && codEmpresaVar == ""; 
+        var verif_blank = psswdVar == "" && emailVar == "" && confPsswdVar == "" && nomeVar == "" && cpfVar == "" && codEmpresaVar == "";
         var verif_Psswd = psswdVar != confPsswdVar || confPsswdVar == "";
         var verif_emailUser = emailVar.indexOf('@') == -1 || emailVar == '';
         var verifCpf = cpfVar.length < 11;
 
         //Verificações
-        if (verif_blank){//Nenhum campo preenchido
+        if (verif_blank) {//Nenhum campo preenchido
             alert("Todos os campos estão vazios, preencha-os corretamente!");
             return false;
-        }else{
-            if(verif_emailUser){
+        } else {
+            if (verif_emailUser) {
                 alert("O e-mail deve ser preenchido corretamente");
                 return false;
             }
-            if(verifCpf){
+            if (verifCpf) {
                 alert("O CPF é inválido");
                 return false;
             }
-            if(verif_Psswd){
+            if (verif_Psswd) {
                 alert("As senhas não correspondem!");
                 return false;
             }
         }
-         // Enviando o valor da nova input
-         fetch("/usuarios/cadastrar", {
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -108,9 +113,9 @@
 
             if (resposta.ok) {
                 alert("Cadastro realizado com sucesso! Redirecionando para o Login");
-        
+
                 setTimeout(window.location = "login.html", 2000);
-                
+
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
