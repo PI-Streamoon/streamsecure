@@ -69,19 +69,39 @@
     var myChart1 = new Chart(ctx1, {
         type: "bar",
         data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+            labels: ["18:30", "18:40", "18:50", "19:00", "19:10", "19:20", "19:30"],
             datasets: [{
-                    label: "USA",
+                    label: "CPU",
                     data: [15, 30, 55, 65, 60, 80, 95],
-                    backgroundColor: "rgba(163,45,163, .7)"
+                    backgroundColor: "#6248AE"
                 },
                 {
-                    label: "UK",
+                    label: "Memória",
                     data: [8, 35, 40, 60, 70, 55, 75],
-                    backgroundColor: "rgba(163,45,163, .5)"
+                    backgroundColor: "#0d6efd"
                 },
                 {
-                    label: "AU",
+                    label: "Disco",
+                    data: [12, 25, 45, 55, 65, 70, 60],
+                    backgroundColor: "#d63384"
+                },
+                {
+                    label: "Upload",
+                    data: [12, 25, 45, 55, 65, 70, 60],
+                    backgroundColor: "#fd7e14"
+                },
+                {
+                    label: "Download",
+                    data: [12, 25, 45, 55, 65, 70, 60],
+                    backgroundColor: "#20c997"
+                },
+                {
+                    label: "GPU",
+                    data: [12, 25, 45, 55, 65, 70, 60],
+                    backgroundColor: "#ffcd39"
+                },
+                {
+                    label: "Freq. CPU",
                     data: [12, 25, 45, 55, 65, 70, 60],
                     backgroundColor: "rgba(163,45,163, .3)"
                 }

@@ -8292,6 +8292,34 @@ fieldset:disabled .btn {
     color: #6248AE !important
 }
 
+.cpu {
+    color: #6248AE !important;
+}
+
+.memoria {
+    color: #0d6efd !important;
+}
+
+.disco {
+    color: #d63384 !important;
+}
+
+.upload {
+    color: #fd7e14 !important;
+}
+
+.download {
+    color: #20c997 !important;
+}
+
+.gpu {
+    color: #c81313 !important;
+}
+
+.frequenciaGpu {
+    color: #ffcd39 !important;
+}
+
 .text-secondary {
     color: #191C24 !important
 }
@@ -12536,4 +12564,5 @@ fieldset:disabled .btn {
     .d-print-none {
         display: none !important
     }
+
 }
