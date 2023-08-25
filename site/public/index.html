@@ -12,6 +12,10 @@
       href="features/img/logo.ico"
       type="image/x-icon"
     />
+
+    
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+
   </head>
 
   <body>
@@ -56,7 +60,6 @@
     <!--    INÍCIO >>> QUEM SOMOS | OBJETIVO -->
     <div class="container">
       <div class="center">
-        
         <div class="box-content-about">
           <div class="img-about">
             <img
@@ -231,57 +234,71 @@
       </div>
     </section>
 
-    
-
-
-    <div id="fade" class="hide"></div>
-    <div id="modal" class="hide">
-      <div class="modal-header">
-        <span>StreamSecure</span>
-        <button id="close-modal" onclick="closeModal()">X</button>
-      </div>
-      <div id="quad-roxo"></div>
-      <div id="modal-body" class="modalBody">
-        <div id="container1">
-          <div id="div-server" class="divServer">
-            <img
-              class="img-server"
-              src="features/img/pngtree-cartoon-database-the-internet-rectangle-black-server-png-image_551093 1.png"
-              alt=""
-              srcset=""
-            />
+    <div class="modal-container">
+      <div id="modal" class="hide">
+        <div class="modal-header">
+          <div class="title">
+            <h2>StreamSecure</h2>
+            <div class="underline"></div>
           </div>
-          <div id="descricaoProduto">
-            <p id="textoModal">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
-              nulla ut qui, hic reiciendis commodi reprehenderit totam dolor
-              officiis, provident debitis sapiente est neque rerum porro ipsum
-              quam doloremque incidunt Lorem ipsum dolor sit, amet consectetur
-              adipisicing elit. Esse nulla ut qui, hic reiciendis commodi
-              reprehenderit totam dolor officiis, provident debitis sapiente est
-              neque rerum porro ipsum quam doloremque incidunt.
-            </p>
-          </div>
+          <button id="close-modal" onclick="closeModal()">X</button>
         </div>
-        <div id="container2">
-          <div id="div-graficos">
-            <div id="grafico1">
-              <h6>Processador</h6>
-              <img class="img-vetor" src="features/img/Vector.png" alt="" />
+
+        <div id="modal-body" class="modalBody">
+          <div id="container1">
+            <div id="div-server" class="divServer">
+              <model-viewer class="modelo" src="./features/img/3d/server_v2_console.glb" ar-modes="webxr scene-viewer" camera-controls poster="poster.webp" shadow-intensity="1" autoplay>
+              </model-viewer>
             </div>
-            <div id="grafico2">
-              <h6>Memória</h6>
-              <img class="img-vetor" src="features/img/Vector.png" alt="" />
+
+            <div id="descricaoProduto">
+              <p id="textoModal">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
+                nulla ut qui, hic reiciendis commodi reprehenderit totam dolor
+                officiis, provident debitis sapiente est neque rerum porro ipsum
+                quam doloremque incidunt Lorem ipsum dolor sit, amet consectetur
+                adipisicing elit. Esse nulla ut qui, hic reiciendis commodi
+                reprehenderit totam dolor officiis, provident debitis sapiente
+                est neque rerum porro ipsum quam doloremque incidunt.
+              </p>
             </div>
-            <div id="grafico3">
-              <h6>Disco</h6>
-              <img class="img-vetor" src="features/img/Vector.png" alt="" />
+          </div>
+
+          <div id="container2">
+            <div id="div-graficos">
+
+              <div class="grafico">
+                <div class="card-graph">
+                  <h4>Processador (CPU)</h4>
+                  <div class="img-graph">
+                    <img class="img-vetor" src="features/img/onda-cpu-graph.png" alt="" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="grafico">
+                <div class="card-graph">
+                  <h4>Memória</h4>
+                  <div class="img-graph">
+                    <img class="img-vetor" src="features/img/graph-mem.png" alt="" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="grafico">
+                <div class="card-graph">
+                  <h4>Disco</h4>
+                  <div class="img-graph">
+                    <img class="img-vetor" src="features/img/grpah-disck.png" alt="" />
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
-
 
     <div id="container-contact">
       <img
@@ -290,100 +307,86 @@
         style="transform: rotate(180deg)"
       />
       <div class="center">
-        
-      <div id="image-contact">
-        <img src="features/img/astronautinha.png" alt="" />
-      </div>
-
-
-      <div id="form-contact">
-
-        <div class="title-contact">
-          <h2>CONTATE-NOS</h2>
-          <div class="underline"></div>
+        <div id="image-contact">
+          <img src="features/img/astronautinha.png" alt="" />
         </div>
 
-        <div id="container-emailPhone">
-          <div class="input-emailPhone">
-            <p>Email</p>
+        <div id="form-contact">
+          <div class="title-contact">
+            <h2>CONTATE-NOS</h2>
+            <div class="underline"></div>
+          </div>
+
+          <div id="container-emailPhone">
+            <div class="input-emailPhone">
+              <p>Email</p>
+              <input
+                type="text"
+                class="inputContato"
+                placeholder="Digite seu e-mail"
+              />
+            </div>
+
+            <div class="input-emailPhone">
+              <p>Telefone</p>
+              <input
+                type="text"
+                class="inputContato"
+                placeholder="Digite seu telefone"
+              />
+            </div>
+          </div>
+
+          <div id="container-message">
+            <p>Mensagem</p>
+            <textarea
+              class="inputContato"
+              placeholder="Digite sua mensagem"
+            ></textarea>
+          </div>
+
+          <button class="botao">Enviar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="center">
+        <div class="logoNovidades">
+          <img src="features/img/nome-e-logo%202.png" alt="" />
+          <div id="inputNovidades">
+            <p>Receba Novidades</p>
             <input
               type="text"
               class="inputContato"
               placeholder="Digite seu e-mail"
             />
+            <button id="btnEnviar">Enviar</button>
           </div>
+        </div>
 
-          <div class="input-emailPhone">
-            <p>Telefone</p>
-            <input
-              type="text"
-              class="inputContato"
-              placeholder="Digite seu telefone"
+        <div class="redesSociais">
+          <a href="">
+            <img src="features/img/icons8-twitter-90%201.png" alt="Twitter" />
+          </a>
+          <a href="">
+            <img src="features/img/icons8-linkedin-90%201.png" alt="LinkedIn" />
+          </a>
+          <a href="">
+            <img
+              src="features/img/icons8-reproduzir-youtube-96%201.png"
+              alt="YouTube"
             />
-          </div>
+          </a>
+          <a href="">
+            <img src="features/img/icons8-facebook-90%201.png" alt="Facebook" />
+          </a>
+          <a href=""
+            ><img src="features/img/icons8-github-90%201.png" alt="GitHub" />
+          </a>
         </div>
-
-        <div id="container-message">
-          <p>Mensagem</p>
-          <textarea
-            class="inputContato"
-            placeholder="Digite sua mensagem"
-          ></textarea>
-        </div>
-
-        <button class="botao">Enviar</button>
-
-      </div>
-
       </div>
     </div>
-
-
-    <div class="footer">
-      <div class="center">
-        
-      <div class="logoNovidades">
-
-        <img src="features/img/nome-e-logo%202.png" alt="" />
-        <div id="inputNovidades">
-          <p>Receba Novidades</p>
-          <input
-            type="text"
-            class="inputContato"
-            placeholder="Digite seu e-mail"
-          />
-          <button id="btnEnviar">Enviar</button>
-        </div>
-
-      </div>
-
-
-      <div class="redesSociais">
-        <a href="">
-          <img src="features/img/icons8-twitter-90%201.png" alt="Twitter" />
-        </a>
-        <a href="">
-          <img src="features/img/icons8-linkedin-90%201.png" alt="LinkedIn" />
-        </a>
-        <a href="">
-          <img
-            src="features/img/icons8-reproduzir-youtube-96%201.png"
-            alt="YouTube"
-          />
-        </a>
-        <a href="">
-          <img src="features/img/icons8-facebook-90%201.png" alt="Facebook" />
-        </a>
-        <a href=""
-          ><img src="features/img/icons8-github-90%201.png" alt="GitHub" />
-        </a>
-      </div>
-      
-
-    </div>
-    </div>
-
-
   </body>
 </html>
 
