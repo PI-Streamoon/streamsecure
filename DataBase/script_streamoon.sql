@@ -149,30 +149,35 @@ INSERT INTO unidadeMedida (idUnidadeMedida, nomeMedida)
 VALUES
   (null, 'GHZ'),
   (null, 'GB'),
-  (null, 'KBPS');
+  (null, 'KBPS'),
+  (null, '%');
 select * from unidadeMedida;
  
 -- Tabela componente
 INSERT INTO componente (idComponente, fkUnidadeMedida, nome)
 VALUES
-  (null, 1, 'CPU'),
-  (null, 2, 'Memória'),
-  (null, 2, 'Disco'),
-  (null, 3, 'Wi-Fi');
+  (null, 4, 'CPU'),
+  (null, 4, 'Memória'),
+  (null, 2, 'Memória Usada'),
+  (null, 2, 'Memória Total'),
+  (null, 4, 'Disco');
   select * from componente;
 
 -- Tabela componenteServidor
 INSERT INTO componenteServidor (idComponenteServidor, fkServidor, fkComponente)
 VALUES
+  (null, 2222, 100),
   (null, 2222, 101),
-  (null, 2222, 100);
+  (null, 2222, 102),
+  (null, 2222, 103),
+  (null, 2222, 104);
 select * from componenteServidor;
 -- Tabela registro
 INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor)
 VALUES
   (null, 20348034, '2023-08-01 10:00:00', 1),
   (null, 02475092, '2023-08-02 15:30:00', 2);
-  
+  select * from registro;
   
   -- SELECT PARA SELEÇÃO DE TODOS OS REGISTROS DOS COMPONENTES COM SUA UNIDADE DE MEDIDA DE CADA SERVIDOR DE CADA LOCAL DE CADA EMPRESA
 select empresa.nome, locais.idLocais, servidor.idServidor, 
