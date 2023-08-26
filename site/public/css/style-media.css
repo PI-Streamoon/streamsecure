@@ -28,6 +28,11 @@
     margin-left: 0;
   }
 
+  .logo-navbar img {
+    width: 80%;
+    height: 60%;
+  }
+
   .mobile-menu {
     display: block;
   }
@@ -444,8 +449,8 @@
     justify-content: center;
     flex-direction: column;
     background-color: #191919;
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 60%;
     border-radius: 2vh;
   }
 
@@ -454,7 +459,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 15%;
+    height: 10%;
     padding: 0 5vh;
   }
 
@@ -501,13 +506,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 90%;
     height: 85%;
   }
 
   #container1 {
     width: 60%;
-    height: 100%;
+    height: 80%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -550,7 +555,7 @@
 
   #container2 {
     width: 40%;
-    height: 100%;
+    height: 80%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -635,7 +640,7 @@
 
   .logo-navbar img {
     width: 90%;
-    height: 60%;
+    height: 65%;
   }
 
   .mobile-menu {
@@ -1068,189 +1073,370 @@
     flex-direction: row-reverse;
   }
 
-.modal-container {
-  background-color: rgba(0, 0, 0, 0.5);
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100vw;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  position: fixed;
-}
+  .modal-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    position: fixed;
+  }
 
-#modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: #191919;
-  width: 80%;
-  height: 80%;
-  border-radius: 2vh;
-}
+  #modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #191919;
+    width: 80%;
+    height: 80%;
+    border-radius: 2vh;
+  }
 
-.modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 15%;
-  padding: 0 5vh;
-}
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 15%;
+    padding: 0 5vh;
+  }
 
-.modal-header .title {
-  width: fit-content;
-  height: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
+  .modal-header .title {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 
-.modal-header .title h2 {
-  color: #fff;
-  font-family: "Amiko";
-  font-size: 4vh;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-}
+  .modal-header .title h2 {
+    color: #fff;
+    font-family: "Amiko";
+    font-size: 4vh;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
 
-.modal-header .underline {
-  justify-self: start;
-  align-self: flex-start;
-  background-color: #a32da3;
-  width: 80px;
-  height: 5px;
-  border-radius: 20px;
-  margin: 0;
-}
+  .modal-header .underline {
+    justify-self: start;
+    align-self: flex-start;
+    background-color: #a32da3;
+    width: 80px;
+    height: 5px;
+    border-radius: 20px;
+    margin: 0;
+  }
 
-#close-modal {
-  background-color: #080808;
-  width: 5vh;
-  height: 5vh;
-  border: none;
-  border-radius: 50%;
-  color: #ffff;
-  font-size: 2vh;
-  cursor: pointer;
-}
+  #close-modal {
+    background-color: #080808;
+    width: 5vh;
+    height: 5vh;
+    border: none;
+    border-radius: 50%;
+    color: #ffff;
+    font-size: 2vh;
+    cursor: pointer;
+  }
 
-.modalBody {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80%;
-  height: 85%;
-}
+  .modalBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 85%;
+  }
 
-#container1 {
-  width: 60%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
+  #container1 {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-.divServer {
-  background-color: #141414;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  height: 40%;
-  width: 90%;
-  border-radius: 1rem;
-  overflow: hidden;
-}
+  .divServer {
+    background-color: #141414;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 40%;
+    width: 90%;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
 
-.modelo {
-  width: 120%;
-  height: 120%;
-}
+  .modelo {
+    width: 120%;
+    height: 120%;
+  }
 
-#descricaoProduto {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  height: 50%;
-  width: 90%;
-  border-radius: 1rem;
-}
+  #descricaoProduto {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 50%;
+    width: 90%;
+    border-radius: 1rem;
+  }
 
-#textoModal {
-  width: 90%;
-  font-size: 2vh;
-  text-align: center;
-  color: #fff;
-}
+  #textoModal {
+    width: 90%;
+    font-size: 2vh;
+    text-align: center;
+    color: #fff;
+  }
 
+  #container2 {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-#container2 {
-  width: 40%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
+  #container2 #div-graficos {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 
-#container2 #div-graficos{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
+  .grafico {
+    width: 100%;
+    height: 32%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-.grafico{
-  width: 100%;
-  height: 32%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
+  .grafico .card-graph {
+    width: 95%;
+    height: 85%;
+    border-radius: 1vh;
+    background-color: #141414;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1vh;
+  }
 
-.grafico .card-graph{
-  width: 95%;
-  height: 85%;
-  border-radius: 1vh;
-  background-color: #141414;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1vh;
-}
+  .img-graph {
+    height: 90%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0 0 0.5vh 0.5vh;
+  }
 
-.img-graph {
-  height: 90%;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 0 0 0.5vh 0.5vh;
-}
+  .img-graph img {
+    height: 15vh;
+    width: 80vh;
+  }
 
-.img-graph img{
-  height: 15vh;
-  width: 80vh;
-}
+  .grafico .card-graph h4 {
+    font-size: 2.5vh;
+    font-family: ABeeZee;
+    align-self: self-start;
+    color: #fff;
+    margin: 0;
+  }
 
-.grafico .card-graph h4 {
-  font-size: 2.5vh;
-  font-family: ABeeZee;
-  align-self: self-start;
-  color: #fff;
-  margin: 0;
-}
+  .modal-container {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
 
+  #modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #191919;
+    width: 90%;
+    height: 70%;
+    border-radius: 2vh;
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 10%;
+    padding: 0 5vh;
+  }
+
+  .modal-header .title {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .modal-header .title h2 {
+    color: #fff;
+    font-family: "Amiko";
+    font-size: 4vh;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+
+  .modal-header .underline {
+    justify-self: start;
+    align-self: flex-start;
+    background-color: #a32da3;
+    width: 80px;
+    height: 5px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  #close-modal {
+    background-color: #080808;
+    width: 5vh;
+    height: 5vh;
+    border: none;
+    border-radius: 50%;
+    color: #ffff;
+    font-size: 2vh;
+    cursor: pointer;
+  }
+
+  .modalBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    height: 85%;
+  }
+
+  #container1 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .divServer {
+    background-color: #141414;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 40%;
+    width: 90%;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  .modelo {
+    width: 120%;
+    height: 120%;
+  }
+
+  #descricaoProduto {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 50%;
+    width: 90%;
+    border-radius: 1rem;
+  }
+
+  #textoModal {
+    width: 90%;
+    font-size: 2vh;
+    text-align: center;
+    color: #fff;
+  }
+
+  #container2 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #container2 #div-graficos {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .grafico {
+    width: 100%;
+    height: 32%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .grafico .card-graph {
+    width: 95%;
+    height: 85%;
+    border-radius: 1vh;
+    background-color: #141414;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1vh;
+  }
+
+  .img-graph {
+    height: 90%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0 0 0.5vh 0.5vh;
+  }
+
+  .img-graph img {
+    height: 10vh;
+    width: 80vh;
+  }
+
+  .grafico .card-graph h4 {
+    font-size: 2.5vh;
+    font-family: ABeeZee;
+    align-self: self-start;
+    color: #fff;
+    margin: 0;
+  }
 }
 
 /* CELULAR */
@@ -1757,5 +1943,188 @@
     width: 2vh;
     height: 2vh;
     margin-bottom: 1vh;
+  }
+
+  .modal-container {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  #modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #191919;
+    width: 90%;
+    height: 90%;
+    border-radius: 2vh;
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 5%;
+    padding: 0 5vh;
+  }
+
+  .modal-header .title {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .modal-header .title h2 {
+    color: #fff;
+    font-family: "Amiko";
+    font-size: 2.5vh;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+
+  .modal-header .underline {
+    justify-self: start;
+    align-self: flex-start;
+    background-color: #a32da3;
+    width: 40px;
+    height: 3px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  #close-modal {
+    background-color: #080808;
+    width: 3.5vh;
+    height: 3.5vh;
+    border: none;
+    border-radius: 50%;
+    color: #ffff;
+    font-size: 2vh;
+    cursor: pointer;
+  }
+
+  .modalBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    height: 85%;
+  }
+
+  #container1 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .divServer {
+    background-color: #141414;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 40%;
+    width: 90%;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  .modelo {
+    width: 120%;
+    height: 120%;
+  }
+
+  #descricaoProduto {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 50%;
+    width: 90%;
+    border-radius: 1rem;
+  }
+
+  #textoModal {
+    width: 90%;
+    font-size: 1.5vh;
+    text-align: center;
+    color: #fff;
+  }
+
+  #container2 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #container2 #div-graficos {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .grafico {
+    width: 100%;
+    height: 32%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .grafico .card-graph {
+    width: 95%;
+    height: 85%;
+    border-radius: 1vh;
+    background-color: #141414;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1vh;
+  }
+
+  .img-graph {
+    height: 90%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0 0 0.5vh 0.5vh;
+  }
+
+  .img-graph img {
+    height: 10vh;
+    width: 80vh;
+  }
+
+  .grafico .card-graph h4 {
+    font-size: 2.5vh;
+    font-family: ABeeZee;
+    align-self: self-start;
+    color: #fff;
+    margin: 0;
   }
 }
