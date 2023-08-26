@@ -293,30 +293,3 @@
     cursor: pointer;
     border: 1.5px solid #6248AE;
 }
-
-.bordas {
-    border: 1px solid #6248AE;
-}
-
-.bordasQuadradinhos {
-    border: 1px solid black;
-}
-
-.bordasQuadradinhos:hover {
-    background-color: var(--dark) !important;
-    cursor: pointer;
-    border: 1px solid #6248AE;
-}
-
-.bordasQuadradinhos {
-    background-color: var(--dark) !important;
-    border: 1px solid #6248AE;
-}
-
-.bordaBaixo {
-    border-bottom: 1px solid #6248AE;
-}
-
-.bordaDireita {
-    border-right: 1px solid #6248AE;
-}

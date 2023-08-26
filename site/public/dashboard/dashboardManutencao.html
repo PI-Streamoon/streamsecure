@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <title>Dashboard - Equipe de Manutenção</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -29,6 +29,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styleManutencao.css">
 </head>
 
 <body>
@@ -49,7 +50,7 @@
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Streamoon</h3>
                 </a>
-                <div class="d-flex align-items-center ms-4 mb-4">
+                <!-- <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div
@@ -60,9 +61,9 @@
                         <h6 class="mb-0">Jhon Doe</h6>
                         <span>Admin</span>
                     </div>
-                </div>
+                </div> -->
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i
+                    <a href="dashboardManutencao.html" class="nav-item nav-link active"><i
                             class="fa fa-chart-bar me-2"></i>Dashboards</a>
                     <div class="nav-item dropdown">
                         <!-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
@@ -76,7 +77,7 @@
                     <!-- <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
                     <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
                     <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a> -->
-                    <a href="dadosDetalhados.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Detalhes</a>
+                    <a href="detalhesManutencao.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Detalhes</a>
                     <div class="nav-item dropdown">
                         <!-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                                 class="far fa-file-alt me-2"></i>Pages</a> -->
@@ -190,7 +191,7 @@
             <!-- Navbar End -->
 
             <!-- Lista dos Servidores Começo -->
-            <div class="col-12">
+            <div class="col-12 bordaBaixo">
                 <div class="bg-secondary rounded h-100 p-4">
                     <h6 class="mb-4">Lista de Servidores</h6>
                     <div class="table-responsive bordas">
@@ -251,8 +252,8 @@
             <!-- Lista dos Servidores Final -->
 
             <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
+            <div class="container-fluid pt- px-4">
+                <div class="row g-4 marginTop">
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos">
                             <i class="fa fa-server fa-3x cpu"></i>
@@ -298,7 +299,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
+                    <!-- <div class="col-sm-6 col-xl-3">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos">
                             <i class="fa fa-fan fa-3x gpu"></i>
                             <div class="ms-3">
@@ -306,12 +307,12 @@
                                 <h6 class="mb-0">20%</h6>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos">
                             <i class="fa fa-wave-square fa-3x frequenciaGpu"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Frequência CPU</p>
+                                <p class="mb-2">Freq. CPU</p>
                                 <h6 class="mb-0">30%</h6>
                             </div>
                         </div>
@@ -325,7 +326,7 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary text-center rounded p-4">
+                        <div class="bg-secondary text-center rounded p-4 bordaTudo">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0">Servidor 1 (Ao Longo do Tempo)</h6>
                                 <!-- <a href="">Show All</a> -->
@@ -334,7 +335,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary text-center rounded p-4">
+                        <div class="bg-secondary text-center rounded p-4 bordaTudo">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0">Servidor 1 (Tempo real)</h6>
                                 <!-- <a href="">Show All</a> -->
@@ -545,7 +546,7 @@
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="bg-secondary rounded-top p-4">
+                <div class="bg-secondary rounded-top p-4 bordaTudo">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
                             &copy; <a href="#">Streamoon</a>, Todos os direitos reservados.

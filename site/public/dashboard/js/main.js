@@ -84,26 +84,6 @@
                     label: "Disco",
                     data: [12, 25, 45, 55, 65, 70, 60],
                     backgroundColor: "#d63384"
-                },
-                {
-                    label: "Upload",
-                    data: [12, 25, 45, 55, 65, 70, 60],
-                    backgroundColor: "#fd7e14"
-                },
-                {
-                    label: "Download",
-                    data: [12, 25, 45, 55, 65, 70, 60],
-                    backgroundColor: "#20c997"
-                },
-                {
-                    label: "GPU",
-                    data: [12, 25, 45, 55, 65, 70, 60],
-                    backgroundColor: "#ffcd39"
-                },
-                {
-                    label: "Freq. CPU",
-                    data: [12, 25, 45, 55, 65, 70, 60],
-                    backgroundColor: "rgba(163,45,163, .3)"
                 }
             ]
             },
