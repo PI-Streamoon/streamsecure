@@ -178,6 +178,18 @@ VALUES
   (null, 20348034, '2023-08-01 10:00:00', 1),
   (null, 02475092, '2023-08-02 15:30:00', 2);
   select * from registro;
+  select registro.registro as 'Registro', registro.dtHora as 'Momento Registro', componente.nome as 'Componente', unidadeMedida.nomeMedida as 'Símbolo', componenteServidor.idComponenteServidor from registro 
+  join componenteServidor on fkComponenteServidor = idComponenteServidor
+  join componente on fkComponente = idComponente
+  join unidadeMedida on fkUnidadeMedida = idUnidadeMedida
+  order by unidadeMedida.nomeMedida;
+  
+  SELECT r.registro, r.dtHora, c.nome, um.nomeMedida
+FROM registro r
+JOIN componenteServidor cs ON r.fkComponenteServidor = cs.idComponenteServidor
+JOIN componente c ON cs.fkComponente = c.idComponente
+JOIN unidadeMedida um ON c.fkUnidadeMedida = um.idUnidadeMedida;
+
   
   -- SELECT PARA SELEÇÃO DE TODOS OS REGISTROS DOS COMPONENTES COM SUA UNIDADE DE MEDIDA DE CADA SERVIDOR DE CADA LOCAL DE CADA EMPRESA
 select empresa.nome, locais.idLocais, servidor.idServidor, 
@@ -190,3 +202,13 @@ join unidadeMedida on idUnidadeMedida = fkUnidadeMedida
 join servidor on idServidor = fkServidor
 join locais on idLocais = fkLocais
 join empresa on idEmpresa = fkEmpresa;
+
+SELECT r.registro, r.dtHora, c.nome AS nomeComponente, um.nomeMedida
+FROM registro r
+LEFT JOIN componenteServidor cs ON r.fkComponenteServidor = cs.idComponenteServidor
+LEFT JOIN componente c ON cs.fkComponente = c.idComponente
+LEFT JOIN unidadeMedida um ON c.fkUnidadeMedida = um.idUnidadeMedida
+ORDER BY um.nomeMedida, c.nome;
+
+
+

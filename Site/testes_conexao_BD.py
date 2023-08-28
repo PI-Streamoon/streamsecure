@@ -46,35 +46,38 @@ print("\n[+]" + "=" * 170 + "[+]\n")
 print(headerConsole + "\n")
 
 
-# Captura dos dados através das libs
-cpusPercent = psutil.cpu_percent(
-    interval=1, percpu=True
-)  # Vetor que recebe os dados (em porcentagem) das CPUs que o computador possui
-memory = (
-    psutil.virtual_memory()
-)  # Variável que guarda uma lista de atributos da Memória.
-percentualMemoria = memory.percent
-
-memoryUsed = (
-    (memory.used / 1024) / 1024
-) / 1000  # Variável que recebe a quantidade de memória que esta sendo usada, já convertida em GB
-memoryTotal = (
-    (memory.total / 1024) / 1024
-) / 1000  # Variável que recebe a quantidade total da memória, já convertida em GB
-diskPercent = psutil.disk_usage(
-    "/"
-)  # Variável que recebe uma lista de atributos do Disco
-
-# cpu1 = cpusPercent[0]
-# cpu2 = cpusPercent[1]
-# cpu3 = cpusPercent[2]
-# cpu4 = cpusPercent[3]
-
-# mediaCpus = (cpu1 + cpu2 + cpu3 + cpu4) / 4
-
 
 # Capturar os dados de CPU/RAM/DISK a cada 2segs
 while True:
+
+    # Captura dos dados através das libs
+    cpusPercent = psutil.cpu_percent(
+        interval=1, percpu=True
+    )  # Vetor que recebe os dados (em porcentagem) das CPUs que o computador possui
+    memory = (
+        psutil.virtual_memory()
+    )  # Variável que guarda uma lista de atributos da Memória.
+    percentualMemoria = memory.percent
+
+    memoryUsed = (
+        (memory.used / 1024) / 1024
+    ) / 1000  # Variável que recebe a quantidade de memória que esta sendo usada, já convertida em GB
+    memoryTotal = (
+        (memory.total / 1024) / 1024
+    ) / 1000  # Variável que recebe a quantidade total da memória, já convertida em GB
+    diskPercent = psutil.disk_usage(
+        "/"
+    )  # Variável que recebe uma lista de atributos do Disco
+
+    # cpu1 = cpusPercent[0]
+    # cpu2 = cpusPercent[1]
+    # cpu3 = cpusPercent[2]
+    # cpu4 = cpusPercent[3]
+
+    # mediaCpus = (cpu1 + cpu2 + cpu3 + cpu4) / 4
+
+
+
     # Usando a lib TIME, a função me retorna o horário da máquina
     # no formato que eu escolhi dentro do parâmetro -> time.strftime(formato, outra função que retorna o horário)
     # %d = dia | %m = mês | %Y = ano <> %H = hora | %M = minutos
