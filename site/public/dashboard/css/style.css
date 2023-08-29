@@ -293,3 +293,7 @@
     cursor: pointer;
     border: 1.5px solid #6248AE;
 }
+
+.table-responsive {
+    max-height: 15rem;
+}
