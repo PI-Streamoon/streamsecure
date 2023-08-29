@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Analytics - Streamoon</title>
+    <title>Detalhes - Equipe de Manutenção</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -29,6 +29,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styleManutencao.css">
 </head>
 
 <body>
@@ -43,33 +44,43 @@
 
 
         <!-- Sidebar Start -->
-        <div class="sidebar pe-4 pb-3">
+        <div class="sidebar pe-4 pb-3 bordaDireita">
             <nav class="navbar bg-secondary navbar-dark">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <img src="../features/img/logo.png" alt="">
+                <a href="dashboardManutencao.html" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Streamoon</h3>
                 </a>
-                
+                <!-- <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0">Jhon Doe</h6>
+                        <span>Admin</span>
+                    </div>
+                </div> -->
                 <div class="navbar-nav w-100">
-                    <a href="dashboardManutencao.html" class="nav-item nav-link active"><i
-                            class="fa fa-chart-bar me-2"></i>Dashboards</a>
-                    <div class="nav-item dropdown">
-                        <!-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                                class="fa fa-laptop me-2"></i>Elements</a> -->
+                    <a href="dashboardManutencao.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Dashboards</a>
+                    <!-- <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="button.html" class="dropdown-item">Buttons</a>
                             <a href="typography.html" class="dropdown-item">Typography</a>
                             <a href="element.html" class="dropdown-item">Other Elements</a>
                         </div>
-                    </div>
-                    <a href="detalhesManutencao.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Detalhes</a>
-                    <a href="blank.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Analytic</a>
-                    <div class="nav-item dropdown">
+                    </div> -->
+                    <!-- <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
+                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a> -->
+                    <a href="detalhesManutencao.html" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>Detalhes</a>
+                    <!-- <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="signin.html" class="dropdown-item">Sign In</a>
                             <a href="signup.html" class="dropdown-item">Sign Up</a>
                             <a href="404.html" class="dropdown-item">404 Error</a>
-                            <a href="blank.html" class="dropdown-item">Blank Page</a>
-                        </div>
+                            <a href="blank.html" class="dropdown-item active">Blank Page</a>
+                        </div> -->
                     </div>
                 </div>
             </nav>
@@ -80,22 +91,22 @@
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
-            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0 bordaBaixo">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <img src="../features/img/logo.png" style="width: 50%">
+                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
                 <form class="d-none d-md-flex ms-4">
-                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+                    <!-- <input class="form-control bg-dark border-0" type="search" placeholder="Search"> -->
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <!-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-envelope me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Message</span>
-                        </a>
+                        </a> -->
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
@@ -133,7 +144,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Notificações</span>
+                            <span class="d-none d-lg-inline-flex">Alertas</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
@@ -169,58 +180,100 @@
             </nav>
             <!-- Navbar End -->
 
-
-            <!-- Blank Start -->
-            <div class="container-fluid pt-4 px-4" id="analytic-container">
-                <div class="row bg-secondary rounded justify-content-center mx-0" id="analytic">
-                    <h2 style="font-weight: 200; color: #6C7293; float: left;">Servidor x - Localização</h2>
-                    <h4 style="font-weight: 200; color: #6C7293; float: right;">MÊS/ANO</h4>
-                    <div class="col-md-6 text-center" id="kpis">
-                        <div id="kpi">
-                            <p>USO DA CPU</p>
-                            <canvas style="width: 100%;"></canvas>
-                        </div>
-                        <div id="kpi">
-                            <p>USO DA MEMÓRIA</p>
-                            <canvas style="width: 100%;"></canvas>
-                        </div>
-                        <div id="kpi">
-                            <p>USO DA RAM</p>
-                            <canvas style="width: 100%;"></canvas>
+                       <!-- Lista dos Servidores Começo -->
+                       <div class="col-12 bordaBaixo">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">Lista de Servidores</h6>
+                            <div class="table-responsive bordas">
+                                <table class="table">
+                                    <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Servidor</th>
+                                                <th scope="col">Local</th>
+                                                <th scope="col"></th>
+                                                <th scope="col"></th>
+                                                <th scope="col"></th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Servidor 1</td>
+                                            <td>Califórnia, Estados Unidos</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Servidor 2</td>
+                                            <td>Califórnia, Estados Unidos</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Servidor 3</td>
+                                            <td>São Paulo, Brasil</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td>Servidor 4</td>
+                                            <td>São Paulo, Brasil</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 text-center" id="alertas">
-                        <div id="alerta-container">
-                            <!-- ALERTA VERMELHO -->
-                            <div id="alerta">
-                                <i class="fa fa-bell" style="color:red; font-size: 10vh;"></i>
-                                <div id="texto-alerta">
-                                    <h4 style="color:red">ALERTA VERMELHO</h4>
-                                    <h5>USO DO COMPONENTE X EM X%</h5>
-                                </div>
-                            </div>
+                    <!-- Lista dos Servidores Final -->
 
-                            <!-- ALERTA AMARELO -->
-                            <div id="alerta">
-                                <i class="fa fa-bell" style="color:yellow; font-size: 10vh;"></i>
-                                <div id="texto-alerta">
-                                    <h4 style="color:yellow">ALERTA AMARELO</h4>
-                                    <h5>USO DO COMPONENTE X EM X%</h5>
-                                </div>
-                            </div>
-                        </div>
+
+            <!-- Conteudo Começo -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="vh-100 bg-secondary justify-content-center mx-0 bordaTudo rounded table-responsive">
+                    <div class="conteudoTexto">
+                        <h3>Detalhes do Servidor 1</h3>
+                        <p>Número de cores:</p>
+                        <p>Uso global da CPU:</p>
+                        <p>Frequência atual da CPU:</p>
+                        <p>Frequência máxima da CPU:</p>
+                        <p>Frequência mínima da CPU:</p>
+                        <p>Uso do disco:</p>
+                        <p>Tamanho do disco:</p>
+                        <p>Espaço em uso do disco:</p>
+                        <p>Espaço livre do disco:</p>
+                        <p>Uso da memória:</p>
+                        <p>Tamanho da memória:</p>
+                        <p>Espaço em uso da memória:</p>
+                        <p>Espaço livre da memória:</p>
+                        <p>Velocidade de download:</p>
+                        <p>Velocidade de upload:</p>
                     </div>
                 </div>
             </div>
-            <!-- Blank End -->
+            <!-- Conteudo Fim -->
 
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="bg-secondary rounded-top p-4">
+                <div class="bg-secondary rounded-top p-4 bordaTudo">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Streamoon</a>, All Right Reserved. 
+                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
@@ -236,7 +289,7 @@
 
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a> -->
     </div>
 
     <!-- JavaScript Libraries -->
