@@ -1,6 +1,6 @@
 CREATE database streamoon;
 USE streamoon;
-drop database streamoon;
+-- drop database streamoon;
 CREATE TABLE IF NOT EXISTS empresa(
   idEmpresa INT NOT NULL auto_increment,
   nome VARCHAR(45) NULL,
@@ -84,7 +84,8 @@ CREATE TABLE IF NOT EXISTS componente (
     auto_increment = 100
 ;
 select * from componente;
-
+SET SQL_SAFE_UPDATES = 0;
+update componente set nome = 'Memoria' where nome = 'Memória';
 CREATE TABLE IF NOT EXISTS componenteServidor (
   `idComponenteServidor` INT NOT NULL auto_increment,
   `fkServidor` INT NOT NULL,
@@ -178,11 +179,22 @@ VALUES
   (null, 20348034, '2023-08-01 10:00:00', 1),
   (null, 02475092, '2023-08-02 15:30:00', 2);
   select * from registro;
-  select registro.registro as 'Registro', registro.dtHora as 'Momento Registro', componente.nome as 'Componente', unidadeMedida.nomeMedida as 'Símbolo', componenteServidor.idComponenteServidor from registro 
+
+  create view tabelaRegistros as 
+  select registro.registro as 'Registro', registro.dtHora as 'MomentoRegistro', 
+  componente.nome as 'Componente', unidadeMedida.nomeMedida as 'Símbolo', 
+  componenteServidor.idComponenteServidor, servidor.idServidor as 'idServidor' from registro 
   join componenteServidor on fkComponenteServidor = idComponenteServidor
+  join servidor on fkServidor = idServidor
   join componente on fkComponente = idComponente
-  join unidadeMedida on fkUnidadeMedida = idUnidadeMedida
-  order by unidadeMedida.nomeMedida;
+  join unidadeMedida on fkUnidadeMedida = idUnidadeMedida 
+  -- where idComponenteServidor = 2
+  order by 2
+  limit 10000;
+  
+  select * from tabelaRegistros;
+  
+  select * from componenteServidor;
   
   SELECT r.registro, r.dtHora, c.nome, um.nomeMedida
 FROM registro r
@@ -212,3 +224,38 @@ ORDER BY um.nomeMedida, c.nome;
 
 
 
+-- CÓDIGO PARA CRIAÇÃO DA VIEW PARA VISUALIZAÇÃO DOS DADOS EM TABELA --------------------------------------------------------------------------------------------
+SET @sql = NULL;
+
+SELECT
+  GROUP_CONCAT(DISTINCT
+    CONCAT(
+      'max(case when Componente = ''',
+      Componente,
+      ''' then Registro end) ',
+      Componente
+    )
+  )
+INTO @sql
+
+FROM
+  tabelaRegistros;
+ 
+select @sql;
+
+
+
+SET @sql = CONCAT('SELECT idServidor, MomentoRegistro, ', @sql, '
+                 
+FROM tabelaRegistros
+                   
+GROUP BY idServidor, MomentoRegistro');
+
+select @sql;
+
+PREPARE stmt FROM @sql;
+
+EXECUTE stmt;
+
+DEALLOCATE PREPARE stmt;
+-- FIM DO CÓDIGO ------------------------------------------------------------------------------------------------------------------------------------------- 
