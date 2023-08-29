@@ -61,6 +61,27 @@ function buscarMedidasEmTempoReal(idAquario) {
     return database.executar(instrucaoSql);
 }
 
+function geral() {
+    var instrucao = ``
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucao = `
+        `;
+
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucao = `
+        SELECT DISTINCT nome, pontos FROM pontuacao
+        JOIN usuario ON fkUsuario = idUsuario
+        ORDER BY pontos DESC LIMIT 3;
+        `;
+    } else {
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 
 module.exports = {
     buscarUltimasMedidas,

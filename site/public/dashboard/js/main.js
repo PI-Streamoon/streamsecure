@@ -1,5 +1,34 @@
+var labelsGeral;
+var dadosGeral;
+var dashboardGeral;
+
 (function ($) {
     "use strict";
+
+    setInterval(atualizarGrafico, 5000)
+
+    function atualizarGrafico() {
+        fetch(`/medidas/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+    
+                    for (i = 0; i < resposta.length; i++) {
+                        var registro = resposta[i];
+                        dinheiros.push(registro.pontos);
+                        jogadores.push(registro.nome);
+                    }
+    
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
 
     // Spinner
     var spinner = function () {
@@ -10,7 +39,7 @@
         }, 1);
     };
     spinner();
-    
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
@@ -20,7 +49,7 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
 
@@ -37,7 +66,7 @@
         $('.progress .progress-bar').each(function () {
             $(this).css("width", $(this).attr("aria-valuenow") + '%');
         });
-    }, {offset: '80%'});
+    }, { offset: '80%' });
 
 
     // Calender
@@ -54,7 +83,7 @@
         items: 1,
         dots: true,
         loop: true,
-        nav : false
+        nav: false
     });
 
 
@@ -62,31 +91,34 @@
     Chart.defaults.color = "#fff";
     Chart.defaults.borderColor = "#141414";
 
+    // Captura de dados
+    labelsGeral = []
+    dadosGeral = {
+    labels: labelsGeral,
+    datasets: [{
+        label: "CPU",
+        data: [],
+        backgroundColor: "#6248AE"
+    },
+    {
+        label: "Memória",
+        data: [],
+        backgroundColor: "#0d6efd"
+    },
+    {
+        label: "Disco",
+        data: [],
+        backgroundColor: "#d63384"
+    }]
+    }
 
     // Dashboard Visão Geral
-    new Chart(dashboardGeral, {
+    dashboardGeral = new Chart(document.getElementById(`dashboardGeral`), {
         type: "bar",
-        data: {
-            labels: ["18:30", "18:40", "18:50", "19:00", "19:10", "19:20", "19:30"],
-            datasets: [{
-                    label: "CPU",
-                    data: [15, 30, 55, 65, 60, 80, 95],
-                    backgroundColor: "#6248AE"
-                },
-                {
-                    label: "Memória",
-                    data: [8, 35, 40, 60, 70, 55, 75],
-                    backgroundColor: "#0d6efd"
-                },
-                {
-                    label: "Disco",
-                    data: [12, 25, 45, 55, 65, 70, 60],
-                    backgroundColor: "#d63384"
-                }
-            ]
-            },
+        data: dadosGeral,
         options: {
             responsive: true
+
         }
     });
 
@@ -97,19 +129,19 @@
         data: {
             labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
             datasets: [{
-                    label: "Salse",
-                    data: [15, 30, 55, 45, 70, 65, 85],
-                    backgroundColor: "rgba(163,45,163, .7)",
-                    fill: true
-                },
-                {
-                    label: "Revenue",
-                    data: [99, 135, 170, 130, 190, 180, 270],
-                    backgroundColor: "rgba(163,45,163, .5)",
-                    fill: true
-                }
-            ]
+                label: "Salse",
+                data: [15, 30, 55, 45, 70, 65, 85],
+                backgroundColor: "rgba(163,45,163, .7)",
+                fill: true
             },
+            {
+                label: "Revenue",
+                data: [99, 135, 170, 130, 190, 180, 270],
+                backgroundColor: "rgba(163,45,163, .5)",
+                fill: true
+            }
+            ]
+        },
         options: {
             responsive: true
         }
@@ -121,19 +153,19 @@
         data: {
             labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
             datasets: [{
-                    label: "Salse",
-                    data: [15, 30, 55, 45, 70, 65, 85],
-                    backgroundColor: "rgba(163,45,163, .7)",
-                    fill: true
-                },
-                {
-                    label: "Revenue",
-                    data: [99, 135, 170, 130, 190, 180, 270],
-                    backgroundColor: "rgba(163,45,163, .5)",
-                    fill: true
-                }
-            ]
+                label: "Salse",
+                data: [15, 30, 55, 45, 70, 65, 85],
+                backgroundColor: "rgba(163,45,163, .7)",
+                fill: true
             },
+            {
+                label: "Revenue",
+                data: [99, 135, 170, 130, 190, 180, 270],
+                backgroundColor: "rgba(163,45,163, .5)",
+                fill: true
+            }
+            ]
+        },
         options: {
             responsive: true
         }
@@ -145,43 +177,43 @@
         data: {
             labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
             datasets: [{
-                    label: "Salse",
-                    data: [15, 30, 55, 45, 70, 65, 85],
-                    backgroundColor: "rgba(163,45,163, .7)",
-                    fill: true
-                },
-                {
-                    label: "Revenue",
-                    data: [99, 135, 170, 130, 190, 180, 270],
-                    backgroundColor: "rgba(163,45,163, .5)",
-                    fill: true
-                }
-            ]
+                label: "Salse",
+                data: [15, 30, 55, 45, 70, 65, 85],
+                backgroundColor: "rgba(163,45,163, .7)",
+                fill: true
             },
+            {
+                label: "Revenue",
+                data: [99, 135, 170, 130, 190, 180, 270],
+                backgroundColor: "rgba(163,45,163, .5)",
+                fill: true
+            }
+            ]
+        },
         options: {
             responsive: true
         }
     });
 
     // Dashboard Upload
-     new Chart(dashboardUpload, {
+    new Chart(dashboardUpload, {
         type: "line",
         data: {
             labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
             datasets: [{
-                    label: "Salse",
-                    data: [15, 30, 55, 45, 70, 65, 85],
-                    backgroundColor: "rgba(163,45,163, .7)",
-                    fill: true
-                },
-                {
-                    label: "Revenue",
-                    data: [99, 135, 170, 130, 190, 180, 270],
-                    backgroundColor: "rgba(163,45,163, .5)",
-                    fill: true
-                }
-            ]
+                label: "Salse",
+                data: [15, 30, 55, 45, 70, 65, 85],
+                backgroundColor: "rgba(163,45,163, .7)",
+                fill: true
             },
+            {
+                label: "Revenue",
+                data: [99, 135, 170, 130, 190, 180, 270],
+                backgroundColor: "rgba(163,45,163, .5)",
+                fill: true
+            }
+            ]
+        },
         options: {
             responsive: true
         }
@@ -193,19 +225,19 @@
         data: {
             labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
             datasets: [{
-                    label: "Salse",
-                    data: [15, 30, 55, 45, 70, 65, 85],
-                    backgroundColor: "rgba(163,45,163, .7)",
-                    fill: true
-                },
-                {
-                    label: "Revenue",
-                    data: [99, 135, 170, 130, 190, 180, 270],
-                    backgroundColor: "rgba(163,45,163, .5)",
-                    fill: true
-                }
-            ]
+                label: "Salse",
+                data: [15, 30, 55, 45, 70, 65, 85],
+                backgroundColor: "rgba(163,45,163, .7)",
+                fill: true
             },
+            {
+                label: "Revenue",
+                data: [99, 135, 170, 130, 190, 180, 270],
+                backgroundColor: "rgba(163,45,163, .5)",
+                fill: true
+            }
+            ]
+        },
         options: {
             responsive: true
         }
@@ -217,25 +249,25 @@
         data: {
             labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2023"],
             datasets: [{
-                    label: "Salse",
-                    data: [15, 30, 55, 45, 70, 65, 85],
-                    backgroundColor: "rgba(163,45,163, .7)",
-                    fill: true
-                },
-                {
-                    label: "Revenue",
-                    data: [99, 135, 170, 130, 190, 180, 270],
-                    backgroundColor: "rgba(163,45,163, .5)",
-                    fill: true
-                }
-            ]
+                label: "Salse",
+                data: [15, 30, 55, 45, 70, 65, 85],
+                backgroundColor: "rgba(163,45,163, .7)",
+                fill: true
             },
+            {
+                label: "Revenue",
+                data: [99, 135, 170, 130, 190, 180, 270],
+                backgroundColor: "rgba(163,45,163, .5)",
+                fill: true
+            }
+            ]
+        },
         options: {
             responsive: true
         }
     });
-    
-    
+
+
     // Single Line Chart
     // var ctx3 = $("#line-chart").get(0).getContext("2d");
     // var myChart3 = new Chart(ctx3, {
@@ -323,7 +355,7 @@
     //     }
     // });
 
-    
+
 })(jQuery);
 
 function change() {
