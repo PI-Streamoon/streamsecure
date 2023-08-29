@@ -48,7 +48,7 @@
         <div class="sidebar pe-4 pb-3 bordaDireita" tabindex="0">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Streamoon</h3>
+                    <h3 class="text-primary"><img src="img/logo33x33.png" class="me-2" alt=""></i>Streamoon</h3>
                 </a>
                 <!-- <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -309,7 +309,7 @@
             <div class="container-fluid pt- px-4">
                 <div class="row g-4 marginTop">
                     <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos" onclick="change(), showCpu()">
                             <i class="fa fa-server fa-3x cpu"></i>
                             <div class="ms-3">
                                 <p class="mb-2">CPU</p>
@@ -318,7 +318,7 @@
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos" onclick="change(), showMemory()">
                             <i class="fa fa-memory fa-3x memoria"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Memória</p>
@@ -327,7 +327,7 @@
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos" onclick="change(), showDisk()">
                             <i class="fa fa-database fa-3x disco"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Disco</p>
@@ -336,7 +336,7 @@
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos" onclick="change(), showUpload()">
                             <i class="fa fa-upload fa-3x upload"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Upload</p>
@@ -345,7 +345,7 @@
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos" onclick="change(), showDownload()">
                             <i class="fa fa-download fa-3x download"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Download</p>
@@ -363,7 +363,7 @@
                         </div>
                     </div> -->
                     <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bordasQuadradinhos" onclick="change(), showFreq()">
                             <i class="fa fa-wave-square fa-3x frequenciaGpu"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Freq. CPU</p>
@@ -382,21 +382,64 @@
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary text-center rounded p-4 bordaTudo">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Servidor 1 (Ao Longo do Tempo)</h6>
-                                <!-- <a href="">Show All</a> -->
+                                <h6 class="mb-0">Servidor 1 - Visão Geral</h6>
                             </div>
-                            <canvas id="worldwide-sales"></canvas>
+                            <canvas id="dashboardGeral"></canvas>
                         </div>
                     </div>
                     <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary text-center rounded p-4 bordaTudo">
+                        <div class="bg-secondary text-center rounded p-4 bordaTudo" id="boxCpu">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Servidor 1 (Tempo real)</h6>
-                                <!-- <a href="">Show All</a> -->
+                                <h6 class="mb-0" id="dashboardTitle">Servidor 1 - CPU</h6>
                             </div>
-                            <canvas id="salse-revenue"></canvas>
+                            <canvas id="dashboardCpu" class=""></canvas>
+                            <canvas id="dashboardMemory" class="invisivel"></canvas>
+                            <canvas id="dashboardDisk" class="invisivel"></canvas>
+                            <canvas id="dashboardUpload" class="invisivel"></canvas>
+                            <canvas id="dashboardDownload" class="invisivel"></canvas>
+                            <canvas id="dashboardFreq" class="invisivel"></canvas>
+                        </div>
+                    <!-- </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-secondary text-center rounded p-4 bordaTudo invisivel" id="boxMemory">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Servidor 1 - Memória</h6>
+                            </div>
+                            <canvas id="dashboardMemory"></canvas>
                         </div>
                     </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-secondary text-center rounded p-4 bordaTudo invisivel" id="boxDisk">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Servidor 1 - Disco</h6>
+                            </div>
+                            <canvas id="dashboardDisk"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-secondary text-center rounded p-4 bordaTudo invisivel" id="boxUpload">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Servidor 1 - Upload</h6>
+                            </div>
+                            <canvas id="dashboardUpload"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-secondary text-center rounded p-4 bordaTudo invisivel" id="boxDownload">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Servidor 1 - Download</h6>
+                            </div>
+                            <canvas id="dashboardDownload"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-secondary text-center rounded p-4 bordaTudo invisivel" id="boxFreq">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Servidor 1 - Frequência CPU</h6>
+                            </div>
+                            <canvas id="dashboardFreq"></canvas>
+                        </div>
+                    </div> -->
                 </div>
             </div>
             <!-- Sales Chart End -->
