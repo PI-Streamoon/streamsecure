@@ -1,0 +1,68 @@
+.bordas {
+    border: 1px solid #6248AE;
+}
+
+.bordasQuadradinhos {
+    border: 1px solid black;
+}
+
+.bordasQuadradinhos:hover {
+    background-color: #303030 !important;
+    cursor: pointer;
+    border: 1px solid #6248AE;
+}
+
+.bordasQuadradinhos {
+    background-color: var(--dark) !important;
+    border: 1px solid #6248AE;
+}
+
+.bordaBaixo {
+    border-bottom: 1px solid #6248AE;
+}
+
+.bordaDireita {
+    border-right: 1px solid #6248AE;
+}
+
+.bordaTudo {
+    border: 1px solid #6248AE;
+}
+
+.marginTop {
+    margin-top: 0.1% !important;
+}
+
+.colunaQuadrados {
+    display: flex;
+    flex-direction: row;
+}
+
+.conteudoTexto h3 {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.conteudoTexto p {
+    margin-left: 5%;
+}
+
+::-webkit-scrollbar {
+    background: #303030;
+    border-radius: 20px;
+    width: 0.6vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6248AE;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #aa8eff;
+}
+
+.invisivel {
+    display: none !important;
+}

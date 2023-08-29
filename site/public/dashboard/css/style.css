@@ -222,12 +222,11 @@
     transform: rotate(-180deg);
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 575.98p-4x) {
     .content .navbar .navbar-nav .nav-link {
         margin-left: 15px;
     }
 }
-
 
 /*** Date Picker ***/
 .bootstrap-datetimepicker-widget.bottom {
@@ -286,4 +285,15 @@
 .testimonial-carousel .owl-dot.active {
     background: var(--dark);
     border-color: var(--primary);
+}
+
+
+.table-responsive tbody tr:hover {
+    background-color: #dde0e3;
+    cursor: pointer;
+    border: 1.5px solid #6248AE;
+}
+
+.table-responsive {
+    max-height: 15rem;
 }
