@@ -1,6 +1,6 @@
 CREATE database streamoon;
 USE streamoon;
--- drop database streamoon;
+drop database streamoon;
 CREATE TABLE IF NOT EXISTS empresa(
   idEmpresa INT NOT NULL auto_increment,
   nome VARCHAR(45) NULL,
@@ -81,11 +81,14 @@ CREATE TABLE IF NOT EXISTS componente (
     REFERENCES unidadeMedida (`idUnidadeMedida`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-    auto_increment = 100
-;
-select * from componente;
-SET SQL_SAFE_UPDATES = 0;
-update componente set nome = 'Memoria' where nome = 'Memória';
+    auto_increment = 100;
+    
+-- select * from componente;
+-- SET SQL_SAFE_UPDATES = 0;
+-- update componente set nome = 'Memoria' where nome = 'Memória';
+-- update componente set nome = 'MemoriaTotal' where nome = 'Memória Total';
+-- update componente set nome = 'MemoriaUsada' where nome = 'Memória Usada';
+
 CREATE TABLE IF NOT EXISTS componenteServidor (
   `idComponenteServidor` INT NOT NULL auto_increment,
   `fkServidor` INT NOT NULL,
@@ -125,7 +128,8 @@ INSERT INTO empresa (idEmpresa, nome, cnpj, localidade)
 VALUES
   (null, 'HBOMax', '12345678901234', 'Centro de São Paulo'),
   (null, 'Netflix', '98765432101234', 'São Jorge da Serra - Perdizes');
-select * from empresa;
+  
+-- select * from empresa;
 -- Tabela usuario
 INSERT INTO usuario (idUsuario, fkEmpresa, fkAdmin, nome, senha, cpf, email)
 VALUES
@@ -137,13 +141,14 @@ INSERT INTO locais (idLocais, fkEmpresa, cep, descricao)
 VALUES
   (null, 484018, '12345-678', 'Local X, Andar 2'),
   (null, 484018, '98765-432', 'Local Y, Andar 12');
-select * from locais;
+-- select * from locais;
+
 -- Tabela servidor
 INSERT INTO servidor (idServidor, fkLocais)
 VALUES
   (null, 100),
   (null, 101);
-  select * from servidor;
+-- select * from servidor;
 
 -- Tabela unidadeMedida
 INSERT INTO unidadeMedida (idUnidadeMedida, nomeMedida)
@@ -152,17 +157,17 @@ VALUES
   (null, 'GB'),
   (null, 'KBPS'),
   (null, '%');
-select * from unidadeMedida;
+-- select * from unidadeMedida;
  
 -- Tabela componente
 INSERT INTO componente (idComponente, fkUnidadeMedida, nome)
 VALUES
   (null, 4, 'CPU'),
-  (null, 4, 'Memória'),
-  (null, 2, 'Memória Usada'),
-  (null, 2, 'Memória Total'),
+  (null, 4, 'Memoria'),
+  (null, 2, 'MemoriaUsada'),
+  (null, 2, 'MemoriaTotal'),
   (null, 4, 'Disco');
-  select * from componente;
+ select * from componente;
 
 -- Tabela componenteServidor
 INSERT INTO componenteServidor (idComponenteServidor, fkServidor, fkComponente)
@@ -172,27 +177,15 @@ VALUES
   (null, 2222, 102),
   (null, 2222, 103),
   (null, 2222, 104);
-select * from componenteServidor;
+-- select * from componenteServidor;
+
 -- Tabela registro
 INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor)
 VALUES
   (null, 20348034, '2023-08-01 10:00:00', 1),
   (null, 02475092, '2023-08-02 15:30:00', 2);
-  select * from registro;
+select * from registro;
 
-  create view tabelaRegistros as 
-  select registro.registro as 'Registro', registro.dtHora as 'MomentoRegistro', 
-  componente.nome as 'Componente', unidadeMedida.nomeMedida as 'Símbolo', 
-  componenteServidor.idComponenteServidor, servidor.idServidor as 'idServidor' from registro 
-  join componenteServidor on fkComponenteServidor = idComponenteServidor
-  join servidor on fkServidor = idServidor
-  join componente on fkComponente = idComponente
-  join unidadeMedida on fkUnidadeMedida = idUnidadeMedida 
-  -- where idComponenteServidor = 2
-  order by 2
-  limit 10000;
-  
-  select * from tabelaRegistros;
   
   select * from componenteServidor;
   
@@ -224,38 +217,74 @@ ORDER BY um.nomeMedida, c.nome;
 
 
 
--- CÓDIGO PARA CRIAÇÃO DA VIEW PARA VISUALIZAÇÃO DOS DADOS EM TABELA --------------------------------------------------------------------------------------------
-SET @sql = NULL;
+-- CÓDIGO DA CRIAÇÃO DA VIEW PARA VISUALIZAÇÃO DOS DADOS EM TABELA --------------------------------------------------------------------------------------------
+
+  create view tabelaRegistros as 
+  select registro.registro as 'Registro', registro.dtHora as 'MomentoRegistro', 
+  componente.nome as 'Componente', unidadeMedida.nomeMedida as 'Símbolo', 
+  componenteServidor.idComponenteServidor, servidor.idServidor as 'idServidor' from registro 
+  join componenteServidor on fkComponenteServidor = idComponenteServidor
+  join servidor on fkServidor = idServidor
+  join componente on fkComponente = idComponente
+  join unidadeMedida on fkUnidadeMedida = idUnidadeMedida 
+  -- where idComponenteServidor = 2
+  order by 2 and 3 and 4
+  limit 10000;
+  
+  select * from tabelaRegistros;
+
+  select MomentoRegistro, 
+  max(case when Componente = 'CPU' then Registro end) 'CPU',
+  max(case when Componente = 'Memoria' then Registro end) 'Memória',
+  max(case when Componente = 'MemoriaTotal' then Registro end) 'Memória Total',
+  max(case when Componente = 'MemoriaUsada' then Registro end) 'Memória Usada'
+  from tabelaRegistros
+  group by MomentoRegistro;
+  
+    select MomentoRegistro, Registro, Componente
+  from tabelaRegistros
+  group by MomentoRegistro, Registro, Componente
+  order by MomentoRegistro;
+  
+  select * from tabelaRegistros;
+
+SET @sql = NULL; -- Criando uma variável para armazenar o comando
 
 SELECT
   GROUP_CONCAT(DISTINCT
     CONCAT(
       'max(case when Componente = ''',
-      Componente,
+      Componente, -- aqui vem o nome que você setou para os componentes na view!
       ''' then Registro end) ',
-      Componente
+      Componente -- aqui vem o nome que você setou para os componentes na view!
     )
   )
 INTO @sql
 
 FROM
-  tabelaRegistros;
- 
+  tabelaRegistros; -- Aqui vem o nome da sua view!
+  
+-- max(case when Componente = 'Componente1' then Registro end) Componente1,
+-- max(case when Componente = 'Componente2' then Registro end) Componente2, .....
 select @sql;
-
 
 
 SET @sql = CONCAT('SELECT idServidor, MomentoRegistro, ', @sql, '
                  
 FROM tabelaRegistros
                    
-GROUP BY idServidor, MomentoRegistro');
+GROUP BY idServidor, MomentoRegistro'); -- Lembra de trocar as informações (idServidor, MomentoRegistro, tabelaRegistros) pelos nomes que você usou na view
 
 select @sql;
 
-PREPARE stmt FROM @sql;
+PREPARE stmt FROM @sql; -- Prepara um statement para executar o comando guardado na variável @sql
 
-EXECUTE stmt;
+EXECUTE stmt; -- Executa o statement
 
 DEALLOCATE PREPARE stmt;
+
+
+
+
+
 -- FIM DO CÓDIGO ------------------------------------------------------------------------------------------------------------------------------------------- 

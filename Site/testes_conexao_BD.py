@@ -118,7 +118,7 @@ while True:
                                                          database='streamoon',
                                                          user='root',
                                                          password='1234')
-
+                                                         
                      mySql_insert_query_cpu_percent = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(mediaCpus) + ", '" + str(agora) + "', 1);"
                      mySql_insert_query_memory = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(percentualMemoria) + ", '" + str(agora) + "', 2);"
                      mySql_insert_query_memory_used = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(memoryUsed) + ", '" + str(agora) + "', 3);"
@@ -141,9 +141,9 @@ while True:
 
 
     except mysql.connector.Error as error:
-                     print("Failed to insert record into Laptop table {}".format(error))
+        print("Failed to insert record into Laptop table {}".format(error))
 
-    finally:
-                     if connection.is_connected():
-                         connection.close()
-                         print("MySQL connection is closed")
+    # finally:
+    #     if connection.is_connected():
+    #         connection.close()
+    #         print("MySQL connection is closed")
