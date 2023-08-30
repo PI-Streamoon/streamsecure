@@ -1,6 +1,5 @@
 import mysql.connector
 import monitoring_server as ms
-import time
 
 
 loginAttempts = 5
@@ -15,9 +14,11 @@ def connectionDatabase():
         password = passDatabase,
         database = 'streamoon',
     )
+    # ms.captureServerData(connection)
+    ms.checkServerExists(connection)
+    connection.close()
     print("Connected database")
-    return connection
-
+  
   except Exception as e:
     global loginAttempts
     if loginAttempts > 1: 
@@ -27,9 +28,7 @@ def connectionDatabase():
       print(f"This is error: {e}\n")
       connectionDatabase()
     else:
+      connection.close()
       print('Seu chefe foi alertado')
 
-
-connection = connectionDatabase()
-ms.captureServerData(connection)
-connection.close()
+connectionDatabase()

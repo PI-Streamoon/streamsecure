@@ -9,7 +9,6 @@ CREATE TABLE IF NOT EXISTS empresa(
   localidade VARCHAR(45) NULL,
   PRIMARY KEY (idEmpresa));
   
-  select * from empresa;
 
 CREATE TABLE IF NOT EXISTS usuario (
   idUsuario INT NOT NULL,
@@ -31,7 +30,6 @@ CREATE TABLE IF NOT EXISTS usuario (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ;
-  select * from usuario;
 
 CREATE TABLE IF NOT EXISTS locais (
   idLocais INT NOT NULL,
@@ -44,10 +42,10 @@ CREATE TABLE IF NOT EXISTS locais (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ;
-select * from locais; 
 
 CREATE TABLE IF NOT EXISTS servidor (
   idServidor INT NOT NULL,
+  nomeServidor VARCHAR(80) NOT NULL,
   fkLocais INT NOT NULL,
   PRIMARY KEY (idServidor),
   CONSTRAINT `fk_Servidor_Locais1`
@@ -56,15 +54,12 @@ CREATE TABLE IF NOT EXISTS servidor (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
     ;
-    select * from servidor
-    join locais on fkLocais = idLocais;
 
 CREATE TABLE IF NOT EXISTS unidadeMedida (
   idUnidadeMedida INT NOT NULL,
   nomeMedida varchar(35) not null,
   PRIMARY KEY (`idUnidadeMedida`))
 ;
-select * from unidadeMedida;
 
 CREATE TABLE IF NOT EXISTS componente (
   idComponente INT NOT NULL,
@@ -75,9 +70,8 @@ CREATE TABLE IF NOT EXISTS componente (
     FOREIGN KEY (`fkUnidadeMedida`)
     REFERENCES unidadeMedida (`idUnidadeMedida`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-;
-select * from componente;
+    ON UPDATE NO ACTION
+);
 
 CREATE TABLE IF NOT EXISTS componenteServidor (
   `idComponenteServidor` INT NOT NULL,
@@ -135,10 +129,10 @@ VALUES
   (2, 2, '98765-432');
 
 -- Tabela servidor
-INSERT INTO servidor (idServidor, fkLocais)
+INSERT INTO servidor (idServidor, nomeServidor, fkLocais)
 VALUES
-  (1, 1),
-  (2, 2);
+  (1, 'Teste 1',1),
+  (2, 'Teste 2', 2);
 
 -- Tabela unidadeMedida
 INSERT INTO unidadeMedida (idUnidadeMedida, nomeMedida)

@@ -6,14 +6,21 @@ import psutil
 import platform
 
 
+def checkServerExists(connection):
+    cursor = connection.cursor()
+    sqlQuery = (f"select * from servidor where nomeServidor like '%{platform.node()}%'")
+    cursor.execute(sqlQuery)
+    print(cursor.fetchall())
+
+
 def captureServerData(connec):
 
     connection = mysql.connector.connect(
-                            host = "localhost",
-                            user = connec.user,
-                            password = connec._password,
-                            database = connec.database
-                        )
+        host = "localhost",
+        user = connec.user,
+        password = connec._password,
+        database = connec.database
+    )
 
     print("[+]" + "=" * 170 + "[+]")
     print(
@@ -21,7 +28,7 @@ def captureServerData(connec):
     #    ______     __                                                   ______                                                    
     #   /      \   |  \                                                 /      \                                                  
     #  |  $$$$$$\ _| $$_     ______    ______    ______   ______ ____  |  $$$$$$\  ______    _______  __    __   ______    ______  
-    #  | $$___\$$|   $$ \   /      \  /      \  |      \ |      \    \ | $$___\$$ /      \  /       \|  \  |  \ /      \  /      \
+    #  | $$___\$$|   $$ \   /      \  /      \  |      \ |      \    \ | $$___\$$ /      \  /       \|  \  |  \ /      \  /      \\
     #   \$$    \  \$$$$$$  |  $$$$$$\|  $$$$$$\  \$$$$$$\| $$$$$$\$$$$\ \$$    \ |  $$$$$$\|  $$$$$$$| $$  | $$|  $$$$$$\|  $$$$$$
     #   _\$$$$$$\  | $$ __ | $$   \$$| $$    $$ /      $$| $$ | $$ | $$ _\$$$$$$\| $$    $$| $$      | $$  | $$| $$   \$$| $$    $$
     #  |  \__| $$  | $$|  \| $$      | $$$$$$$$|  $$$$$$$| $$ | $$ | $$|  \__| $$| $$$$$$$$| $$_____ | $$__/ $$| $$      | $$$$$$$$
@@ -52,6 +59,7 @@ def captureServerData(connec):
 
     # Capturar os dados de CPU/RAM/DISK a cada 2segs
     while True:
+
         cpusPercent = psutil.cpu_percent(interval=1, percpu=True)  
         memory = (psutil.virtual_memory())                         
         percentualMemoria = memory.percent
