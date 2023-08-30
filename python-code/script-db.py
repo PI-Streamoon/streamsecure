@@ -14,10 +14,10 @@ def connectionDatabase():
         password = passDatabase,
         database = 'streamoon',
     )
+    print("Connected database")
     # ms.captureServerData(connection)
     ms.checkServerExists(connection)
     connection.close()
-    print("Connected database")
   
   except Exception as e:
     global loginAttempts

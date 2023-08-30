@@ -4,13 +4,32 @@ from datetime import date
 import time
 import psutil
 import platform
+# import random
+
 
 
 def checkServerExists(connection):
     cursor = connection.cursor()
-    sqlQuery = (f"select * from servidor where nomeServidor like '%{platform.node()}%'")
-    cursor.execute(sqlQuery)
-    print(cursor.fetchall())
+
+    try:
+        networkName = platform.node()
+        # if networkName == "":
+        #     networkName = "nameServer-not-found"
+        # else:
+        #     protocolRand = random.randint(1, 5000)
+        #     networkName += (f"&{round(protocolRand, 4)}")
+        sqlQuery = (f"select * from servidor where nomeServidor like '%{networkName}%'")
+        cursor.execute(sqlQuery)
+
+        if cursor.fetchone() == "":
+            print('Existe')
+        else:
+            print('Não existe')
+
+    except Exception as e:
+        print(f"This is error: {e}")
+        
+  
 
 
 def captureServerData(connec):
