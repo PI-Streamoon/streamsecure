@@ -7,12 +7,13 @@ import platform
 
 
 def captureServerData(connec):
+
     connection = mysql.connector.connect(
-            host = "localhost",
-            user = connec.user,
-            password = connec._password,
-            database = connec.database
-    )
+                            host = "localhost",
+                            user = connec.user,
+                            password = connec._password,
+                            database = connec.database
+                        )
 
     print("[+]" + "=" * 170 + "[+]")
     print(
@@ -33,7 +34,6 @@ def captureServerData(connec):
     print("[+]" + "=" * 170 + "[+]\n")
 
 
-    # Mostrando alguns dados do Sistema Operacional
     print(f"Network Name: {platform.node()}")
     print(f"Processor: {platform.processor()}")
     print(f"Operating System: {platform.system()}")
@@ -52,23 +52,17 @@ def captureServerData(connec):
 
     # Capturar os dados de CPU/RAM/DISK a cada 2segs
     while True:
-        # Captura dos dados através das libs
-        cpusPercent = psutil.cpu_percent(interval=1, percpu=True)  # Vetor que recebe os dados (em porcentagem) das CPUs que o computador possui
-        memory = (psutil.virtual_memory())                         # Variável que guarda uma lista de atributos da Memória.
+        cpusPercent = psutil.cpu_percent(interval=1, percpu=True)  
+        memory = (psutil.virtual_memory())                         
         percentualMemoria = memory.percent
 
-        memoryUsed = ((memory.used / 1024) / 1024) / 1000          # Variável que recebe a quantidade de memória que esta sendo usada, já convertida em GB
-        memoryTotal = ((memory.total / 1024) / 1024) / 1000        # Variável que recebe a quantidade total da memória, já convertida em GB
-        diskPercent = psutil.disk_usage("/")                       # Variável que recebe uma lista de atributos do Disco
+        memoryUsed = ((memory.used / 1024) / 1024) / 1000          
+        memoryTotal = ((memory.total / 1024) / 1024) / 1000        
+        diskPercent = psutil.disk_usage("/")                      
 
 
-        # Usando a lib TIME, a função me retorna o horário da máquina
-        # no formato que eu escolhi dentro do parâmetro -> time.strftime(formato, outra função que retorna o horário)
-        # %d = dia | %m = mês | %Y = ano <> %H = hora | %M = minutos
         mensagem = time.strftime(f"   %d/%m/%Y   |   %H:%M   |", time.localtime())
 
-        # Um FOR que vai fragmentar o vetor de CPUS listado lá em cima
-        # Colocando os dados separados na mensagem do CONSOLE
         somaCpus = 0
         mediaCpus = 0
         for i in range(len(cpusPercent)):
@@ -86,8 +80,9 @@ def captureServerData(connec):
 
         agora = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         try:
+                       
                         
-                        print(connection.user)
+                        print(connection)
                       
                         mySql_insert_query_cpu_percent = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(mediaCpus) + ", '" + str(agora) + "', 1);"
                         mySql_insert_query_memory = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(percentualMemoria) + ", '" + str(agora) + "', 2);"
@@ -113,7 +108,7 @@ def captureServerData(connec):
 
         finally:
                         if connection.is_connected():
-                            connection.close()
-                            # print("MySQL connection is closed")
+                            # connection.close()
+                            print("MySQL connection is closed")
 
         time.sleep(2)
