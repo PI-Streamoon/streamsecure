@@ -1,25 +1,35 @@
-var labelsGeral;
-var dadosGeral;
+var labelsGeral = [];
+var dadosGeral = [];
 var dashboardGeral;
 
 (function ($) {
     "use strict";
 
-    setInterval(atualizarGrafico, 5000)
+    // setInterval(atualizarGrafico, 5000)
 
     function atualizarGrafico() {
-        fetch(`/medidas/`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/geral`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
     
-                    for (i = 0; i < resposta.length; i++) {
+                    for (var i = 0; i < resposta.length; i++) {
                         var registro = resposta[i];
-                        dinheiros.push(registro.pontos);
-                        jogadores.push(registro.nome);
+                        labelsGeral.push(registro.dtHora);
+                        dadosGeral.datasets[0].data.push(registro.cpu);
+                        dadosGeral.datasets[1].data.push(registro.memoria);
+                        dadosGeral.datasets[2].data.push(registro.disco);
                     }
-    
+
+                    if (labelsGeral.length > 1) {
+                        labelsGeral.shift()
+                        dadosGeral.datasets[0].data.shift()
+                        dadosGeral.datasets[1].data.shift()
+                        dadosGeral.datasets[2].data.shift()
+                    }
+
+                    dashboardGeral.update()
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -109,7 +119,7 @@ var dashboardGeral;
         label: "Disco",
         data: [],
         backgroundColor: "#d63384"
-    }]
+    }],
     }
 
     // Dashboard Visão Geral
@@ -117,8 +127,13 @@ var dashboardGeral;
         type: "bar",
         data: dadosGeral,
         options: {
+            scales: {
+                y: {
+                    min: 0,
+                    max: 100
+                }
+            },
             responsive: true
-
         }
     });
 

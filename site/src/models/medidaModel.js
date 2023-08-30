@@ -70,9 +70,11 @@ function geral() {
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucao = `
-        SELECT DISTINCT nome, pontos FROM pontuacao
-        JOIN usuario ON fkUsuario = idUsuario
-        ORDER BY pontos DESC LIMIT 3;
+        SELECT dtHora,
+        max(CASE WHEN fkComponenteServidor = 1 THEN registro END) AS 'cpu',
+        max(CASE WHEN fkComponenteServidor = 2 THEN registro END) AS 'memoria',
+        max(CASE WHEN fkComponenteServidor = 5 THEN registro END) AS 'disco'
+        FROM registro GROUP BY dtHora ORDER BY dtHora;
         `;
     } else {
         return
@@ -85,5 +87,6 @@ function geral() {
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    geral
 }
