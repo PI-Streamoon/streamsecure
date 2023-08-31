@@ -16,7 +16,7 @@ def connectionDatabase():
     )
     print("Connected database")
     # ms.captureServerData(connection)
-    ms.checkServerExists(connection)
+    # ms.checkServerExists(connection)
     connection.close()
   
   except Exception as e:
@@ -31,4 +31,24 @@ def connectionDatabase():
       connection.close()
       print('Seu chefe foi alertado')
 
-connectionDatabase()
+
+def validateCompanyLogin():
+  connection = mysql.connector.connect(
+        host = 'localhost',
+        user = 'root',
+        password = '@eduufreire',
+        database = 'streamoon',
+    )
+  cursor = connection.cursor()
+
+  codLogin = str(input('Informe o CÓDIGO de login(Empresa):'))
+  passLogin = str(input('Informe a SENHA de login(Empresa):'))
+
+  if codLogin != "" and passLogin != "":
+    sqlQuery = (f"select idEmpresa from empresa where codLogin = {codLogin} and passLogin = {passLogin};")
+    cursor.execute(sqlQuery)
+    print(cursor.fetchone())
+    
+
+validateCompanyLogin()
+# connectionDatabase()
