@@ -5,7 +5,7 @@ var dashboardGeral;
 (function ($) {
     "use strict";
 
-    // setInterval(atualizarGrafico, 5000)
+    setInterval(atualizarGrafico, 5000)
 
     function atualizarGrafico() {
         fetch(`/medidas/geral`, { cache: 'no-store' }).then(function (response) {
@@ -22,7 +22,7 @@ var dashboardGeral;
                         dadosGeral.datasets[2].data.push(registro.disco);
                     }
 
-                    if (labelsGeral.length > 1) {
+                    if (labelsGeral.length > 15) {
                         labelsGeral.shift()
                         dadosGeral.datasets[0].data.shift()
                         dadosGeral.datasets[1].data.shift()

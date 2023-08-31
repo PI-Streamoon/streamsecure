@@ -74,7 +74,7 @@ function geral() {
         max(CASE WHEN fkComponenteServidor = 1 THEN registro END) AS 'cpu',
         max(CASE WHEN fkComponenteServidor = 2 THEN registro END) AS 'memoria',
         max(CASE WHEN fkComponenteServidor = 5 THEN registro END) AS 'disco'
-        FROM registro GROUP BY dtHora ORDER BY dtHora;
+        FROM registro GROUP BY dtHora ORDER BY dtHora DESC LIMIT 1;
         `;
     } else {
         return
