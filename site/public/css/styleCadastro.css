@@ -1,175 +1,321 @@
-*{
-    font-family: Amiko;
-}
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Amiko&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 body {
-    margin: 0;
-    background-color: #141414;
+  margin: 0;
+  background-color: #141414;
 }
 
 /* Começo cadastro */
 
 #backgroundCadastro {
-    background-color: #141414;
-    height: 130vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5%;
+  background-color: #141414;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #cadastro {
-    display: flex;
-    justify-content: center;
-    height: 130vh;
-    
-    position: relative;
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  position: relative;
 }
 
 #cadastro #container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #191919;
+  height: 90vh;
+  width: 45vw;
+  border-bottom-left-radius: 2vh;
+  border-top-left-radius: 2vh;
+  border-top: #1d1c1c solid 3px;
+  border-bottom: #1d1c1c solid 3px;
+  border-left: #1d1c1c solid 3px;
+  box-sizing: border-box;
+}
+
+#cadastro #astronautaImg {
+  object-fit: cover;
+  height: 90vh;
+  width: 35vw;
+  border-top-right-radius: 2vh;
+  border-bottom-right-radius: 2vh;
+}
+
+#cadastro #imagemLogo {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 3vh;
+  margin-bottom: 2vh;
+}
+
+#cadastro #logo {
+  margin-left: 1.5vw;
+  background-size: cover;
+  height: 6vh;
+}
+
+#cadastro h1 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 4vh;
+  font-family: "Amiko", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#cadastro #textUnderline {
+  background-color: #a32da3;
+  width: 65px;
+  height: 5px;
+  border-radius: 20px;
+  margin-top: 0;
+}
+
+#container .container-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80%;
+}
+
+.container-inputs .part-input {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 30%;
+}
+
+.part-input .inputs {
+  width: auto;
+  height: 100%;
+}
+
+.container-inputs .part-input .inputs input {
+  border-bottom: #141414 solid 2px;
+  border-bottom: #141414 solid 2px;
+  width: 35vh;
+  height: 5vh;
+  background-color: #1d1c1c;
+  color: #ffffff;
+  border-top: #1d1c1c;
+  border-left: #1d1c1c;
+  border-right: #1d1c1c;
+  margin-top: 1vh;
+  outline: none;
+  transition: 0.3s;
+  padding-left: 1vh;
+}
+
+#cadastro input:focus {
+  border-bottom: #6248ae solid 2px;
+}
+
+#cadastro .inputs p {
+  margin: 0;
+  color: #ffffff;
+  margin-bottom: 0.1vh;
+  margin-top: 5vh;
+  font-size: 2.2vh;
+  font-family: AbeeZee;
+}
+
+#cadastro button {
+  background-color: #6248ae;
+  color: #ffffff;
+  border-radius: 5px;
+  height: 7vh;
+  width: 35vh;
+  border: none;
+  transition: 0.3s;
+}
+
+#cadastro button:hover {
+  cursor: pointer;
+  background-color: #6f5bad;
+}
+
+#cadastro p {
+  color: #ffffff;
+  margin-top: 3vh;
+  font-family: AbeeZee;
+  font-size: 2vh;
+}
+
+#cadastro a {
+  color: #ffffff;
+  text-decoration-color: #6248ae;
+  font-family: AbeeZee;
+  font-size: 2vh;
+}
+/* Fim cadastro */
+
+/* == ÍNICIO MOBILE CADASTRO == */
+@media (max-width: 767px) {
+  #backgroundCadastro {
+    width: 100%;
+    background-color: #141414;
+    height: 140vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    height: 95%;
+    width: 95%;
+    position: relative;
+  }
+
+  #cadastro #container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     background-color: #191919;
-    height: 130vh;
-    width: 35vw;
-    border-bottom-left-radius: 2vh;
-    border-top-left-radius: 2vh;
-    border-top: #1D1C1C solid 3px;
-    border-bottom: #1D1C1C solid 3px;
-    border-left: #1D1C1C solid 3px;
+    border-radius: 0 0 2vh 2vh;
+    border: #1d1c1c solid 0.8vh;
+    height: fit-content;
+    width: 90%;
     box-sizing: border-box;
-}
+  }
 
-#cadastro #astronautaImg {
+  #cadastro #astronautaImg {
     object-fit: cover;
-    height: 130vh;
-    width: 35vw;
-    border-top-right-radius: 2vh;
-    border-bottom-right-radius: 2vh;
-}
+    height: 10%;
+    width: 90%;
+    border-radius: 2vh 2vh 0 0;
+  }
 
-#cadastro #imagemLogo {
+  #cadastro #imagemLogo {
     display: flex;
     justify-content: flex-start;
     width: 100%;
-    margin-top: 3vh;
-    margin-bottom: 7vh;
-}
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
 
-#cadastro #logo {
-    margin-left: 1.5vw;
+  #cadastro #logo {
+    margin-left: 1vw;
     background-size: cover;
-    height: 8vh;
-}
+    height: 4vh;
+  }
 
-#cadastro h1 {
+  #cadastro h1 {
     color: #FFFFFF;
     margin: 0;
-    font-size: 20px;
-}
+    font-size: 3vh;
+    font-family: 'Amiko', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
 
-#cadastro #textUnderline {
+  #cadastro #textUnderline {
     background-color: #A32DA3;
-    width: 65px;
-    height: 5px;
+    width: 40px;
+    height: 4px;
     border-radius: 20px;
     margin-top: 0;
-}
+    margin-bottom: 2vh;
+  }
 
-#cadastro input {
-    border-bottom: #6248AE solid 2px;
-    width: 20vw;
-    background-color: #1D1C1C;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    color: #FFFFFF;
-    border-top: #1D1C1C;
-    border-left: #1D1C1C;
-    border-right: #1D1C1C;
-    margin-top: 1.5vh;
-}
+  #container .container-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+  }
 
-#cadastro .inputs {
+  .container-inputs .part-input {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 40%;
+  }
 
-}
+  
+  .container-inputs .part-input .inputs{
+    margin: 2vh 0 ;
+  }
 
-#cadastro .inputs p {
+  .container-inputs .part-input .inputs input {
+    border-bottom: #141414 solid 2px;
+    border-bottom: #141414 solid 2px;
+    width: 35vh;
+    height: 5vh;
+    background-color: #1d1c1c;
+    color: #ffffff;
+    border-top: #1d1c1c;
+    border-left: #1d1c1c;
+    border-right: #1d1c1c;
+    outline: none;
+    transition: 0.3s;
+    padding-left: 1vh;
+  }
+
+  #cadastro input:focus {
+    border-bottom: #6248ae solid 2px;
+  }
+
+  #cadastro .inputs p {
     margin: 0;
-    color: #FFFFFF;
-    margin-bottom: 0.1vh;
-    margin-top: 5.5vh;
-}
+    color: #ffffff;
+    font-size: 2.2vh;
+    font-family: AbeeZee;
+  }
 
-#cadastro button {
-    background-color: #6248AE;
-    color: #FFFFFF;
+  #cadastro button {
+    background-color: #6248ae;
+    color: #ffffff;
     border-radius: 5px;
-    height: 4vh;
-    width: 9vw;
-    /* border: #000000 solid 1px; */
+    height: 5vh;
+    width: 25vh;
     border: none;
-    margin-top: 5.5vh;
-}
+    transition: 0.3s;
+    margin: 2vh 0;
+  }
 
-#cadastro button:hover {
+  #cadastro button:hover {
     cursor: pointer;
-}
+    background-color: #6f5bad;
+  }
 
-#cadastro p {
-    color: #FFFFFF;
-    margin-top: 4.8vh;
-}
+  #cadastro p {
+    color: #ffffff;
+    margin-top: 3vh;
+    font-family: AbeeZee;
+    font-size: 2vh;
+  }
 
-#cadastro a {
-    color: #FFFFFF;
-    text-decoration-color: #6248AE;
-}
-/* Fim cadastro */
+  #cadastro .centralizar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-/* == ÍNICIO MOBILE CADASTRO == */
-@media(max-width: 767px){
-    #cadastro{
-        display: flex;
-        justify-content: center;
-        width: 85vw;
-        flex-direction: column-reverse;
-        align-items: center;
-        text-align: justify;
-    }
-    #cadastro #imagemLogo{
-        margin-top: 1vh;
-        margin-bottom: 2vh;
-    }
-    #imagemLogo #logo{
-        height: 8vh; 
-    }
-    #cadastro .inputs{
-        width: 60%;
-    }
-    #cadastro .inputs input{
-        width: 100%;
-    }
-    #cadastro button{
-        width: max-content;
-        padding: 1rem;
-        height: max-content;
-    }
-    #cadastro #container{
-        width: 90%;
-        border-radius: 0%;
-    }
-    #cadastro #astronautaImg {
-        width: 90%;
-        border-top-left-radius: 2vh;
-        border-top-right-radius: 2vh;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        height: 10vh;
-    }
-    #cadastro p{
-        font-size: 92%;
-    }
+  #cadastro a {
+    color: #ffffff;
+    text-decoration-color: #6248ae;
+    font-family: AbeeZee;
+    font-size: 2vh;
+  }
 }
 
 /* == FIM MOBILE CADASTRO == */

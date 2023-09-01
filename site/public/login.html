@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Streamoon</title>
     <link rel="stylesheet" href="./css/login.css">
+    <link
+      rel="shortcut icon"
+      href="features/img/logo.ico"
+      type="image/x-icon"
+    />
 </head>
 
 <body>
@@ -13,7 +18,7 @@
         <div id="cadastro">
             <div id="container">
                 <div id="imagemLogo">
-                    <img id="logo" src="./features/img/logo.png" alt="">
+                    <a href="./index.html"><img id="logo" src="./features/img/logo.png" alt=""></a>
                 </div>
                 <div id="title">
                     <h1>CONECTE-SE</h1>
@@ -21,14 +26,14 @@
                 </div>
                 <div class="inputs">
                     <p>Email</p>
-                    <input type="text" placeholder="myemail@example.com">
+                    <input type="text" id="emailUser">
                 </div>
                 <div class="inputs">
                     <p>Senha</p>
-                    <input type="password" placeholder="*****">
+                    <input type="text" id="passUser">
                 </div>
-                <button>Entrar</button>
-                <p>Não tem Cadastro? &nbsp;&nbsp; <a href="">Faça seu Cadastro</a></p>
+                <button onclick="verify()">Entrar</button>
+                <p class="centralizar">Não tem Cadastro?    <a href="./cadastro.html">Faça seu Cadastro</a></p>
             </div>
             <img id="astronautaImg" src="./features/img/imagemLogin.png" alt="">
         </div>
@@ -36,3 +41,72 @@
 </body>
 
 </html>
+<script>
+
+    function verify(){
+       var email = emailUser.value;
+       var senha = passUser.value;
+        var erro = false;
+
+        if(email.startsWith('@gmail.com') || email.startsWith('@outlook.com') || email.startsWith('@hotmail.com') || email.startsWith('@sptech.school') || email.length < 10){
+            alert("Por favor, insira um email válido")
+            erro = true;
+        }
+        else if(senha.length < 7){
+            alert("Insira um senha válida");
+            erro = true;
+        }
+
+        else if(!erro){
+            login_auth();
+        }
+
+      
+            function login_auth(){
+                fetch("/usuarios/auth", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        emailServer: email,
+                        senhaServer: senha
+                    })
+                }).then(function (resposta) {
+                    console.log("Resposta: " + resposta)
+                    if (resposta.ok) {
+                        console.log(resposta);
+        
+                        resposta.json().then(json => {
+                            console.log(json);
+        
+                            sessionStorage.CPF_USUARIO = json.cpf;
+                            sessionStorage.EMAIL_USUARIO = json.email;
+                            sessionStorage.NOME_USUARIO = json.nome;
+                            sessionStorage.ID_USUARIO = json.idUsuario;
+                            sessionStorage.FK_ADMIN = json.fkAdmin;
+                            sessionStorage.FK_EMPRESA = json.fkEmpresa;
+        
+                            window.location = '/dashboard';
+        
+                        });
+        
+                    } else {
+        
+                        console.log("Houve um erro ao tentar realizar o login!");
+        
+                        resposta.text().then(texto => {
+                            console.error(texto);
+                            alert(texto);
+                        });
+                    }
+        
+                }).catch(function (erro) {
+                    console.log(erro);
+                })
+            }
+        
+
+        }
+    
+</script>
