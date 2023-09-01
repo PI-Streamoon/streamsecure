@@ -2125,12 +2125,12 @@ progress {
     --bs-table-bg: #f8d7da;
     --bs-table-striped-bg: #eccccf;
     --bs-table-striped-color: #000;
-    --bs-table-active-bg: ;
+    --bs-table-active-bg: #eccccf;
     --bs-table-active-color: #000;
     --bs-table-hover-bg: #e5c7ca;
     --bs-table-hover-color: #000;
     color: #000;
-    border-color:
+    border-color: #eccccf;
 }
 
 .table-light {
@@ -2494,7 +2494,7 @@ textarea.form-control-lg {
     background-size: contain;
     border: 1px solid rgba(0, 0, 0, 0.25);
     appearance: none;
-    color-adjust: exact
+    print-color-adjust: exact;
 }
 
 .form-check-input[type="checkbox"] {
@@ -5782,7 +5782,7 @@ fieldset:disabled .btn {
 .list-group-item-danger.list-group-item-action:hover,
 .list-group-item-danger.list-group-item-action:focus {
     color: #842029;
-    background-color:
+    background-color:#842029;
 }
 
 .list-group-item-danger.list-group-item-action.active {
