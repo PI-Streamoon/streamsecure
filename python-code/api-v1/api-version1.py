@@ -4,33 +4,33 @@ from datetime import date
 import time
 import psutil
 import platform
-
+import os
 import pandas as pd
 
 
-print("[+]" + "=" * 170 + "[+]")
-print(
-    """\u001b[35m
-#    ______     __                                                   ______                                                    
-#   /      \   |  \                                                 /      \                                                   
-#  |  $$$$$$\ _| $$_     ______    ______    ______   ______ ____  |  $$$$$$\  ______    _______  __    __   ______    ______  
-#  | $$___\$$|   $$ \   /      \  /      \  |      \ |      \    \ | $$___\$$ /      \  /       \|  \  |  \ /      \  /      \ 
-#   \$$    \  \$$$$$$  |  $$$$$$\|  $$$$$$\  \$$$$$$\| $$$$$$\$$$$\ \$$    \ |  $$$$$$\|  $$$$$$$| $$  | $$|  $$$$$$\|  $$$$$$
-#   _\$$$$$$\  | $$ __ | $$   \$$| $$    $$ /      $$| $$ | $$ | $$ _\$$$$$$\| $$    $$| $$      | $$  | $$| $$   \$$| $$    $$
-#  |  \__| $$  | $$|  \| $$      | $$$$$$$$|  $$$$$$$| $$ | $$ | $$|  \__| $$| $$$$$$$$| $$_____ | $$__/ $$| $$      | $$$$$$$$
-#   \$$    $$   \$$  $$| $$       \$$     \ \$$    $$| $$ | $$ | $$ \$$    $$ \$$     \ \$$     \ \$$    $$| $$       \$$     
-#    \$$$$$$     \$$$$  \$$        \$$$$$$$  \$$$$$$$ \$$  \$$  \$$  \$$$$$$   \$$$$$$$  \$$$$$$$  \$$$$$$  \$$        \$$$$$$$
-#  
-#                                                   Developed by Streamoon\u001b[0m
-"""
-)
-print("[+]" + "=" * 170 + "[+]\n")
+def showText():
+    print("[+]" + "=" * 150 + "[+]")
+    print(
+        """\u001b[35m
+    #    ______     __                                                   ______                                                    
+    #   /      \   |  \                                                 /      \                                                   
+    #  |  $$$$$$\ _| $$_     ______    ______    ______   ______ ____  |  $$$$$$\  ______    _______  __    __   ______    ______  
+    #  | $$___\$$|   $$ \   /      \  /      \  |      \ |      \    \ | $$___\$$ /      \  /       \|  \  |  \ /      \  /      \ 
+    #   \$$    \  \$$$$$$  |  $$$$$$\|  $$$$$$\  \$$$$$$\| $$$$$$\$$$$\ \$$    \ |  $$$$$$\|  $$$$$$$| $$  | $$|  $$$$$$\|  $$$$$$
+    #   _\$$$$$$\  | $$ __ | $$   \$$| $$    $$ /      $$| $$ | $$ | $$ _\$$$$$$\| $$    $$| $$      | $$  | $$| $$   \$$| $$    $$
+    #  |  \__| $$  | $$|  \| $$      | $$$$$$$$|  $$$$$$$| $$ | $$ | $$|  \__| $$| $$$$$$$$| $$_____ | $$__/ $$| $$      | $$$$$$$$
+    #   \$$    $$   \$$  $$| $$       \$$     \ \$$    $$| $$ | $$ | $$ \$$    $$ \$$     \ \$$     \ \$$    $$| $$       \$$     
+    #    \$$$$$$     \$$$$  \$$        \$$$$$$$  \$$$$$$$ \$$  \$$  \$$  \$$$$$$   \$$$$$$$  \$$$$$$$  \$$$$$$  \$$        \$$$$$$$
+    #  
+    #                                                   Developed by Streamoon\u001b[0m
+    """
+    )
+    print("[+]" + "=" * 150 + "[+]\n")
 
-
-# Mostrando alguns dados do Sistema Operacional
-print(f"Network Name: {platform.node()}")
-print(f"Processor: {platform.processor()}")
-print(f"Operating System: {platform.system()}")
+    print(f"Network Name: {platform.node()}")
+    print(f"Processor: {platform.processor()}")
+    print(f"Operating System: {platform.system()}")
+    print("\n[+]" + "=" * 150 + "[+]\n")
 
 
 consoleData = {
@@ -44,58 +44,36 @@ for i in range(cpuQuantity):
     cpuName = (f"cpu{i+1}")
     consoleData[cpuName] = []
 
-# Construindo o cabeçalho que indica o tipo de dado que cada coluna exibe
-# headerConsole = "   Date      |      Hour      |"
-# cpuQuantity = psutil.cpu_count(logical=True)
-# for i in range(cpuQuantity):
-#     headerConsole += "      "
-#     headerConsole += f"\u001b[34;1mCPU{i+1}\u001b[0m" + "      |"
-# headerConsole += "    \u001b[35;1mMemory (%)\u001b[0m   |  Memory Used(GB)  |  Memory Total(GB)  |      Diks"
-# print("\n[+]" + "=" * 170 + "[+]\n")
-# print(headerConsole + "\n")
-
 
 # Capturar os dados de CPU/RAM/DISK a cada 2segs
 while True:
 
-    # Captura dos dados através das libs
-    cpusPercent = psutil.cpu_percent(interval=1, percpu=True)  # Vetor que recebe os dados (em porcentagem) das CPUs que o computador possui
-    memory = (psutil.virtual_memory())                         # Variável que guarda uma lista de atributos da Memória.
-    percentualMemoria = memory.percent
+    cpusPercent = psutil.cpu_percent(interval=1, percpu=True)
 
-    memoryUsed = ((memory.used / 1024) / 1024) / 1000          # Variável que recebe a quantidade de memória que esta sendo usada, já convertida em GB
-    memoryTotal = ((memory.total / 1024) / 1024) / 1000        # Variável que recebe a quantidade total da memória, já convertida em GB
-    diskPercent = psutil.disk_usage("/")                       # Variável que recebe uma lista de atributos do Disco
+    memory = (psutil.virtual_memory())
+    memPercent = memory.percent
+    memoryUsed = (memory.used / 1024 / 1024 / 1000)     
+    memoryTotal = (memory.total / 1024 / 1024 / 1000)
+
+    diskPartitions = psutil.disk_partitions()
+    diskPercent = psutil.disk_usage(diskPartitions[0].mountpoint)                      
 
 
-    # Usando a lib TIME, a função me retorna o horário da máquina
-    # no formato que eu escolhi dentro do parâmetro -> time.strftime(formato, outra função que retorna o horário)
-    # %d = dia | %m = mês | %Y = ano <> %H = hora | %M = minutos
-    mensagem = time.strftime(f"   %d/%m/%Y   |   %H:%M   |", time.localtime())
-
-    # Um FOR que vai fragmentar o vetor de CPUS listado lá em cima
-    # Colocando os dados separados na mensagem do CONSOLE
     somaCpus = 0
     mediaCpus = 0
-    for i in range(len(cpusPercent)):
+    for i in range():
         somaCpus += cpusPercent[i]
         cpuName1 = (f"cpu{i+1}") 
         consoleData[cpuName1].append(cpusPercent[i])
-        mensagem += ("      " + f"\u001b[34;1m{cpusPercent[i]}%\u001b[0m" + "      |")  # Percentuais das CPUs
     mediaCpus = somaCpus / len(cpusPercent)
 
-    # Construindo a mensagem que vai ser exibida no console
-    mensagem += ("       " + f"\u001b[35;1m{memory.percent}%\u001b[0m" + "       |")  # Percentual da Memoria
-    mensagem += ("       " + f"{round(memoryUsed, 1)}" + "       |")                  # Qtde de memória usada
-    mensagem += ("       " + f"{round(memoryTotal, 1)}" + "       |")                 # Qtde total da memória
-    mensagem += ("       " + f"{diskPercent.percent}%")                               # Percentual do Disco
 
-    # print(mensagem)
-
-    # aleatorio = random.randint(1, 100)
     agora = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    consoleData["memoryPercent"].append(percentualMemoria)
+
+    # os.system('clear') # limpa o console antes de exibir
+    showText()
+    consoleData["memoryPercent"].append(memPercent)
     consoleData["memoryUsed"].append(memoryUsed)
     consoleData["memoryTotal"].append(memoryTotal)
     consoleData["disk"].append(diskPercent.percent)
@@ -103,7 +81,7 @@ while True:
     teste = consoleData.keys()
     print(f"\033[K{pd.DataFrame(data=consoleData, columns=teste)}", end="\r")
 
-
+    
 
 
     # try:
@@ -142,3 +120,4 @@ while True:
     #                      # print("MySQL connection is closed")
 
     time.sleep(2)
+
