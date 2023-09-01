@@ -677,80 +677,8 @@
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
+    <script src="js/dashboardManutencao.js"></script>
     <script src="js/main.js"></script>
 </body>
 
 </html>
-
-<script>
-    myChartGlobal = new Chart(
-            document.getElementById(`dashboardCpu`),
-            config
-        );
-
-        function plotarGrafico(idRegistro, registro) {
-            carregarNomes();
-            // grafico cpu
-            //RESET DO GRÁFICO
-            myChartGlobal.data = {
-                labels: [],
-                datasets: [{
-                    label: 'fluxo',
-                    data: [],
-                    fill: false,
-                    borderColor: '#FFFFFF',
-                    backgroundColor: '#00ff43',
-                    tension: 0.1
-
-                }]
-            };
-            myChartGlobal.update();
-
-            for (i = 0; i < resposta.length; i++) {
-                var registro = resposta[i];
-                myChartGlobal.data.labels.push(registro.horario + 'H')
-                myChartGlobal.data.datasets[0].data.push(registro.soma);
-            }
-            
-            myChartGlobal.update();
-
-            // grafico geral
-
-           /*  let labels2 = [];
-            let dados2 = {
-                labels2: labels2,
-                datasets: [{
-                    label: 'fluxo',
-                    data: [],
-                    fill: false,
-                    borderColor: '#FFFFFF',
-                    backgroundColor: '#00ff43',
-                    tension: 0.1
-
-                }]
-            };
-
-            const config2 = {
-                type: 'bar',
-                data: dados2,
-                options: {
-                    animation: false,
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            };
-            let myChart2 = new Chart(
-                document.getElementById(`chave2`),
-                config2
-            );
- */
-            alert('cheguei aqui');
-            /* setTimeout(() => atualizarGraficoCpu(fkAmbiente), 2000); */
-        }
-
-</script>

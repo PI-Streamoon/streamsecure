@@ -1,3 +1,4 @@
+-- Active: 1693573629420@@127.0.0.1@3306@dw
 CREATE database streamoon;
 USE streamoon;
 --drop database streamoon;

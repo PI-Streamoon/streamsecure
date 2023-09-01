@@ -161,8 +161,8 @@ VALUES
 -- Tabela registro
 INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor, fkServidor, fkComponente, fkUnidadeMedida)
 VALUES
-  (1000, 20348034, '2023-08-01 10:00:00', 100, 1, 7, 1),
-  (1001, 02475092, '2023-08-02 15:30:00', 101, 2, 10, 2);
+  (1000, 20348034, '2023-09-01 10:00:00', 100, 1, 7, 1),
+  (1001, 02475092, '2023-09-01 15:30:00', 101, 2, 10, 2);
 
 
 select servidor.idServidor, registro, componente.nome from registro
