@@ -61,7 +61,7 @@ while True:
 
     somaCpus = 0
     mediaCpus = 0
-    for i in range():
+    for i in range(psutil.cpu_count()):
         somaCpus += cpusPercent[i]
         cpuName1 = (f"cpu{i+1}") 
         consoleData[cpuName1].append(cpusPercent[i])
@@ -78,11 +78,15 @@ while True:
     consoleData["memoryTotal"].append(memoryTotal)
     consoleData["disk"].append(diskPercent.percent)
 
-    teste = consoleData.keys()
-    print(f"\033[K{pd.DataFrame(data=consoleData, columns=teste)}", end="\r")
+    colunas = []
+    for chave in consoleData.keys():
+        colunas.append(f"\u001b[32m{chave.upper()}\u001b[31m")
+    
+    print(colunas)
+
+    # print(f"\033[K{pd.DataFrame(data=consoleData, columns=teste)}", end="\r")
 
     
-
 
     # try:
     #                  connection = mysql.connector.connect(host='localhost',
