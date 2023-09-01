@@ -38,6 +38,12 @@
     flex-direction: row;
 }
 
+<<<<<<< HEAD
+=======
+.conteudoTexto {
+}
+
+>>>>>>> c0463e657239f02b1d266b3cb0aef584b0fe4f77
 .conteudoTexto h3 {
     text-align: center;
     margin-top: 5%;
@@ -61,8 +67,11 @@
 
 ::-webkit-scrollbar-thumb:hover {
     background: #aa8eff;
+<<<<<<< HEAD
 }
 
 .invisivel {
     display: none !important;
+=======
+>>>>>>> c0463e657239f02b1d266b3cb0aef584b0fe4f77
 }
