@@ -55,15 +55,13 @@ var dashboardCpuPorcentagem;
                     for (var i = 0; i < resposta.length; i++) {
                         var registro = resposta[i];
                         labelsCpuPorcentagem.push(registro.dtHora);
-                        dadosCpuPorcentagem.datasets[0].data.push(registro.cpu);
+                        dadosCpuPorcentagem.datasets[0].data.push(registro.cpuPorcentagem);
                     }
-/* 
-                    if (labelsGeral.length > 15) {
-                        labelsGeral.shift()
-                        dadosGeral.datasets[0].data.shift()
-                        dadosGeral.datasets[1].data.shift()
-                        dadosGeral.datasets[2].data.shift()
-                    } */
+
+                    if (labelsCpuPorcentagem.length > 10) {
+                        labelsCpuPorcentagem.shift()
+                        dadosCpuPorcentagem.datasets[0].data.shift()
+                    } 
 
                     dashboardCpuPorcentagem.update()
                 });
