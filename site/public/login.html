@@ -52,10 +52,10 @@
             alert("Por favor, insira um email válido")
             erro = true;
         }
-        else if(senha.length < 7){
-            alert("Insira um senha válida");
-            erro = true;
-        }
+        // else if(senha.length < 7){
+        //     alert("Insira um senha válida");
+        //     erro = true;
+        // }
 
         else if(!erro){
             login_auth();
@@ -87,7 +87,7 @@
                             sessionStorage.FK_ADMIN = json.fkAdmin;
                             sessionStorage.FK_EMPRESA = json.fkEmpresa;
         
-                            window.location = '/dashboard';
+                            window.location = 'dashboard/dashboardManutencao.html';
         
                         });
         

@@ -287,3 +287,46 @@
     background: var(--dark);
     border-color: var(--primary);
 }
+
+#kpis{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 30%;
+}
+#analytic{
+    padding: 3%;
+    height: fit-content;
+}
+#kpi{
+    background-color: #141414;
+    width: 25%;
+    height: 100%;
+    border-radius: 15px;
+}
+#alertas{
+    width: 100%;
+    height: 60%;
+    justify-content: center;
+}
+#alerta-container{
+    width: 92%;
+    margin: 4%;
+    height: fit-content;
+    background-color: #141414;
+    border-radius: 15px;
+}
+#analytic-container{
+    height: max-content;
+}
+#alerta{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 2%;
+}
+#texto-alerta{
+    padding-left: 2%;
+    text-align: start;
+}
