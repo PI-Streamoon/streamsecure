@@ -4,7 +4,7 @@ var router = express.Router();
 var medidaController = require("../controllers/medidaController");
 
 router.get("/ultimas", function (req, res) {
-    medidaController.cpuPorcentagem(req, res);
+    medidaController.plotarGrafico(req, res);
 })
 
 router.get("/geral", function (req, res) {

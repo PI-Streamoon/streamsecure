@@ -54,20 +54,18 @@ var dashboardCpuPorcentagem;
     
                     for (var i = 0; i < resposta.length; i++) {
                         var registro = resposta[i];
-                        labelsGeral.push(registro.dtHora);
-                        dadosGeral.datasets[0].data.push(registro.cpu);
-                        dadosGeral.datasets[1].data.push(registro.memoria);
-                        dadosGeral.datasets[2].data.push(registro.disco);
+                        labelsCpuPorcentagem.push(registro.dtHora);
+                        dadosCpuPorcentagem.datasets[0].data.push(registro.cpu);
                     }
-
+/* 
                     if (labelsGeral.length > 15) {
                         labelsGeral.shift()
                         dadosGeral.datasets[0].data.shift()
                         dadosGeral.datasets[1].data.shift()
                         dadosGeral.datasets[2].data.shift()
-                    }
+                    } */
 
-                    dashboardGeral.update()
+                    dashboardCpuPorcentagem.update()
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');

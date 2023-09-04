@@ -1,14 +1,7 @@
 var medidaModel = require("../models/medidaModel");
 
 function plotarGrafico(req, res) {
-
-   /*  const limite_linhas = 7; */
-
-    var idRegistro = req.params.idRegistro;
-
-    /* console.log(`Recuperando as ultimas ${limite_linhas} medidas`); */
-
-    medidaModel.plotarGrafico(idRegistro).then(function (resultado) {
+    medidaModel.plotarGrafico().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
