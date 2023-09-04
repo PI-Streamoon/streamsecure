@@ -902,7 +902,12 @@ ul {
 
 .listaNav li:hover {
   transition: 0.6s;
-  background: #beabf552;
+  text-decoration: underline;
+  color:#6248ae;
+}
+.listaNav li a:hover{
+  color:#6248ae;
+  transition: 0.6s;
 }
 
 #equipeText {
