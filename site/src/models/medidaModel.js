@@ -1,5 +1,23 @@
 var database = require("../database/config");
 
+function plotarGrafico() {
+    var instrucao = ``;
+   
+    instrucao = `
+    SELECT registro AS 'cpuPorcentagem', dtHora FROM registro
+    WHERE fkComponenteServidor = 1
+    ORDER BY dtHora DESC LIMIT 1;`
+
+    // instrucao = `select registro, dtHora from registro join componenteServidor on fkComponenteServidor = idComponenteServidor 
+    // join componente on fkComponente = idComponente 
+    // join unidadeMedida on fkUnidadeMedida = idUnidadeMedida
+    // where DAY(registro.dtHora) = DAY(NOW()) and componente.nome = 'CPU' and unidadeMedida.nomeMedida = '%';`;
+
+    return database.executar(instrucao);
+    } 
+    /* console.log("Executando a instrução SQL: \n" + instrucaoSql); */
+
+
 function buscarUltimasMedidas(idAquario, limite_linhas) {
 
     instrucaoSql = ''
@@ -61,8 +79,30 @@ function buscarMedidasEmTempoReal(idAquario) {
     return database.executar(instrucaoSql);
 }
 
+function geral() {
+    var instrucao = ``
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucao = `
+        `;
+
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucao = `
+        SELECT dtHora,
+        max(CASE WHEN fkComponenteServidor = 1 THEN registro END) AS 'cpu',
+        max(CASE WHEN fkComponenteServidor = 2 THEN registro END) AS 'memoria',
+        max(CASE WHEN fkComponenteServidor = 5 THEN registro END) AS 'disco'
+        FROM registro GROUP BY dtHora ORDER BY dtHora DESC LIMIT 1;
+        `;
+    } else {
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    plotarGrafico,
+    geral
 }

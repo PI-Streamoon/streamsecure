@@ -65,3 +65,17 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #aa8eff;
 }
+
+.invisivel {
+    display: none !important;
+}
+
+.table-responsive tbody tr:hover {
+    background-color: #dde0e3;
+    cursor: pointer;
+    border: 1.5px solid #6248AE;
+}
+
+.table-responsive {
+    max-height: 15rem;
+}
