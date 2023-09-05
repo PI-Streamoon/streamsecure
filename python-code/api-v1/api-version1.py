@@ -69,7 +69,7 @@ for i in range(cpuQuantity):
 
 colunas = []
 for chave in consoleData.keys():
-    colunas.append(f"{consoleColors['brightBlue']} {chave.upper()} {consoleColors['reset']}")
+    colunas.append(f"{chave.upper()}")
 
 # Capturar os dados de CPU/RAM/DISK a cada 2segs
 while True:
@@ -107,7 +107,6 @@ while True:
     consoleData["Disk"].append(diskPercent.percent)
 
     df = pd.DataFrame(data=consoleData, index=indexHour)
-        
     print(f"\n{df}")
 
 
