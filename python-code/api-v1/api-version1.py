@@ -5,7 +5,11 @@ import time
 import psutil
 import platform
 import os
+
 import pandas as pd
+import numpy as np
+import matplotlib as mpl
+
 
 
 consoleColors = {
@@ -85,7 +89,7 @@ while True:
     mediaCpus = 0
     for i in range(psutil.cpu_count()):
         somaCpus += cpusPercent[i]
-        cpuName1 = (f"cpu{i+1}") 
+        cpuName1 = (f"CPU{i+1}") 
         consoleData[cpuName1].append(cpusPercent[i])
     mediaCpus = somaCpus / len(cpusPercent)
 
@@ -102,8 +106,11 @@ while True:
     consoleData["MemoryTotal"].append(memoryTotal)
     consoleData["Disk"].append(diskPercent.percent)
 
-    
-    print(f"\n{pd.DataFrame(data=consoleData, index=indexHour)}")
+    df = pd.DataFrame(data=consoleData, index=indexHour)
+        
+    print(f"\n{df}")
+
+
 
 
     # try:
