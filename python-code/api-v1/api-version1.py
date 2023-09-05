@@ -8,42 +8,64 @@ import os
 import pandas as pd
 
 
+consoleColors = {
+    "black": "\u001b[30m",
+    "red": "\u001b[31m",
+    "green": "\u001b[32m",
+    "yellow": "\u001b[33m",
+    "blue": "\u001b[34m",
+    "magenta": "\u001b[35m",
+    "cyan": "\u001b[36m",
+    "white": "\u001b[37m",
+    "brightBlack": "\u001b[30;1m",
+    "brightRed": "\u001b[31;1m",
+    "brightGreen": "\u001b[32;1m",
+    "brightYellow": "\u001b[33;1m",
+    "brightBlue": "\u001b[34;1m",
+    "brightMagenta": "\u001b[35;1m",
+    "brightCyan": "\u001b[36;1m",
+    "brightWhite": "\u001b[37;1m",
+    "reset": "\u001b[0m",
+}
+
+
 def showText():
-    print("[+]" + "=" * 150 + "[+]")
-    print(
-        """\u001b[35m
-    #    ______     __                                                   ______                                                    
-    #   /      \   |  \                                                 /      \                                                   
-    #  |  $$$$$$\ _| $$_     ______    ______    ______   ______ ____  |  $$$$$$\  ______    _______  __    __   ______    ______  
-    #  | $$___\$$|   $$ \   /      \  /      \  |      \ |      \    \ | $$___\$$ /      \  /       \|  \  |  \ /      \  /      \ 
-    #   \$$    \  \$$$$$$  |  $$$$$$\|  $$$$$$\  \$$$$$$\| $$$$$$\$$$$\ \$$    \ |  $$$$$$\|  $$$$$$$| $$  | $$|  $$$$$$\|  $$$$$$
-    #   _\$$$$$$\  | $$ __ | $$   \$$| $$    $$ /      $$| $$ | $$ | $$ _\$$$$$$\| $$    $$| $$      | $$  | $$| $$   \$$| $$    $$
-    #  |  \__| $$  | $$|  \| $$      | $$$$$$$$|  $$$$$$$| $$ | $$ | $$|  \__| $$| $$$$$$$$| $$_____ | $$__/ $$| $$      | $$$$$$$$
-    #   \$$    $$   \$$  $$| $$       \$$     \ \$$    $$| $$ | $$ | $$ \$$    $$ \$$     \ \$$     \ \$$    $$| $$       \$$     
-    #    \$$$$$$     \$$$$  \$$        \$$$$$$$  \$$$$$$$ \$$  \$$  \$$  \$$$$$$   \$$$$$$$  \$$$$$$$  \$$$$$$  \$$        \$$$$$$$
-    #  
-    #                                                   Developed by Streamoon\u001b[0m
-    """
-    )
-    print("[+]" + "=" * 150 + "[+]\n")
+    print(f"""{consoleColors['magenta']}
+[]====================================================================================[]
+|                                                                                      |      
+|   ███████╗████████╗██████╗ ███████╗ █████╗ ███╗   ███╗ ██████╗  ██████╗ ███╗   ██╗   |
+|   ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗████╗ ████║██╔═══██╗██╔═══██╗████╗  ██║   |
+|   ███████╗   ██║   ██████╔╝█████╗  ███████║██╔████╔██║██║   ██║██║   ██║██╔██╗ ██║   |
+|   ╚════██║   ██║   ██╔══██╗██╔══╝  ██╔══██║██║╚██╔╝██║██║   ██║██║   ██║██║╚██╗██║   |
+|   ███████║   ██║   ██║  ██║███████╗██║  ██║██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██║ ╚████║   |
+|   ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝   |
+|                                                                                      |
+|                               Developed by Streamoon                                 |
+[]====================================================================================[]{consoleColors['reset']}""")
 
-    print(f"Network Name: {platform.node()}")
-    print(f"Processor: {platform.processor()}")
-    print(f"Operating System: {platform.system()}")
-    print("\n[+]" + "=" * 150 + "[+]\n")
+    print(f"""{consoleColors['magenta']}
+            Network Name: {platform.node()}
+            Processor: {platform.processor()}
+            Operating System: {platform.system()}\n
+[]====================================================================================[]{consoleColors['reset']}""")
 
 
+indexHour = []
 consoleData = {
-    "memoryPercent" : [],
-    "memoryUsed" : [],
-    "memoryTotal" : [],
-    "disk" : []
+    "MemoryPercent" : [],
+    "MemoryUsed" : [],
+    "MemoryTotal" : [],
+    "Disk" : []
 }
 cpuQuantity = psutil.cpu_count(logical=True)
 for i in range(cpuQuantity):
-    cpuName = (f"cpu{i+1}")
+    cpuName = (f"CPU{i+1}")
     consoleData[cpuName] = []
 
+
+colunas = []
+for chave in consoleData.keys():
+    colunas.append(f"{consoleColors['brightBlue']} {chave.upper()} {consoleColors['reset']}")
 
 # Capturar os dados de CPU/RAM/DISK a cada 2segs
 while True:
@@ -52,8 +74,8 @@ while True:
 
     memory = (psutil.virtual_memory())
     memPercent = memory.percent
-    memoryUsed = (memory.used / 1024 / 1024 / 1000)     
-    memoryTotal = (memory.total / 1024 / 1024 / 1000)
+    memoryUsed = round((memory.used / 1024 / 1024 / 1000), 1)   
+    memoryTotal = round((memory.total / 1024 / 1024 / 1000), 1)
 
     diskPartitions = psutil.disk_partitions()
     diskPercent = psutil.disk_usage(diskPartitions[0].mountpoint)                      
@@ -68,25 +90,21 @@ while True:
     mediaCpus = somaCpus / len(cpusPercent)
 
 
-    agora = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    dateNow = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    indexHour.append(dateNow)
 
+    systemClear = ('clear' if platform.system() == 'Linux' else 'cls')
+    os.system(systemClear)
 
-    # os.system('clear') # limpa o console antes de exibir
     showText()
-    consoleData["memoryPercent"].append(memPercent)
-    consoleData["memoryUsed"].append(memoryUsed)
-    consoleData["memoryTotal"].append(memoryTotal)
-    consoleData["disk"].append(diskPercent.percent)
-
-    colunas = []
-    for chave in consoleData.keys():
-        colunas.append(f"\u001b[32m{chave.upper()}\u001b[31m")
-    
-    print(colunas)
-
-    # print(f"\033[K{pd.DataFrame(data=consoleData, columns=teste)}", end="\r")
+    consoleData["MemoryPercent"].append(memPercent)
+    consoleData["MemoryUsed"].append(memoryUsed)
+    consoleData["MemoryTotal"].append(memoryTotal)
+    consoleData["Disk"].append(diskPercent.percent)
 
     
+    print(f"\n{pd.DataFrame(data=consoleData, index=indexHour)}")
+
 
     # try:
     #                  connection = mysql.connector.connect(host='localhost',
