@@ -9,6 +9,8 @@ var dashboardCpuPorcentagem;
 (function ($) {
     "use strict";
 
+    Chart.defaults.color = "#ffffff";
+
     setInterval(atualizarGraficoGeral, 5000)
     setInterval(atualizarGraficoCpuPorcentagem, 1000)
 
@@ -80,17 +82,17 @@ var dashboardCpuPorcentagem;
     dadosGeral = {
     labels: labelsGeral,
     datasets: [{
-        label: "CPU",
+        label: "Uso da CPU",
         data: [],
         backgroundColor: "#6248AE"
     },
     {
-        label: "Memória",
+        label: "Uso da Memória",
         data: [],
         backgroundColor: "#0d6efd"
     },
     {
-        label: "Disco",
+        label: "Uso do Disco",
         data: [],
         backgroundColor: "#d63384"
     }],
@@ -103,7 +105,7 @@ var dashboardCpuPorcentagem;
             scales: {
                 y: {
                     min: 0,
-                    max: 100
+                    max: 100,
                 }
             },
             responsive: true
@@ -358,30 +360,30 @@ function change() {
 
 function showCpu() {
     dashboardCpu.classList.remove(`invisivel`)
-    dashboardTitle.innerHTML = "Servidor - CPU"
+    dashboardTitle.innerHTML = "Servidor - Uso da CPU (%)"
 }
 
 function showMemory() {
     dashboardMemory.classList.remove(`invisivel`)
-    dashboardTitle.innerHTML = "Servidor - Memória"
+    dashboardTitle.innerHTML = "Servidor - Uso da Memória (%)"
 }
 
 function showDisk() {
     dashboardDisk.classList.remove(`invisivel`)
-    dashboardTitle.innerHTML = "Servidor - Disco"
+    dashboardTitle.innerHTML = "Servidor - Uso do Disco (%)"
 }
 
 function showUpload() {
     dashboardUpload.classList.remove(`invisivel`)
-    dashboardTitle.innerHTML = "Servidor - Upload"
+    dashboardTitle.innerHTML = "Servidor - Velocidade de Upload (Kb / s)"
 }
 
 function showDownload() {
     dashboardDownload.classList.remove(`invisivel`)
-    dashboardTitle.innerHTML = "Servidor - Download"
+    dashboardTitle.innerHTML = "Servidor - Velocidade de Download (Kb / s)"
 }
 
 function showFreq() {
     dashboardFreq.classList.remove(`invisivel`)
-    dashboardTitle.innerHTML = "Servidor - Frequência da CPU"
+    dashboardTitle.innerHTML = "Servidor - Frequência da CPU (Ghz)"
 }

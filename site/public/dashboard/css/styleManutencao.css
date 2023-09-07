@@ -21,6 +21,11 @@
     border-bottom: 1px solid #6248AE;
 }
 
+.bordaBranca {
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+}
+
 .bordaDireita {
     border-right: 1px solid #6248AE;
 }
@@ -31,6 +36,10 @@
 
 .marginTop {
     margin-top: 0.1% !important;
+}
+
+.marginLeft {
+    margin-left: 0.1% !important;
 }
 
 .colunaQuadrados {
@@ -76,6 +85,40 @@
     border: 1.5px solid #6248AE;
 }
 
-.table-responsive {
+.detalhesServidor {
+    max-height: 40rem;
+}
+
+.tituloServidor {
+    margin-top: 2%;
+}
+
+.listaServidor {
     max-height: 15rem;
+    color: #FFFFFF;
+}
+
+.bg-meu {
+    background-color: #000000;
+}
+
+.normal {
+    color: #00FF01 !important;
+    font-weight: bolder !important;
+}
+
+.alerta {
+    color: #FDDD02;
+    font-weight: bolder;
+}
+
+.critico {
+    color: #FC151F !important;
+    font-weight: bolder !important;
+}
+
+.tituloServidor {
+    position: sticky;
+    top: 0;
+    z-index: 0
 }
