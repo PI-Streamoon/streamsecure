@@ -1,0 +1,124 @@
+.bordas {
+    border: 1px solid #6248AE;
+}
+
+.bordasQuadradinhos {
+    border: 1px solid black;
+}
+
+.bordasQuadradinhos:hover {
+    background-color: #303030 !important;
+    cursor: pointer;
+    border: 1px solid #6248AE;
+}
+
+.bordasQuadradinhos {
+    background-color: var(--dark) !important;
+    border: 1px solid #6248AE;
+}
+
+.bordaBaixo {
+    border-bottom: 1px solid #6248AE;
+}
+
+.bordaBranca {
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.bordaDireita {
+    border-right: 1px solid #6248AE;
+}
+
+.bordaTudo {
+    border: 1px solid #6248AE;
+}
+
+.marginTop {
+    margin-top: 0.1% !important;
+}
+
+.marginLeft {
+    margin-left: 0.1% !important;
+}
+
+.colunaQuadrados {
+    display: flex;
+    flex-direction: row;
+}
+
+.conteudoTexto {
+}
+
+.conteudoTexto h3 {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.conteudoTexto p {
+    margin-left: 5%;
+}
+
+::-webkit-scrollbar {
+    background: #303030;
+    border-radius: 20px;
+    width: 0.6vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6248AE;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #aa8eff;
+}
+
+.invisivel {
+    display: none !important;
+}
+
+.table-responsive tbody tr:hover {
+    background-color: #dde0e3;
+    cursor: pointer;
+    border: 1.5px solid #6248AE;
+}
+
+.detalhesServidor {
+    max-height: 40rem;
+}
+
+.tituloServidor {
+    margin-top: 2%;
+}
+
+.listaServidor {
+    max-height: 15rem;
+    color: #FFFFFF;
+}
+
+.bg-meu {
+    background-color: #000000;
+}
+
+.normal {
+    color: #00FF01 !important;
+    font-weight: bolder !important;
+}
+
+.alerta {
+    color: #FDDD02;
+    font-weight: bolder;
+}
+
+.critico {
+    color: #FC151F !important;
+    font-weight: bolder !important;
+}
+
+.tituloServidor {
+    position: sticky;
+    top: 0;
+    z-index: 0
+}
