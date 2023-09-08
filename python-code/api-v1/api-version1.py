@@ -5,11 +5,9 @@ import time
 import psutil
 import platform
 import os
-
 import pandas as pd
-import numpy as np
-import matplotlib as mpl
-
+import requests
+import json
 
 
 consoleColors = {
@@ -35,23 +33,23 @@ consoleColors = {
 
 def showText():
     print(f"""{consoleColors['magenta']}
-[]====================================================================================[]
-|                                                                                      |      
-|   ███████╗████████╗██████╗ ███████╗ █████╗ ███╗   ███╗ ██████╗  ██████╗ ███╗   ██╗   |
-|   ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗████╗ ████║██╔═══██╗██╔═══██╗████╗  ██║   |
-|   ███████╗   ██║   ██████╔╝█████╗  ███████║██╔████╔██║██║   ██║██║   ██║██╔██╗ ██║   |
-|   ╚════██║   ██║   ██╔══██╗██╔══╝  ██╔══██║██║╚██╔╝██║██║   ██║██║   ██║██║╚██╗██║   |
-|   ███████║   ██║   ██║  ██║███████╗██║  ██║██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██║ ╚████║   |
-|   ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝   |
-|                                                                                      |
-|                               Developed by Streamoon                                 |
-[]====================================================================================[]{consoleColors['reset']}""")
+        []====================================================================================[]
+        |                                                                                      |      
+        |   ███████╗████████╗██████╗ ███████╗ █████╗ ███╗   ███╗ ██████╗  ██████╗ ███╗   ██╗   |
+        |   ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗████╗ ████║██╔═══██╗██╔═══██╗████╗  ██║   |
+        |   ███████╗   ██║   ██████╔╝█████╗  ███████║██╔████╔██║██║   ██║██║   ██║██╔██╗ ██║   |
+        |   ╚════██║   ██║   ██╔══██╗██╔══╝  ██╔══██║██║╚██╔╝██║██║   ██║██║   ██║██║╚██╗██║   |
+        |   ███████║   ██║   ██║  ██║███████╗██║  ██║██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██║ ╚████║   |
+        |   ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝   |
+        |                                                                                      |
+        |                               Developed by Streamoon                                 |
+        []====================================================================================[]{consoleColors['reset']}""")
 
     print(f"""{consoleColors['magenta']}
             Network Name: {platform.node()}
             Processor: {platform.processor()}
             Operating System: {platform.system()}\n
-[]====================================================================================[]{consoleColors['reset']}""")
+        []====================================================================================[]{consoleColors['reset']}""")
 
 
 indexHour = []
@@ -66,10 +64,6 @@ for i in range(cpuQuantity):
     cpuName = (f"CPU{i+1}")
     consoleData[cpuName] = []
 
-
-colunas = []
-for chave in consoleData.keys():
-    colunas.append(f"{chave.upper()}")
 
 # Capturar os dados de CPU/RAM/DISK a cada 2segs
 while True:
@@ -110,42 +104,39 @@ while True:
     print(f"\n{df}")
 
 
+    connection = mysql.connector.connect(
+        host='localhost',
+        database='streamoon',
+        user='root',
+        password='@eduufreire'
+    )
 
+    try:
+        
+        mySql_insert_query_cpu_percent = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(mediaCpus) + ", '" + str(dateNow) + "', 1);"
+        mySql_insert_query_memory = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(memPercent) + ", '" + str(dateNow) + "', 2);"
+        mySql_insert_query_memory_used = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(memoryUsed) + ", '" + str(dateNow) + "', 3);"
+        mySql_insert_query_memory_total = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(memoryTotal) + ", '" + str(dateNow) + "', 4);"
+        mySql_insert_query_disc_percent = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(diskPercent.percent) + ", '" + str(dateNow) + "', 5);"
 
-    # try:
-    #                  connection = mysql.connector.connect(host='localhost',
-    #                                                      database='streamoon',
-    #                                                      user='aluno',
-    #                                                      password='sptech')
-
-    #                  mySql_insert_query_cpu_percent = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(mediaCpus) + ", '" + str(agora) + "', 1);"
-    #                  mySql_insert_query_memory = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(percentualMemoria) + ", '" + str(agora) + "', 2);"
-    #                  mySql_insert_query_memory_used = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(memoryUsed) + ", '" + str(agora) + "', 3);"
-    #                  mySql_insert_query_memory_total = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(memoryTotal) + ", '" + str(agora) + "', 4);"
-    #                  mySql_insert_query_disc_percent = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(diskPercent.percent) + ", '" + str(agora) + "', 5);"
-    #     # mySql_insert_query = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(aleatorio) + ", '" + str(agora) + "', 1);"
-    #     # mySql_insert_query = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(aleatorio) + ", '" + str(agora) + "', 1);"
-    #                  time.sleep(2)
-    #                  cursor = connection.cursor()
-    #                  cursor.execute(mySql_insert_query_cpu_percent)
-    #                  cursor.execute(mySql_insert_query_memory)
-    #                  cursor.execute(mySql_insert_query_memory_used)
-    #                  cursor.execute(mySql_insert_query_memory_total)
-    #                  cursor.execute(mySql_insert_query_disc_percent)
+        cursor = connection.cursor()
+        cursor.execute(mySql_insert_query_cpu_percent)
+        cursor.execute(mySql_insert_query_memory)
+        cursor.execute(mySql_insert_query_memory_used)
+        cursor.execute(mySql_insert_query_memory_total)
+        cursor.execute(mySql_insert_query_disc_percent)
                       
 
-    #                  connection.commit()
-    #                 # print(cursor.rowcount, "Record inserted successfully into Laptop table")
-    #                  cursor.close()
+        connection.commit()
+        cursor.close()
 
 
-    # except mysql.connector.Error as error:
-    #                  print("Failed to insert record into Laptop table {}".format(error))
-
-    # finally:
-    #                  if connection.is_connected():
-    #                      connection.close()
-    #                      # print("MySQL connection is closed")
+    except mysql.connector.Error as error:
+       print("Failed to insert record into Laptop table {}".format(error))
 
     time.sleep(2)
+
+
+if connection.is_connected():
+    connection.close()
 
