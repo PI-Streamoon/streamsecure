@@ -45,11 +45,11 @@
 
 
         <!-- Sidebar Start -->
-        <div class="sidebar pe-4 pb-3 bordaDireita" tabindex="0">
+        <!-- <div class="sidebar pe-4 pb-3 bordaDireita" tabindex="0">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Streamoon</h3>
-                </a>
+                    <h3 class="text-primary"><img src="img/logo33x33.png" class="me-2" alt=""></i>Streamoon</h3>
+                </a> -->
                 <!-- <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
@@ -62,26 +62,26 @@
                         <span>Admin</span>
                     </div>
                 </div> -->
-                <div class="navbar-nav w-100">
+                <!-- <div class="navbar-nav w-100">
                     <a href="dashboardManutencao.html" class="nav-item nav-link active"><i
                             class="fa fa-chart-bar me-2"></i>Dashboards</a>
-                    <div class="nav-item dropdown">
+                    <div class="nav-item dropdown"> -->
                         <!-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                                 class="fa fa-laptop me-2"></i>Elements</a> -->
-                        <div class="dropdown-menu bg-transparent border-0">
+                        <!-- <div class="dropdown-menu bg-transparent border-0">
                             <a href="button.html" class="dropdown-item">Buttons</a>
                             <a href="typography.html" class="dropdown-item">Typography</a>
                             <a href="element.html" class="dropdown-item">Other Elements</a>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
                     <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
                     <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a> -->
-                    <a href="detalhesManutencao.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Detalhes</a>
-                    <div class="nav-item dropdown">
+                    <!-- <a href="detalhesManutencao.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Detalhes</a>
+                    <div class="nav-item dropdown"> -->
                         <!-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                                 class="far fa-file-alt me-2"></i>Pages</a> -->
-                        <div class="dropdown-menu bg-transparent border-0">
+                        <!-- <div class="dropdown-menu bg-transparent border-0">
                             <a href="signin.html" class="dropdown-item">Sign In</a>
                             <a href="signup.html" class="dropdown-item">Sign Up</a>
                             <a href="404.html" class="dropdown-item">404 Error</a>
@@ -90,20 +90,23 @@
                     </div>
                 </div>
             </nav>
-        </div>
+        </div> -->
         <!-- Sidebar End -->
 
 
         <!-- Content Start -->
-        <div class="content">
+        <div class="content open">
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0 bordaBaixo">
+                <div class="navbar-brand mx-4">
+                    <h3 class="text-primary"><img src="img/logo33x33.png" class="me-2"></i>Streamoon</h3>
+                </div>
                 <!-- <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a> -->
-                <a href="#" class="sidebar-toggler flex-shrink-0">
+                <!-- <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
-                </a>
+                </a> -->
                 <!-- <form class="d-none d-md-flex ms-4">
                     <input class="form-control bg-dark border-0" type="search" placeholder="Search">
                 </form> -->
@@ -178,7 +181,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
                                 style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <span class="d-none d-lg-inline-flex">Usuário</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
@@ -191,51 +194,51 @@
             <!-- Navbar End -->
 
             <!-- Lista dos Servidores Começo -->
-            <div class="col-12 bordaBaixo">
+            <!-- <div class="col-12 bordaBaixo">
                 <div class="bg-secondary rounded h-100 p-4">
                     <h6 class="mb-4">Lista de Servidores</h6>
-                    <div class="table-responsive bordas">
+                    <div class="table-responsive listaServidor bordas">
                         <table class="table">
-                            <thead>
+                            <thead class="bg-meu tituloServidor">
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Servidor</th>
                                         <th scope="col">Local</th>
-                                        <th scope="col"></th>
+                                        <th scope="col">Estado do Servidor</th>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
                                     </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr class="bordaBaixo">
                                     <th scope="row">1</th>
                                     <td>Servidor 1</td>
                                     <td>Califórnia, Estados Unidos</td>
-                                    <td></td>
+                                    <td class="normal">Normal</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr>
+                                <tr class="bordaBaixo">
                                     <th scope="row">2</th>
                                     <td>Servidor 2</td>
                                     <td>Califórnia, Estados Unidos</td>
-                                    <td></td>
+                                    <td class="alerta">Alerta</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr>
+                                <tr class="bordaBaixo">
                                     <th scope="row">3</th>
                                     <td>Servidor 3</td>
                                     <td>São Paulo, Brasil</td>
-                                    <td></td>
+                                    <td class="critico">Crítico</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr>
+                                <tr class="bordaBaixo">
                                     <th scope="row">4</th>
                                     <td>Servidor 4</td>
                                     <td>São Paulo, Brasil</td>
@@ -244,7 +247,7 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr>
+                                <tr class="bordaBaixo">
                                     <th scope="row">5</th>
                                     <td>Servidor 5</td>
                                     <td>São Paulo, Brasil</td>
@@ -253,7 +256,7 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr>
+                                <tr class="bordaBaixo">
                                     <th scope="row">6</th>
                                     <td>Servidor 6</td>
                                     <td>São Paulo, Brasil</td>
@@ -262,7 +265,7 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr>
+                                <tr class="bordaBaixo">
                                     <th scope="row">7</th>
                                     <td>Servidor 7</td>
                                     <td>São Paulo, Brasil</td>
@@ -271,7 +274,7 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr>
+                                <tr class="bordaBaixo">
                                     <th scope="row">8</th>
                                     <td>Servidor 8</td>
                                     <td>São Paulo, Brasil</td>
@@ -280,7 +283,7 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr>
+                                <tr class="bordaBaixo">
                                     <th scope="row">9</th>
                                     <td>Servidor 9</td>
                                     <td>São Paulo, Brasil</td>
@@ -289,7 +292,7 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr>
+                                <tr class="bordaBaixo">
                                     <th scope="row">10</th>
                                     <td>Servidor 10</td>
                                     <td>São Paulo, Brasil</td>
@@ -302,8 +305,11 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- Lista dos Servidores Final -->
+
+            <!-- Título -->
+            <h6 class="text-center tituloServidor">Servidor 1</h1>
 
             <!-- Sale & Revenue Start -->
             <div class="container-fluid pt- px-4">
@@ -382,7 +388,7 @@
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary text-center rounded p-4 bordaTudo">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Servidor 1 - Visão Geral</h6>
+                                <h6 class="mb-0">Servidor 1 - Visão Geral (%)</h6>
                             </div>
                             <canvas id="dashboardGeral"></canvas>
                         </div>
@@ -442,6 +448,32 @@
                     </div> -->
                 </div>
             </div>
+
+            <!-- Detalhes do Servidor Começo -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="vh-100 bg-secondary justify-content-center mx-0 bordaTudo rounded detalhesServidor table-responsive">
+                    <div class="conteudoTexto">
+                        <h3>Detalhes do Servidor</h3>
+                        <p>Número de cores:</p>
+                        <p>Uso global da CPU:</p>
+                        <p>Frequência atual da CPU:</p>
+                        <p>Frequência máxima da CPU:</p>
+                        <p>Frequência mínima da CPU:</p>
+                        <p>Uso do disco:</p>
+                        <p>Tamanho do disco:</p>
+                        <p>Espaço em uso do disco:</p>
+                        <p>Espaço livre do disco:</p>
+                        <p>Uso da memória:</p>
+                        <p>Tamanho da memória:</p>
+                        <p>Espaço em uso da memória:</p>
+                        <p>Espaço livre da memória:</p>
+                        <p>Velocidade de download:</p>
+                        <p>Velocidade de upload:</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Detalhes do Servidor Fim -->
+
             <!-- Sales Chart End -->
 
 
@@ -677,6 +709,7 @@
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
+    <script src="js/dashboardManutencao.js"></script>
     <script src="js/main.js"></script>
 </body>
 

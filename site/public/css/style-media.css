@@ -4,7 +4,7 @@
     overflow-x: hidden;
   }
 
-  .reverse{
+  .reverse {
     flex-direction: row-reverse;
   }
 
@@ -1524,6 +1524,7 @@
     flex-direction: column;
     margin: 1vh 0;
   }
+
   .box-content-about .img-about,
   .box-content-about .img-about2 {
     width: 100%;
@@ -1556,6 +1557,7 @@
     align-items: center;
     flex-direction: column;
   }
+
   .text-about .center {
     height: 100%;
     display: flex;
@@ -1563,6 +1565,7 @@
     align-items: center;
     flex-direction: column;
   }
+
   .text-about .center h2 {
     margin: 0;
     color: #fff;
@@ -1573,6 +1576,7 @@
     font-weight: 700;
     line-height: normal;
   }
+
   .text-about .center p {
     color: #fff;
     text-align: center;
@@ -2124,4 +2128,3 @@
     margin: 0;
   }
 }
- 

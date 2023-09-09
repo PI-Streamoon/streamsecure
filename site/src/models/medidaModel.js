@@ -1,5 +1,23 @@
 var database = require("../database/config");
 
+function plotarGrafico() {
+    var instrucao = ``;
+   
+    instrucao = `
+    SELECT registro AS 'cpuPorcentagem', dtHora FROM registro
+    WHERE fkComponenteServidor = 1
+    ORDER BY dtHora DESC LIMIT 1;`
+
+    // instrucao = `select registro, dtHora from registro join componenteServidor on fkComponenteServidor = idComponenteServidor 
+    // join componente on fkComponente = idComponente 
+    // join unidadeMedida on fkUnidadeMedida = idUnidadeMedida
+    // where DAY(registro.dtHora) = DAY(NOW()) and componente.nome = 'CPU' and unidadeMedida.nomeMedida = '%';`;
+
+    return database.executar(instrucao);
+    } 
+    /* console.log("Executando a instrução SQL: \n" + instrucaoSql); */
+
+
 function buscarUltimasMedidas(idAquario, limite_linhas) {
 
     instrucaoSql = ''
@@ -84,9 +102,7 @@ function geral() {
     return database.executar(instrucao);
 }
 
-
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal,
+    plotarGrafico,
     geral
 }

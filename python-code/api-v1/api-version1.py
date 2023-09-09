@@ -4,114 +4,139 @@ from datetime import date
 import time
 import psutil
 import platform
+import os
+import pandas as pd
+import requests
+import json
 
 
-print("[+]" + "=" * 170 + "[+]")
-print(
-    """\u001b[35m
-#    ______     __                                                   ______                                                    
-#   /      \   |  \                                                 /      \                                                   
-#  |  $$$$$$\ _| $$_     ______    ______    ______   ______ ____  |  $$$$$$\  ______    _______  __    __   ______    ______  
-#  | $$___\$$|   $$ \   /      \  /      \  |      \ |      \    \ | $$___\$$ /      \  /       \|  \  |  \ /      \  /      \ 
-#   \$$    \  \$$$$$$  |  $$$$$$\|  $$$$$$\  \$$$$$$\| $$$$$$\$$$$\ \$$    \ |  $$$$$$\|  $$$$$$$| $$  | $$|  $$$$$$\|  $$$$$$
-#   _\$$$$$$\  | $$ __ | $$   \$$| $$    $$ /      $$| $$ | $$ | $$ _\$$$$$$\| $$    $$| $$      | $$  | $$| $$   \$$| $$    $$
-#  |  \__| $$  | $$|  \| $$      | $$$$$$$$|  $$$$$$$| $$ | $$ | $$|  \__| $$| $$$$$$$$| $$_____ | $$__/ $$| $$      | $$$$$$$$
-#   \$$    $$   \$$  $$| $$       \$$     \ \$$    $$| $$ | $$ | $$ \$$    $$ \$$     \ \$$     \ \$$    $$| $$       \$$     
-#    \$$$$$$     \$$$$  \$$        \$$$$$$$  \$$$$$$$ \$$  \$$  \$$  \$$$$$$   \$$$$$$$  \$$$$$$$  \$$$$$$  \$$        \$$$$$$$
-#  
-#                                                   Developed by Streamoon\u001b[0m
-"""
-)
-print("[+]" + "=" * 170 + "[+]\n")
+consoleColors = {
+    "black": "\u001b[30m",
+    "red": "\u001b[31m",
+    "green": "\u001b[32m",
+    "yellow": "\u001b[33m",
+    "blue": "\u001b[34m",
+    "magenta": "\u001b[35m",
+    "cyan": "\u001b[36m",
+    "white": "\u001b[37m",
+    "brightBlack": "\u001b[30;1m",
+    "brightRed": "\u001b[31;1m",
+    "brightGreen": "\u001b[32;1m",
+    "brightYellow": "\u001b[33;1m",
+    "brightBlue": "\u001b[34;1m",
+    "brightMagenta": "\u001b[35;1m",
+    "brightCyan": "\u001b[36;1m",
+    "brightWhite": "\u001b[37;1m",
+    "reset": "\u001b[0m",
+}
 
 
-# Mostrando alguns dados do Sistema Operacional
-print(f"Network Name: {platform.node()}")
-print(f"Processor: {platform.processor()}")
-print(f"Operating System: {platform.system()}")
+def showText():
+    print(f"""{consoleColors['magenta']}
+        []====================================================================================[]
+        |                                                                                      |      
+        |   ███████╗████████╗██████╗ ███████╗ █████╗ ███╗   ███╗ ██████╗  ██████╗ ███╗   ██╗   |
+        |   ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗████╗ ████║██╔═══██╗██╔═══██╗████╗  ██║   |
+        |   ███████╗   ██║   ██████╔╝█████╗  ███████║██╔████╔██║██║   ██║██║   ██║██╔██╗ ██║   |
+        |   ╚════██║   ██║   ██╔══██╗██╔══╝  ██╔══██║██║╚██╔╝██║██║   ██║██║   ██║██║╚██╗██║   |
+        |   ███████║   ██║   ██║  ██║███████╗██║  ██║██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██║ ╚████║   |
+        |   ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝   |
+        |                                                                                      |
+        |                               Developed by Streamoon                                 |
+        []====================================================================================[]{consoleColors['reset']}""")
+
+    print(f"""{consoleColors['magenta']}
+            Network Name: {platform.node()}
+            Processor: {platform.processor()}
+            Operating System: {platform.system()}\n
+        []====================================================================================[]{consoleColors['reset']}""")
 
 
-# Construindo o cabeçalho que indica o tipo de dado que cada coluna exibe
-headerConsole = "   Date      |      Hour      |"
+indexHour = []
+consoleData = {
+    "MemoryPercent" : [],
+    "MemoryUsed" : [],
+    "MemoryTotal" : [],
+    "Disk" : []
+}
 cpuQuantity = psutil.cpu_count(logical=True)
 for i in range(cpuQuantity):
-    headerConsole += "      "
-    headerConsole += f"\u001b[34;1mCPU{i+1}\u001b[0m" + "      |"
-headerConsole += "    \u001b[35;1mMemory (%)\u001b[0m   |  Memory Used(GB)  |  Memory Total(GB)  |      Diks"
-print("\n[+]" + "=" * 170 + "[+]\n")
-print(headerConsole + "\n")
+    cpuName = (f"CPU{i+1}")
+    consoleData[cpuName] = []
 
 
 # Capturar os dados de CPU/RAM/DISK a cada 2segs
 while True:
 
-    # Captura dos dados através das libs
-    cpusPercent = psutil.cpu_percent(interval=1, percpu=True)  # Vetor que recebe os dados (em porcentagem) das CPUs que o computador possui
-    memory = (psutil.virtual_memory())                         # Variável que guarda uma lista de atributos da Memória.
-    percentualMemoria = memory.percent
+    cpusPercent = psutil.cpu_percent(interval=1, percpu=True)
 
-    memoryUsed = ((memory.used / 1024) / 1024) / 1000          # Variável que recebe a quantidade de memória que esta sendo usada, já convertida em GB
-    memoryTotal = ((memory.total / 1024) / 1024) / 1000        # Variável que recebe a quantidade total da memória, já convertida em GB
-    diskPercent = psutil.disk_usage("/")                       # Variável que recebe uma lista de atributos do Disco
+    memory = (psutil.virtual_memory())
+    memPercent = memory.percent
+    memoryUsed = round((memory.used / 1024 / 1024 / 1000), 1)   
+    memoryTotal = round((memory.total / 1024 / 1024 / 1000), 1)
+
+    diskPartitions = psutil.disk_partitions()
+    diskPercent = psutil.disk_usage(diskPartitions[0].mountpoint)                      
 
 
-    # Usando a lib TIME, a função me retorna o horário da máquina
-    # no formato que eu escolhi dentro do parâmetro -> time.strftime(formato, outra função que retorna o horário)
-    # %d = dia | %m = mês | %Y = ano <> %H = hora | %M = minutos
-    mensagem = time.strftime(f"   %d/%m/%Y   |   %H:%M   |", time.localtime())
-
-    # Um FOR que vai fragmentar o vetor de CPUS listado lá em cima
-    # Colocando os dados separados na mensagem do CONSOLE
     somaCpus = 0
     mediaCpus = 0
-    for i in range(len(cpusPercent)):
+    for i in range(psutil.cpu_count()):
         somaCpus += cpusPercent[i]
-        mensagem += ("      " + f"\u001b[34;1m{cpusPercent[i]}%\u001b[0m" + "      |")  # Percentuais das CPUs
+        cpuName1 = (f"CPU{i+1}") 
+        consoleData[cpuName1].append(cpusPercent[i])
     mediaCpus = somaCpus / len(cpusPercent)
 
-    # Construindo a mensagem que vai ser exibida no console
-    mensagem += ("       " + f"\u001b[35;1m{memory.percent}%\u001b[0m" + "       |")  # Percentual da Memoria
-    mensagem += ("       " + f"{round(memoryUsed, 1)}" + "       |")                  # Qtde de memória usada
-    mensagem += ("       " + f"{round(memoryTotal, 1)}" + "       |")                 # Qtde total da memória
-    mensagem += ("       " + f"{diskPercent.percent}%")                               # Percentual do Disco
 
-    print(mensagem)
+    dateNow = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    indexHour.append(dateNow)
 
-    # aleatorio = random.randint(1, 100)
-    agora = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    systemClear = ('clear' if platform.system() == 'Linux' else 'cls')
+    os.system(systemClear)
+
+    showText()
+    consoleData["MemoryPercent"].append(memPercent)
+    consoleData["MemoryUsed"].append(memoryUsed)
+    consoleData["MemoryTotal"].append(memoryTotal)
+    consoleData["Disk"].append(diskPercent.percent)
+
+    df = pd.DataFrame(data=consoleData, index=indexHour)
+    print(f"\n{df}")
+
+
+    connection = mysql.connector.connect(
+        host='localhost',
+        database='streamoon',
+        user='root',
+        password='@eduufreire'
+    )
+
     try:
-                     connection = mysql.connector.connect(host='localhost',
-                                                         database='streamoon',
-                                                         user='aluno',
-                                                         password='sptech')
+        
+        mySql_insert_query_cpu_percent = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(mediaCpus) + ", '" + str(dateNow) + "', 1);"
+        mySql_insert_query_memory = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(memPercent) + ", '" + str(dateNow) + "', 2);"
+        mySql_insert_query_memory_used = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(memoryUsed) + ", '" + str(dateNow) + "', 3);"
+        mySql_insert_query_memory_total = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(memoryTotal) + ", '" + str(dateNow) + "', 4);"
+        mySql_insert_query_disc_percent = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(diskPercent.percent) + ", '" + str(dateNow) + "', 5);"
 
-                     mySql_insert_query_cpu_percent = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(mediaCpus) + ", '" + str(agora) + "', 1);"
-                     mySql_insert_query_memory = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(percentualMemoria) + ", '" + str(agora) + "', 2);"
-                     mySql_insert_query_memory_used = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(memoryUsed) + ", '" + str(agora) + "', 3);"
-                     mySql_insert_query_memory_total = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(memoryTotal) + ", '" + str(agora) + "', 4);"
-                     mySql_insert_query_disc_percent = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(diskPercent.percent) + ", '" + str(agora) + "', 5);"
-        # mySql_insert_query = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(aleatorio) + ", '" + str(agora) + "', 1);"
-        # mySql_insert_query = "INSERT INTO registro (idRegistro, registro, dtHora, fkComponenteServidor) VALUES (null, " + str(aleatorio) + ", '" + str(agora) + "', 1);"
-                     time.sleep(2)
-                     cursor = connection.cursor()
-                     cursor.execute(mySql_insert_query_cpu_percent)
-                     cursor.execute(mySql_insert_query_memory)
-                     cursor.execute(mySql_insert_query_memory_used)
-                     cursor.execute(mySql_insert_query_memory_total)
-                     cursor.execute(mySql_insert_query_disc_percent)
+        cursor = connection.cursor()
+        cursor.execute(mySql_insert_query_cpu_percent)
+        cursor.execute(mySql_insert_query_memory)
+        cursor.execute(mySql_insert_query_memory_used)
+        cursor.execute(mySql_insert_query_memory_total)
+        cursor.execute(mySql_insert_query_disc_percent)
                       
 
-                     connection.commit()
-                    # print(cursor.rowcount, "Record inserted successfully into Laptop table")
-                     cursor.close()
+        connection.commit()
+        cursor.close()
 
 
     except mysql.connector.Error as error:
-                     print("Failed to insert record into Laptop table {}".format(error))
-
-    finally:
-                     if connection.is_connected():
-                         connection.close()
-                         # print("MySQL connection is closed")
+       print("Failed to insert record into Laptop table {}".format(error))
 
     time.sleep(2)
+
+
+if connection.is_connected():
+    connection.close()
+

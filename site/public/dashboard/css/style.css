@@ -222,11 +222,12 @@
     transform: rotate(-180deg);
 }
 
-@media (max-width: 575.98p-4x) {
+@media (max-width: 575.98px) {
     .content .navbar .navbar-nav .nav-link {
         margin-left: 15px;
     }
 }
+
 
 /*** Date Picker ***/
 .bootstrap-datetimepicker-widget.bottom {
@@ -287,18 +288,6 @@
     border-color: var(--primary);
 }
 
-<<<<<<< HEAD
-
-.table-responsive tbody tr:hover {
-    background-color: #dde0e3;
-    cursor: pointer;
-    border: 1.5px solid #6248AE;
-}
-
-.table-responsive {
-    max-height: 15rem;
-}
-=======
 #kpis{
     width: 100%;
     display: flex;
@@ -341,4 +330,3 @@
     padding-left: 2%;
     text-align: start;
 }
->>>>>>> c0463e657239f02b1d266b3cb0aef584b0fe4f77

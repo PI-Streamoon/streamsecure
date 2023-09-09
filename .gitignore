@@ -6,4 +6,6 @@ package-lock.json
 site/node_modules
 site/package-lock.json
 
+python-code/__pycache__
+
 .github

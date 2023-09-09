@@ -125,6 +125,8 @@ body{
     margin-top: 4.8vh;
     font-family: AbeeZee;
     font-size: 2.5vh;
+    display: flex;
+    align-items: center;
 }
 
 #cadastro a {
@@ -393,14 +395,14 @@ body{
         border-radius: 0 0 2vh 2vh;
         border: #1D1C1C solid 0.8vh;
         height: 80%;
-        width: 80%;
+        width: 90%;
         box-sizing: border-box;
     }
     
     #cadastro #astronautaImg {
         object-fit: cover;
         height: 20%;
-        width: 80%;
+        width: 90%;
         border-radius: 2vh 2vh 0 0;
     }
     
@@ -409,13 +411,13 @@ body{
         justify-content: flex-start;
         width: 100%;
         margin-top: 1vh;
-        margin-bottom: 2vh;
+        margin-bottom: 1vh;
     }
     
     #cadastro #logo {
         margin-left: 1.5vw;
         background-size: cover;
-        height: 6vh;
+        height: 5vh;
     }
     
     #cadastro h1 {
@@ -465,8 +467,14 @@ body{
     #cadastro p {
         margin-top: 4.8vh;
         font-size: 2vh;
-        display: flex;
     }
+
+    #cadastro .centralizar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
     
     #cadastro a {
         font-size: 2vh;
