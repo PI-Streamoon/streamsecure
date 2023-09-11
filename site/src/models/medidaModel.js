@@ -3,15 +3,10 @@ var database = require("../database/config");
 function plotarGrafico() {
     var instrucao = ``;
    
-    instrucao = `
-    SELECT registro AS 'cpuPorcentagem', dtHora FROM registro
-    WHERE fkComponenteServidor = 1
-    ORDER BY dtHora DESC LIMIT 1;`
-
-    // instrucao = `select registro, dtHora from registro join componenteServidor on fkComponenteServidor = idComponenteServidor 
-    // join componente on fkComponente = idComponente 
-    // join unidadeMedida on fkUnidadeMedida = idUnidadeMedida
-    // where DAY(registro.dtHora) = DAY(NOW()) and componente.nome = 'CPU' and unidadeMedida.nomeMedida = '%';`;
+    instrucao = `select registro as cpuPorcentagem, DATE_FORMAT((dtHora), '%d-%m-%Y %H:%i:%s') as dtHora from registro join componenteServidor on fkComponenteServidor = idComponenteServidor 
+     join componente on fkComponente = idComponente 
+     join unidadeMedida on fkUnidadeMedida = idUnidadeMedida
+     where DAY(registro.dtHora) = DAY(NOW()) and componente.nome = 'CPU' and unidadeMedida.nomeMedida = '%' order by dtHora desc LIMIT 1;`;
 
     return database.executar(instrucao);
     } 
@@ -88,7 +83,7 @@ function geral() {
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucao = `
-        SELECT dtHora,
+        SELECT DATE_FORMAT((dtHora), '%d-%m-%Y %H:%i:%s') as dtHora,
         max(CASE WHEN fkComponenteServidor = 1 THEN registro END) AS 'cpu',
         max(CASE WHEN fkComponenteServidor = 2 THEN registro END) AS 'memoria',
         max(CASE WHEN fkComponenteServidor = 5 THEN registro END) AS 'disco'

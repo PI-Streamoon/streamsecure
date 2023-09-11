@@ -289,8 +289,8 @@ while True:
     connection = mysql.connector.connect(
         host='localhost',
         database='streamoon',
-        user='root',
-        password='7852456'
+        user='aluno',
+        password='sptech'
     )
 
     try:
