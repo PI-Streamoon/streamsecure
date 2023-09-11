@@ -387,3 +387,7 @@ function showFreq() {
     dashboardFreq.classList.remove(`invisivel`)
     dashboardTitle.innerHTML = "Servidor - Frequência da CPU (Ghz)"
 }
+
+function servidor1() {
+    window.location.assign(`dashboardManutencaoSem.html`);
+}

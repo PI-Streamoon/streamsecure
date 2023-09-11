@@ -94,7 +94,7 @@
 }
 
 .listaServidor {
-    max-height: 15rem;
+    max-height: 30rem;
     color: #FFFFFF;
 }
 
@@ -121,4 +121,8 @@
     position: sticky;
     top: 0;
     z-index: 0
+}
+
+.footerDiferente {
+    margin-top: 5%;
 }
