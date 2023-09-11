@@ -7,7 +7,34 @@ import platform
 import os
 import pandas as pd
 import requests
+from requests.auth import HTTPBasicAuth
 import json
+
+def connectJira():
+    url = "https://streamoon.atlassian.net/rest/api/3/issue"
+    auth = HTTPBasicAuth("SuporteStreamoon@gmail.com", "ATATT3xFfGF0dPS2xSxxNqz00M2FmqJiW7wgVwdBm8NboZQPXBagA5uj9RA7jfUQeVAWQfqQQT4HASR6Z0yTb6KPeI9pJL1_aTtgVJZnM_SOazJSkEHoKMXOg3s1mOHqZBgN24EGO7Hlp4jID9ckStVvV0sNQCZkV35Kmr2baWHu_useCu1o_Ko=1D207656")
+
+    headers ={
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    }
+    
+    payload = json.dumps({
+            "fields":{  
+                "summary": "Alerta Servidor",
+                "project":{"key":"STREAMOON"},
+                'issuetype':{'name':'[System] Incident'}
+            }
+    })
+    
+    response = requests.request(
+        "POST",
+        url,
+        data=payload,
+        headers=headers,
+        auth=auth
+    )
+
 
 
 consoleColors = {
@@ -99,7 +126,170 @@ while True:
     consoleData["MemoryUsed"].append(memoryUsed)
     consoleData["MemoryTotal"].append(memoryTotal)
     consoleData["Disk"].append(diskPercent.percent)
+    
+    #Integração slack!
+    
+    
+    mensagemSlack = ""
+    
+    
+    
+    if (memPercent > 80):
+        connectJira()
+        mensagemSlack = {
+            "blocks": [
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": True,
+                        "text": "🚨 Algum componente de seu servidor está com o uso acima do normal"
+                    }
+                },
+                {
+                    "type": "divider"
+                },
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "\n{}\nBuilding 2 - Havarti Cheese (3)\n2 guests".format( datetime.datetime.now().strftime("%A, %B %d %H:%M:%S") )
+                    },
+                    "accessory": {
+                        "type": "image",
+                        "image_url": "https://cdn.icon-icons.com/icons2/1852/PNG/512/iconfinder-serverrack-4417101_116637.png",
+                        "alt_text": "calendar thumbnail"
+                    }
+                },
+                {
+                    "type": "context",
+                    "elements": [
+                        {
+                            "type": "image",
+                            "image_url": "https://api.slack.com/img/blocks/bkb_template_images/notificationsWarningIcon.png",
+                            "alt_text": "notifications warning icon"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "*A MEMORIA VIRTUAL ESTÁ ACIMA DE 80%*"
+                        }
+                    ]
+                },
+                {
+                    "type": "divider"
+                }
+            ]
+        }
+        suporte = "https://hooks.slack.com/services/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"
+        postMsg = requests.post(suporte, data=json.dumps(mensagemSlack))
+       
+        
+    for i in range(len(cpusPercent)):
+        if int(cpusPercent[i])> 90:
+            connectJira()
+            
+            mensagemSlack = {
+	    "blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"emoji": True,
+				"text": "🚨 Algum componente de seu servidor está com o uso acima do normal"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "\n{}\nBuilding 2 - Havarti Cheese (3)\n2 guests".format( datetime.datetime.now().strftime("%A, %B %d %H:%M:%S") )
+			},
+			"accessory": {
+				"type": "image",
+				"image_url": "https://cdn.icon-icons.com/icons2/1852/PNG/512/iconfinder-serverrack-4417101_116637.png",
+				"alt_text": "calendar thumbnail"
+			}
+		},
+		{
+			"type": "context",
+			"elements": [
+				{
+					"type": "image",
+					"image_url": "https://api.slack.com/img/blocks/bkb_template_images/notificationsWarningIcon.png",
+					"alt_text": "notifications warning icon"
+				},
+				{
+					"type": "mrkdwn",
+					"text": f"*O CPU VIRTUAL {i} ESTÁ ACIMA DE 90%*"
+				}
+			]
+		},
+		{
+			"type": "divider"
+		}
+	]}
+        suporte = "https://hooks.slack.com/services/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"
+        postMsg = requests.post(suporte, data=json.dumps(mensagemSlack))
+        
+           
+    if (mediaCpus> 90):
+        connectJira()
+        mensagemSlack = {
+	    "blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"emoji": True,
+				"text": "🚨 Algum componente de seu servidor está com o uso acima do normal"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "\n{}\nBuilding 2 - Havarti Cheese (3)\n2 guests".format( datetime.datetime.now().strftime("%A, %B %d %H:%M:%S") )
+			},
+			"accessory": {
+				"type": "image",
+				"image_url": "https://cdn.icon-icons.com/icons2/1852/PNG/512/iconfinder-serverrack-4417101_116637.png",
+				"alt_text": "calendar thumbnail"
+			}
+		},
+		{
+			"type": "context",
+			"elements": [
+				{
+					"type": "image",
+					"image_url": "https://api.slack.com/img/blocks/bkb_template_images/notificationsWarningIcon.png",
+					"alt_text": "notifications warning icon"
+				},
+				{
+					"type": "mrkdwn",
+					"text": f"*A SUA MÉDIA DE CPU ULTRAPASSOU 90%*"
+				}
+			]
+		},
+		{
+			"type": "divider"
+		}
+	]}
+        suporte = "https://hooks.slack.com/services/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"
+        postMsg = requests.post(suporte, data=json.dumps(mensagemSlack))
+        
+    
+    #Integração Jira
 
+    
+    
+   # print(json.dumps(json.loads(response.text),sort_keys=True,indent=4,separators=(",", ": ")))
+    
     df = pd.DataFrame(data=consoleData, index=indexHour)
     print(f"\n{df}")
 
@@ -108,7 +298,7 @@ while True:
         host='localhost',
         database='streamoon',
         user='root',
-        password='@eduufreire'
+        password='7852456'
     )
 
     try:
@@ -135,7 +325,7 @@ while True:
        print("Failed to insert record into Laptop table {}".format(error))
 
     time.sleep(2)
-
+    
 
 if connection.is_connected():
     connection.close()
