@@ -10,9 +10,10 @@ import requests
 from requests.auth import HTTPBasicAuth
 import json
 
+#Conexão Jira
 def connectJira():
     url = "https://streamoon.atlassian.net/rest/api/3/issue"
-    auth = HTTPBasicAuth("SuporteStreamoon@gmail.com", "ATATT3xFfGF0dPS2xSxxNqz00M2FmqJiW7wgVwdBm8NboZQPXBagA5uj9RA7jfUQeVAWQfqQQT4HASR6Z0yTb6KPeI9pJL1_aTtgVJZnM_SOazJSkEHoKMXOg3s1mOHqZBgN24EGO7Hlp4jID9ckStVvV0sNQCZkV35Kmr2baWHu_useCu1o_Ko=1D207656")
+    auth = HTTPBasicAuth("SuporteStreamoon@gmail.com", "ATATT3xFfGF0QhLRC4Fh1bmPO3_a8GKt1rNexYJtzah5_BRgHq3C_Vfyd0RgYtIAo6wii5U2SR-_o9fI4JLpzgK8BjgBaaoMdHm9X_8GhAyGa9ya9yg7J7JjO9lIujiDcrQwxTOrXswYDzbTv9UWlX3nBTnM83J9C2WAgbnlaOD6EyurDrDHa54=87D5F38C")
 
     headers ={
         "Accept": "application/json",
@@ -34,6 +35,7 @@ def connectJira():
         headers=headers,
         auth=auth
     )
+   # print(json.dumps(json.loads(response.text),sort_keys=True,indent=4,separators=(",", ": ")))
 
 
 
@@ -128,14 +130,8 @@ while True:
     consoleData["Disk"].append(diskPercent.percent)
     
     #Integração slack!
-    
-    
     mensagemSlack = ""
-    
-    
-    
     if (memPercent > 80):
-        connectJira()
         mensagemSlack = {
             "blocks": [
                 {
@@ -180,14 +176,13 @@ while True:
                 }
             ]
         }
-        suporte = "https://hooks.slack.com/services/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"
+        suporte = "https://hooks.slack.com/services/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"
         postMsg = requests.post(suporte, data=json.dumps(mensagemSlack))
+        connectJira()
        
         
     for i in range(len(cpusPercent)):
         if int(cpusPercent[i])> 90:
-            connectJira()
-            
             mensagemSlack = {
 	    "blocks": [
 		{
@@ -231,12 +226,13 @@ while True:
 			"type": "divider"
 		}
 	]}
-        suporte = "https://hooks.slack.com/services/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"
+        suporte = "https://hooks.slack.com/services/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"
         postMsg = requests.post(suporte, data=json.dumps(mensagemSlack))
+        connectJira()
         
            
     if (mediaCpus> 90):
-        connectJira()
+        
         mensagemSlack = {
 	    "blocks": [
 		{
@@ -280,15 +276,11 @@ while True:
 			"type": "divider"
 		}
 	]}
-        suporte = "https://hooks.slack.com/services/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"
+        suporte = "https://hooks.slack.com/services/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"
         postMsg = requests.post(suporte, data=json.dumps(mensagemSlack))
+        connectJira()
         
-    
-    #Integração Jira
-
-    
-    
-   # print(json.dumps(json.loads(response.text),sort_keys=True,indent=4,separators=(",", ": ")))
+   
     
     df = pd.DataFrame(data=consoleData, index=indexHour)
     print(f"\n{df}")
