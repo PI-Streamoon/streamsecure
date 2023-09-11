@@ -11,8 +11,8 @@ var dashboardCpuPorcentagem;
 
     Chart.defaults.color = "#ffffff";
 
-    setInterval(atualizarGraficoGeral, 5000)
-    setInterval(atualizarGraficoCpuPorcentagem, 1000)
+    setInterval(atualizarGraficoGeral, 6000)
+    setInterval(atualizarGraficoCpuPorcentagem, 3000)
 
     function atualizarGraficoGeral() {
         fetch(`/medidas/geral`, { cache: 'no-store' }).then(function (response) {
@@ -29,7 +29,7 @@ var dashboardCpuPorcentagem;
                         dadosGeral.datasets[2].data.push(registro.disco);
                     }
 
-                    if (labelsGeral.length > 15) {
+                    if (labelsGeral.length > 5) {
                         labelsGeral.shift()
                         dadosGeral.datasets[0].data.shift()
                         dadosGeral.datasets[1].data.shift()
@@ -120,7 +120,8 @@ var dashboardCpuPorcentagem;
         datasets: [{
             label: "CPU Porcentagem",
             data: [],
-            backgroundColor: "#6248AE"
+            backgroundColor: "#000000",
+            borderColor: "#6248AE"
         }]
     }
 
